@@ -60,3 +60,15 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Blacklight
+gem 'blacklight', '~> 7.7'
+
+group :development, :test do
+  gem 'solr_wrapper', '>= 0.3'
+end
+
+gem 'rsolr', '>= 1.0', '< 3'
+gem 'bootstrap', '~> 4.0'
+gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
+gem 'jquery-rails'
