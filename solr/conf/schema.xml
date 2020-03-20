@@ -11,10 +11,24 @@
     <field name="format" type="string" stored="true" indexed="true" multiValued="true" />
     <field name="_version_" type="long"     indexed="true"  stored="true"/>
     <field name="timestamp" type="date" indexed="true" stored="true" default="NOW" multiValued="false"/>
+    <field name="year" type="date" indexed="true" stored="true" default="NOW" multiValued="false"/>
 
     <field name="lat" type="tdouble" stored="true" indexed="true" multiValued="false"/>
     <field name="lng" type="tdouble" stored="true" indexed="true" multiValued="false"/>
     <!-- NOTE:  not all possible Solr field types are represented in the dynamic fields -->
+
+    <field name="year_facet" type="string" indexed="true" stored="true" multiValued="true" />
+    <field name="group_facet" type="string" indexed="true" stored="true" multiValued="true" />
+    <field name="event_type_facet" type="string" indexed="true" stored="true" multiValued="true" />
+    <field name="game_system_facet" type="string" indexed="true" stored="true" multiValued="true" />
+    <field name="rules_edition_facet" type="string" indexed="true" stored="true" multiValued="true" />
+    <field name="pub_date" type="string" indexed="true" stored="true" multiValued="true"/>
+
+    <!-- Custom dynamic fields -->
+
+    <dynamicField name="*_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <dynamicField name="*_t" type="text" stored="false" indexed="false" multiValued="false"/>
+    <dynamicField name="*_sort" type="string" indexed="true" stored="false" multiValued="false" />
 
     <!-- text (_t...) -->
 
