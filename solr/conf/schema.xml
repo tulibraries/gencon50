@@ -9,12 +9,34 @@
   <fields>
     <field name="id" type="string" stored="true" indexed="true" multiValued="false" required="true"/>
     <field name="format" type="string" stored="true" indexed="true" multiValued="true" />
-    <field name="_version_" type="long"     indexed="true"  stored="true"/>
+    <field name="_version_" type="long" indexed="true"  stored="true"/>
     <field name="timestamp" type="date" indexed="true" stored="true" default="NOW" multiValued="false"/>
+    <field name="year" type="date" indexed="true" stored="true" default="NOW" multiValued="false"/>
 
     <field name="lat" type="tdouble" stored="true" indexed="true" multiValued="false"/>
     <field name="lng" type="tdouble" stored="true" indexed="true" multiValued="false"/>
+
+    <!-- Best 50 Years In Gaming specific fields -->
+    <field name="year_facet" type="string" indexed="true" stored="true" multiValued="true" />
+    <field name="group_facet" type="string" indexed="true" stored="true" multiValued="true" />
+    <field name="event_type_facet" type="string" indexed="true" stored="true" multiValued="true" />
+    <field name="game_system_facet" type="string" indexed="true" stored="true" multiValued="true" />
+    <field name="rules_edition_facet" type="string" indexed="true" stored="true" multiValued="true" />
+    <!-- pub_date is used for facet and display so it must be indexed and stored -->
+    <field name="pub_date" type="string" indexed="true" stored="true" multiValued="true"/>
+    <!-- pub_date sort uses new trie-based int fields, which are recommended for any int and are displayable, sortable, and range-quer
+    we use 'tint' for faster range-queries. -->
+    <field name="pub_date_sort" type="tint" indexed="true" stored="true" multiValued="false"/>
+    <field name="year_sort" type="tint" indexed="true" stored="true" multiValued="false"/>
+    <field name="title_sort" type="string" indexed="true" stored="true" multiValued="false"/>
+
     <!-- NOTE:  not all possible Solr field types are represented in the dynamic fields -->
+    <!-- Custom dynamic fields -->
+
+    <dynamicField name="*_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <dynamicField name="*_t" type="text" stored="true" indexed="true" multiValued="true"/>
+    <dynamicField name="*_sort" type="string" indexed="true" stored="false" multiValued="false" />
+    <dynamicField name="*_facet" type="string" indexed="true" stored="false" multiValued="true" />
 
     <!-- text (_t...) -->
 
