@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  helpers:
+    submit:
+      upload:
+        create: "Upload file"
+  upload:
+    wait: "Uploads may take a few mintues. Page will be unresponsive until complete."

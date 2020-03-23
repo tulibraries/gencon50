@@ -1,0 +1,142 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@font-face {
+    font-family: Minecrafter;
+    src: url("<%= asset_path 'Minecrafter.Reg.ttf' %>")  format('truetype');
+}
+@font-face {
+    font-family: Rage;
+    src: url('./Rage.ttf')  format('truetype');
+}
+@font-face {
+    font-family: futura;
+    src: url('./futura-lt-light.ttf')  format('truetype');
+}
+html {
+  background-image: url("<%= asset_path 'gamify.png' %>"); 
+  background-repeat:  no-repeat;
+  background-position:  center center;
+  background-attachment:  fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+	background-color: transparent;
+}
+html, body {
+  height: 100%;
+}
+.jumbotron {
+	background-color: #c1d62e;
+	border: solid #4f5812 1px;
+	p.lead a {
+		color: #000;
+		border-color: #000;
+		border-style: solid;
+		border-width: 0 0 1px 0;
+
+	}
+}
+a, .btn-default, #sort-dropdown .dropdown-toggle, #per_page-dropdown .dropdown-toggle, .pagination ul li a {
+	color: #903;
+}
+a:hover, a:focus, a:active {
+	color: #4f5812;
+}
+.pagination ul li a:hover, .pagination ul li a:focus, .pagination ul li a:active {
+	color: #903;
+}
+.pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+	background-color: #c1d62e;
+	border-color: #c1d62e;
+	color: #951936;
+}
+.btn-default, #sort-dropdown .dropdown-toggle, #per_page-dropdown .dropdown-toggle {
+	color: #4f5812;
+	border-color: #667118;
+}
+.panel-success > .panel-heading, .facet_limit-active > .panel-heading {
+	background-color: #7e8d1d;
+	border-color: #4f5812;
+	color: #fff;
+}
+#header-navbar {
+	flex-grow: 2;
+	background-color: #c1d62e;
+	border-color: #7e8d1d;
+	#site-title {
+	  color: #000;
+	  line-height: 56px;
+	  position: relative;
+	  font-size: 35px;
+	  font-family: futura, helvetica, arial, sans;
+	  padding: 42px 0 14px 14px;
+	  p {
+	  	padding: 0;
+	  	line-height: 1em;
+	  }
+	}
+	#site-title a:link, #site-title a:visited {
+	  font-family: Minecrafter;
+	  color: #000;
+	  letter-spacing: .35rem;
+	  font-size: 56px;
+	}
+	.futura {
+		font-family: futura;
+	}
+	.navbar-right {
+		.navbar-nav li a {
+			color: #000000;
+		}
+		.navbar-nav li {
+			a:hover {
+				color: #000000;
+			}
+			a:focus {
+				color: #000000;
+			}
+		}
+	}
+}
+
+.navbar-static-top {
+	border-width: 0!important;
+}
+#search-navbar {
+	margin-bottom: 0;
+	background-color: #000;
+	.btn-primary {
+		color: #fff;
+    background-color: #7e8d1d;
+    border-color: #7e8d1d;
+	}
+	.btn-primary:hover {
+		color: #000;
+    background-color: #c1d62e;
+    border-color: #000;
+	}
+}
+
+#main-container {
+	min-height: 100%;
+	background-color: #fff;
+	#content {
+		margin-top: 28px;
+	}
+}
