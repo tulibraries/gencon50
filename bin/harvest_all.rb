@@ -11,7 +11,7 @@ files.each do |fn|
     "harvest",
     "'#{fp}'",
     "--mapfile=config/solr_map.yml",
-    "--solr-url=http://localhost:8983/solr/blacklight-core"].join(" ")
+    "--solr-url=http://localhost:8090/solr/gencon50"].join(" ")
   puts command
   `#{command}`
 end

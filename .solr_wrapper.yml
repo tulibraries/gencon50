@@ -2,4 +2,9 @@
 # port: 8983
 collection:
   dir: solr/conf/
-  name: blacklight-core
+  name: gencon50-solr
+  persist: true
+persist: true
+instance_dir: tmp/solr/
+download_dir: tmp/
+version: 8.2.0
