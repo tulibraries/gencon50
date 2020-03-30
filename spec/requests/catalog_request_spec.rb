@@ -78,13 +78,61 @@ RSpec.describe "Catalogs", type: :request do
 
       it { is_expected.to include("2012-RPG1229395") }
     end
-    describe "Game System Search"
-    describe "Event Type Search"
-    describe "Title Search"
-    describe "Long Description Search"
-    describe "GM Name Search"
-    describe "Group Search"
-    describe "Location Search"
+
+    describe "Game System Search" do
+      subject {
+        get "?search_field=game_system_t&q=Dungeons+%26+Dragons"
+        response.body
+      }
+
+      it { is_expected.to include("2012-RPG1231412") }
+    end
+
+    describe "Event Type Search" do
+      subject {
+        get "?search_field=event_type_t&q=bg"
+        response.body
+      }
+
+      it { is_expected.to include("2002-1079") }
+    end
+
+    describe "Long Description Search" do
+      subject {
+        search_text = URI::encode("Imperial Japan invades Midway in three huge connected Air-Sea & Land Miniatures Battles")
+        get "?search_field=all_fields&q=" + search_text
+        response.body
+      }
+
+      it { is_expected.to include("2012-HMN1230465") }
+    end
+
+    describe "GM Name Search" do
+      subject {
+        get "?search_field=gm_names_t&q=charles"
+        response.body
+      }
+
+      it { is_expected.to include("2012-RPG1233561") }
+    end
+
+    describe "Group Search" do
+      subject {
+        get "?search_field=group_t&q=smith"
+        response.body
+      }
+
+      it { is_expected.to include("2002-7292") }
+    end
+
+    describe "Location Search" do
+      subject {
+        get "?search_field=location_t&q=marriott"
+        response.body
+      }
+
+      it { is_expected.to include("2012-RPG1237794") }
+    end
   end
 
   describe "Year Facet Search"
