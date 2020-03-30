@@ -7,16 +7,39 @@ RSpec.describe "Catalogs", type: :request do
   let(:mock_document) { instance_double(SolrDocument, export_formats: {}) }
   let(:search_service) { instance_double(Blacklight::SearchService) }
 
-  it "index page" do
-    get "?search_field=all_fields&q="
-    expect(response.body).to include("10mm Napoleonics")
+  context "default index" do
+    subject {
+      get "?search_field=all_fields&q="
+      response.body
+    }
+
+    describe "All fixture items" do
+      it { is_expected.to include("14,506") }
+    end
+
+    describe "First Item" do
+      it { is_expected.to include("2012-HMN1230463") }
+      it { is_expected.to include("Blood and Guts Monty!") }
+    end
+
+    describe "Another item" do
+      it { is_expected.to include("2012-ENT1229382") }
+      it { is_expected.to include("Comic Book Comedy") }
+    end
+
+    describe "Last Item" do
+      it { is_expected.to include("2012-HMN1230462") }
+      it { is_expected.to include("Midway Mahem") }
+      it { is_expected.to include("WWII 1942 - 70th Anniversary") }
+    end
   end
 
-  describe "Show a document" do
+  context "catalog record page" do
     subject {
       get "/catalog/2002-8084"
       response.body
     }
+
     it { is_expected.to include("A Grimm World of Perilous Adventure") }
     it { is_expected.to include("1740") }
     it { is_expected.to include("2002-8084") }
@@ -27,26 +50,42 @@ RSpec.describe "Catalogs", type: :request do
     it { is_expected.to include("S-1") }
   end
 
-  describe "Search all fields" do
-    subject {
-      get "?utf8=%E2%9C%93&f%5Bevent_type_facet%5D%5B%5D=SM&search_field=all_fields&q=Realms"
-      response.body
-    }
+  context "search" do
+    describe "all fields" do
+      subject {
+        get "?search_field=all_fields&q=Realms"
+        response.body
+      }
 
-    it { is_expected.to include("A Forgotten Realms Celebration") }
-    it { is_expected.to include("2002-9036") }
-    it { is_expected.to include("What&#39;s New in the Forgotten Realms?") }
-    it { is_expected.to include("2002-9025") }
+      it { is_expected.to include("2012-BGM1237524") }
+      it { is_expected.to include("2002-9036") }
+    end
+
+    describe "summary in all fields" do
+      subject {
+        search_text = URI::encode("Afrika Korps attacks US II Corps in 10th Annual Family Team Event")
+        get "?search_field=all_fields&q=#{search_text}"
+        response.body
+      }
+      it { is_expected.to include("2012-HMN1230462") }
+    end
+
+    describe "Title Search" do
+      subject {
+        get "?search_field=title&q=War+With+Asgard"
+        response.body
+      }
+
+      it { is_expected.to include("2012-RPG1229395") }
+    end
+    describe "Game System Search"
+    describe "Event Type Search"
+    describe "Title Search"
+    describe "Long Description Search"
+    describe "GM Name Search"
+    describe "Group Search"
+    describe "Location Search"
   end
-
-  describe "Title Search"
-  describe "Game System Search"
-  describe "Event Type Search"
-  describe "Title Search"
-  describe "Long Description Search"
-  describe "GM Name Search"
-  describe "Group Search"
-  describe "Location Search"
 
   describe "Year Facet Search"
   describe "Gruop Facet Search"
