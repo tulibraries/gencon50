@@ -135,10 +135,41 @@ RSpec.describe "Catalogs", type: :request do
     end
   end
 
-  describe "Year Facet Search"
-  describe "Gruop Facet Search"
-  describe "Event Type Facet Search"
-  describe "Game System Facet Search"
+  context "facet" do
+    describe "Year Facet Search" do
+      subject {
+        get "?f[year_facet][]=2001"
+        response.body
+      }
 
+      it { is_expected.to include("2640") }
+    end
 
+    describe "Group Facet Search" do
+      subject {
+        get "?f[group_facet][]=Fantasy+Flight+Games"
+        response.body
+      }
+
+      it { is_expected.to include("379") }
+    end
+
+    describe "Event Type Facet Search" do
+      subject {
+        get "?f[event_type_facet][]=NM"
+        response.body
+      }
+
+      it { is_expected.to include("335") }
+    end
+
+    describe "Game System Facet Search" do
+      subject {
+        get "?f[game_system_facet][]=Empire%20Builder"
+        response.body
+      }
+
+      it { is_expected.to include("79") }
+    end
+  end
 end
