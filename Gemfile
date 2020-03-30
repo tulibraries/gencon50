@@ -57,6 +57,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rspec-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -67,6 +68,7 @@ gem 'blacklight', '~> 7.7'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
+  gem 'pry'
 end
 
 gem 'rsolr', '>= 1.0', '< 3'
