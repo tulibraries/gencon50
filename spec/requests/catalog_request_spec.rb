@@ -14,7 +14,7 @@ RSpec.describe "Catalogs", type: :request do
     }
 
     describe "All fixture items" do
-      it { is_expected.to include("14,506") }
+      it { is_expected.to include("14,425") }
     end
 
     describe "First Item" do
@@ -142,7 +142,7 @@ RSpec.describe "Catalogs", type: :request do
         response.body
       }
 
-      it { is_expected.to include("2640") }
+      it { is_expected.to include("2,559") }
     end
 
     describe "Group Facet Search" do
@@ -171,5 +171,15 @@ RSpec.describe "Catalogs", type: :request do
 
       it { is_expected.to include("79") }
     end
+  end
+
+  context "Embedded ID's in ID" do
+    subject {
+      get "/catalog/2001-2135%202136%202137%202138"
+      response.body
+    }
+
+    it { is_expected.to include("Pokemon") }
+    it { is_expected.to include("2001-2135 2136 2137 2138") }
   end
 end
