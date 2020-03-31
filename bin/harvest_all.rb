@@ -7,7 +7,7 @@ files.each do |fn|
   command = [
     "bundle",
     "exec",
-    "csv2solr",
+    "bin/csv2solr",
     "harvest",
     "'#{fp}'",
     "--mapfile=config/solr_map.yml",

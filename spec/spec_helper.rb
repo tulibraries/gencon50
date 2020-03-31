@@ -104,7 +104,7 @@ if ENV["LOADSOLR"] == "y"
         command = [
           "bundle",
           "exec",
-          "csv2solr",
+          "bin/csv2solr",
           "harvest",
           "'#{fp}'",
           "--mapfile=#{::Rails.root}/config/solr_map.yml",
