@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/tulibraries/harvest_csv.git
-  revision: 969e4ff24ac5392ac548dd4de0f8ebe4a3b27cb2
+  revision: 85dc8b6df572350b2fb46e1a02064a783f4abe1d
   branch: gc50-ruby-2.6.5
   specs:
     harvest_csv (0.1.0)
