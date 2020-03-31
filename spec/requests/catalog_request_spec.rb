@@ -172,4 +172,14 @@ RSpec.describe "Catalogs", type: :request do
       it { is_expected.to include("79") }
     end
   end
+
+  context "Embedded ID's in ID" do
+    subject {
+      get "/catalog/2001-%232135,%20%232136,%20%232137,%20%232138"
+      response.body
+    }
+
+    it { is_expected.to include("Pokemon") }
+    it { is_expected.to include("2001-%232135,%20%232136,%20%232137,%20%232138") }
+  end
 end
