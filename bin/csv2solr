@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+
+require "thor"
+require_relative '../lib/harvest_csv'
+
+class CSV2Solr < Thor
+  desc "harvest CSV_file", "Harvests CSV file Solr at an endpoint URL"
+  option :mapfile,
+    default: 'solr_map.yml',
+    desc: 'CSV to Solr map file name',
+    banner: 'file'
+  option :solr_url,
+    default: 'http://localhost:8983/solr/blacklight-core',
+    desc: 'Solr endpoint',
+    banner: 'url'
+  def harvest(csv_file)
+    HarvestCSV.harvest(csv_file, options[:mapfile], options[:solr_url])
+  end
+
+  desc "makemap CSV_file", "Create a solr mapping file from a CSV file with header."
+  option :id,
+    default: 'ID',
+    desc: 'CSV column name with unique ID',
+    banner: 'name'
+  option :map,
+    default: 'solr_map.yml',
+    desc: 'output map file name',
+    banner: 'file'
+  def makemap(csv_file)
+    id_field = options[:id].parameterize.underscore
+    map_file = File.open(options[:map], "w")
+    HarvestCSV.make_map(csv_file, map_file, id_field)
+  end
+
+  desc "blconfig map_file", "Create Blacklight catalog code snippet from CSV to solr mapping file"
+  option :output,
+    default: '_blacklight_config.rb',
+    desc: 'output blacklight catalog controller snippet file',
+    banner: 'file'
+  def blconfig(mapfile='solr_map.yml')
+    HarvestCSV.blacklight(mapfile, options[:output])
+  end
+end
+
+CSV2Solr.start(ARGV)
