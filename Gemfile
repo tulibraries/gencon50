@@ -76,5 +76,5 @@ gem 'bootstrap', '~> 4.0'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
 gem "carrierwave", "2.1.0"
-#gem 'blimp', git: 'https://github.com/tulibraries/blimp'
-gem 'blimp', path: 'vendor/blimp'
+gem 'blimp', git: 'https://github.com/tulibraries/blimp'
+gem 'dotenv-rails'
