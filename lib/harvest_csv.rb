@@ -37,7 +37,7 @@ module HarvestCSV
 
   def self.harvest(csv_source,
                    map_source = 'solr_map.yml',
-                   solr_endpoint = 'http://localhost:8983/solr/blacklight-core',
+                   solr_endpoint = ENV['SOLR_URL'],
                    batch_size = 100)
     puts "Batch size = #{batch_size}"
     schema_map = YAML.load_file(map_source)

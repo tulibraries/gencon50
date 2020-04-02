@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_20_155455) do
+ActiveRecord::Schema.define(version: 2020_04_01_145026) do
+
+  create_table "blimp_uploads", force: :cascade do |t|
+    t.string "map_filename"
+    t.string "id_field"
+    t.string "datafile"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
