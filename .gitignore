@@ -32,3 +32,6 @@
 
 # Ignore raw data files
 /csv
+
+# Ignore deploy configuration and secrets
+.env
