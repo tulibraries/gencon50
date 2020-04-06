@@ -16,6 +16,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+*.sw[p-z]
 
 # Ignore uploaded files in development
 /storage/*
@@ -32,3 +33,6 @@
 
 # Ignore raw data files
 /csv
+
+# Ignore deploy configuration and secrets
+.env
