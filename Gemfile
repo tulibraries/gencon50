@@ -77,5 +77,6 @@ gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
 gem "carrierwave", "2.1.0"
 gem 'devise', '~> 4.7', '>= 4.7.1'
+gem 'devise-guests'
 gem 'blimp', git: 'https://github.com/tulibraries/blimp'
 gem 'dotenv-rails'
