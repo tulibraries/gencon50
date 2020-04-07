@@ -108,7 +108,7 @@ if ENV["LOADSOLR"] == "y"
           "harvest",
           "'#{fp}'",
           "--mapfile=#{::Rails.root}/config/solr_map.yml",
-          "--solr-url=http://localhost:8090/solr/gencon50"].join(" ")
+          "--solr-url=#{ENV['SOLR_URL']}"].join(" ")
         puts command
         `#{command}`
       end

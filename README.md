@@ -11,6 +11,9 @@ Things you may want to cover:
 
 * Configuration
 
+  - Set the SOLR_URL environment variable in `.env`. There is an example `.env.example` in this project. Copy that file to `.env` and
+  set the SOLR_URL enviornment variable to the appropriate SOLR_RUL, such as `SOLR_URL='http://localhost:8090/solr/gencon50-1.0'`
+
 * Database creation
 
   - In a separate project directory, clone the [Ansible Solr Cloud Playbook](https://github.com/tulibraries/ansible-playbook-solrcloud) project

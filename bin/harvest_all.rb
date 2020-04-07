@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+require 'dotenv/load'
+
+Dotenv.load
+
 files = Dir["csv/*.csv"]
 files.each do |fn|
   fp = File.expand_path(fn)
@@ -11,7 +15,7 @@ files.each do |fn|
     "harvest",
     "'#{fp}'",
     "--mapfile=config/solr_map.yml",
-    "--solr-url=http://localhost:8090/solr/gencon50"].join(" ")
+    "--solr-url=#{ENV['SOLR_URL']}"].join(" ")
   puts command
   `#{command}`
 end
