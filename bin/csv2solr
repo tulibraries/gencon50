@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'dotenv/load'
 require "thor"
 require_relative '../lib/harvest_csv'
 
@@ -10,7 +11,7 @@ class CSV2Solr < Thor
     desc: 'CSV to Solr map file name',
     banner: 'file'
   option :solr_url,
-    default: 'http://localhost:8983/solr/blacklight-core',
+    default: ENV['SOLR_URL'],
     desc: 'Solr endpoint',
     banner: 'url'
   def harvest(csv_file)
