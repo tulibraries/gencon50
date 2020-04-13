@@ -1,56 +1,71 @@
-# README
+# Blacklight Instance for The Best 50 Years in Gaming site (Version 2)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prerequisite
 
-Things you may want to cover:
+This Blacklight instance requires SolrCloud. A local version of SolrCloud may be run
+by using the TULibraries Ansible SolrCloud Playbook:
+https://github.com/tulibraries/ansible-playbook-solrcloud
 
-* Ruby version
+## Getting started
 
-* System dependencies
+Clone the github repository locally and change into the directory
 
-* Configuration
+```
+git clone https://github.com/tulibraries/gencon50.git
+cd gencon50
+```
 
-  - Set the SOLR_URL environment variable in `.env`. There is an example `.env.example` in this project. Copy that file to `.env` and
-  set the SOLR_URL enviornment variable to the appropriate SOLR_RUL, such as `SOLR_URL='http://localhost:8090/solr/gencon50-1.0'`
+### Setup
 
-* Database creation
+Install the gem dependencies (generally we do this in an rvm gemset)
 
-  - In a separate project directory, clone the [Ansible Solr Cloud Playbook](https://github.com/tulibraries/ansible-playbook-solrcloud) project
-  and follow the directions to create a SolrCloud container compatible with this project
+```
+bundle install
+```
 
-  - Copy the Gencon50 CSV spreadsheets into the csv directory. The filename should be of the format name.csv.  Some of the csv files had multiple
-  ".csv" extensions. There should only be one .csv extension. Rename the files accordingly
+Run the database migration
 
-  - Seed the Solr database with the test data set.
+```
+bundle exec rails db:migrate
+```
 
-    bundle exec bin/harvest_all.rb
+Create the application file
 
-* Database initialization
+```
+cp .env.example .env
+```
+and edit the `.env` content's `SOLR_URL` enviornment variable.
+
+Create a local user. Feel free to use your own email and password
+
+```
+bundle exec rails runner " User.new(:email => 'test@example.com', :password => 'password', :password_confirmation => 'password').save!"
+```
+
+Start the rails server
+
+```
+bundle exec rails s`
+---
+
 
 # Running the Tests
 
 Tests require an instance of Solr to which to connect.
 
-- In a separate project directory, clone the [Ansible Solr Cloud Playbook](https://github.com/tulibraries/ansible-playbook-solrcloud) project
-and follow the directions to create a SolrCloud container compatible with this project
-
-- Seed the Solr database with the test data set. Either:
-
-  - Load the data from the command line
-
-    bundle exec bin/csv2solr harvest csv/hold/2002.csv --mapfile=config/solr_map.yml --solr-url=http://localhost:8090/solr/gencon50
-
-  - Load the data wiht the LOADSOLR option. Once the data is loaded, do not use this option
-
-   LOADSOLR=y bundle exec rspec spec
+Work with a fresh Solr database. In `ansible-playbook-solrcloud`, restart the SolrCloud
+instance with `make up-lite`.
 
 - Run the tests
 
-   bundle exec rspec spec
+The first run, load the test fixture
+```
+LOADSOLR=y bundle exec rspec spec
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+No need to reload the test fixtures on subsequent runs:
+```
+bundle exec rspec spec
+```
 
 * Deployment instructions
-
-* ...
