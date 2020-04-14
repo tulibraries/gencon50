@@ -1,0 +1,80 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:8090/solr/gencon50-1.0/select?f.event_type_facet.facet.mincount=1&f.game_system_facet.facet.mincount=1&f.group_facet.facet.mincount=1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&q=Afrika%20Korps%20attacks%20US%20II%20Corps%20in%2010th%20Annual%20Family%20Team%20Event&qf=title_t%20short_description_t%20long_description_t%20gm_names_t%20year_t%20also_runs_t%20prize_t%20group_t%20event_type_t%20game_system_t%20rules_edition_t%20age_required_t%20experience_required_t%20duration_t%20website_t%20room_name_t%20table_number_t%20special_category_t%20rules_complexity_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Tue, 14 Apr 2020 19:41:18 GMT
+      Etag:
+      - '"YjU2MDAwMDAwMDAwMDAwMFNvbHI="'
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '1966'
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "responseHeader":{
+            "zkConnected":true,
+            "status":0,
+            "QTime":11,
+            "params":{
+              "facet.field":["year_facet",
+                "group_facet",
+                "event_type_facet",
+                "game_system_facet"],
+              "f.group_facet.facet.mincount":"1",
+              "fl":"id,\n           score,\n           year_display,\n           title_display,\n           short_description_display,\n           long_description_display",
+              "sort":"score desc, year_sort desc, title_sort asc",
+              "rows":"10",
+              "f.event_type_facet.facet.mincount":"1",
+              "f.year_facet.facet.mincount":"1",
+              "q":"Afrika Korps attacks US II Corps in 10th Annual Family Team Event",
+              "f.game_system_facet.facet.mincount":"1",
+              "qf":"title_t short_description_t long_description_t gm_names_t year_t also_runs_t prize_t group_t event_type_t game_system_t rules_edition_t age_required_t experience_required_t duration_t website_t room_name_t table_number_t special_category_t rules_complexity_t",
+              "facet":"true",
+              "wt":"json",
+              "f.year_facet.facet.sort":"index"}},
+          "response":{"numFound":1,"start":0,"maxScore":57.476433,"docs":[
+              {
+                "year_display":["2012"],
+                "id":"2012-HMN1230462",
+                "title_display":["\"Rommel Rules the Road!\" WWII 1942 - 70th Anniversary  "],
+                "short_description_display":["Afrika Korps attacks US II Corps in 10th Annual Family Team Event. Join GM & Rules Author Pete Panzeri & huge minis battle with hundreds of tanks, troops, guns & planes. Most Feared Opponent Prizes."],
+                "score":57.476433}]
+          },
+          "facet_counts":{
+            "facet_queries":{},
+            "facet_fields":{
+              "year_facet":[
+                "2012",1],
+              "group_facet":[],
+              "event_type_facet":[
+                "HMN - Historical Miniatures",1],
+              "game_system_facet":[
+                "ROMMEL RULES!",1]},
+            "facet_ranges":{},
+            "facet_intervals":{},
+            "facet_heatmaps":{}},
+          "spellcheck":{
+            "suggestions":[],
+            "correctlySpelled":true}}
+    http_version: null
+  recorded_at: Tue, 14 Apr 2020 19:50:14 GMT
+recorded_with: VCR 5.1.0

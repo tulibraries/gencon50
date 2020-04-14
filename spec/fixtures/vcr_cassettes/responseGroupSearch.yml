@@ -1,0 +1,96 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:8090/solr/gencon50-1.0/select?f.event_type_facet.facet.mincount=1&f.game_system_facet.facet.mincount=1&f.group_facet.facet.mincount=1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&pf=group_t&q=smith&qf=group_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Tue, 14 Apr 2020 19:41:18 GMT
+      Etag:
+      - '"YjU2MDAwMDAwMDAwMDAwMFNvbHI="'
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '2080'
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "responseHeader":{
+            "zkConnected":true,
+            "status":0,
+            "QTime":1,
+            "params":{
+              "facet.field":["year_facet",
+                "group_facet",
+                "event_type_facet",
+                "game_system_facet"],
+              "f.group_facet.facet.mincount":"1",
+              "fl":"id,\n           score,\n           year_display,\n           title_display,\n           short_description_display,\n           long_description_display",
+              "sort":"score desc, year_sort desc, title_sort asc",
+              "rows":"10",
+              "f.event_type_facet.facet.mincount":"1",
+              "f.year_facet.facet.mincount":"1",
+              "q":"smith",
+              "f.game_system_facet.facet.mincount":"1",
+              "qf":"group_t",
+              "pf":"group_t",
+              "facet":"true",
+              "wt":"json",
+              "f.year_facet.facet.sort":"index"}},
+          "response":{"numFound":3,"start":0,"maxScore":9.127692,"docs":[
+              {
+                "year_display":["2002"],
+                "id":"2002-7292",
+                "title_display":["Tidron Attack"],
+                "score":9.127692},
+              {
+                "year_display":["2002"],
+                "id":"2002-7290",
+                "title_display":["Tidron Attack -Tournament"],
+                "score":9.127692},
+              {
+                "year_display":["2012"],
+                "id":"2012-ENT1233888",
+                "title_display":["Tom Smith... Live In Concert"],
+                "short_description_display":["A fantastic night of comedy music finishes with The World's Fastest Filker, bringing gaming, computers, movies, dark fantasy, silly Cthulhu stuff, and a bloody awful lot of puns."],
+                "score":7.8286567}]
+          },
+          "facet_counts":{
+            "facet_queries":{},
+            "facet_fields":{
+              "year_facet":[
+                "2002",2,
+                "2012",1],
+              "group_facet":[
+                "Terence  Smith",2,
+                "Tom Smith Online",1],
+              "event_type_facet":[
+                "NM",2,
+                "ENT - Entertainment Events",1],
+              "game_system_facet":[
+                ": Vandorian Phlanx , Tidron Attack",1,
+                "Vandorian Phlanx, Tidron Attack -Tournament",1]},
+            "facet_ranges":{},
+            "facet_intervals":{},
+            "facet_heatmaps":{}},
+          "spellcheck":{
+            "suggestions":[],
+            "correctlySpelled":true}}
+    http_version: null
+  recorded_at: Tue, 14 Apr 2020 19:50:14 GMT
+recorded_with: VCR 5.1.0

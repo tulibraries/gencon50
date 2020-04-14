@@ -1,0 +1,136 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:8090/solr/gencon50-1.0/select?f.event_type_facet.facet.mincount=1&f.game_system_facet.facet.mincount=1&f.group_facet.facet.mincount=1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&fq=%7B!term%20f=game_system_facet%7DEmpire%20Builder&qf=title_t%20short_description_t%20long_description_t%20gm_names_t%20year_t%20also_runs_t%20prize_t%20group_t%20event_type_t%20game_system_t%20rules_edition_t%20age_required_t%20experience_required_t%20duration_t%20website_t%20room_name_t%20table_number_t%20special_category_t%20rules_complexity_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Tue, 14 Apr 2020 19:41:18 GMT
+      Etag:
+      - '"YjU2MDAwMDAwMDAwMDAwMFNvbHI="'
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '5334'
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "responseHeader":{
+            "zkConnected":true,
+            "status":0,
+            "QTime":1,
+            "params":{
+              "facet.field":["year_facet",
+                "group_facet",
+                "event_type_facet",
+                "game_system_facet"],
+              "f.group_facet.facet.mincount":"1",
+              "fl":"id,\n           score,\n           year_display,\n           title_display,\n           short_description_display,\n           long_description_display",
+              "fq":"{!term f=game_system_facet}Empire Builder",
+              "sort":"score desc, year_sort desc, title_sort asc",
+              "rows":"10",
+              "f.event_type_facet.facet.mincount":"1",
+              "f.year_facet.facet.mincount":"1",
+              "f.game_system_facet.facet.mincount":"1",
+              "qf":"title_t short_description_t long_description_t gm_names_t year_t also_runs_t prize_t group_t event_type_t game_system_t rules_edition_t age_required_t experience_required_t duration_t website_t room_name_t table_number_t special_category_t rules_complexity_t",
+              "facet":"true",
+              "wt":"json",
+              "f.year_facet.facet.sort":"index"}},
+          "response":{"numFound":79,"start":0,"maxScore":1.0,"docs":[
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1229904",
+                "title_display":["Australian Rails"],
+                "short_description_display":["Come to play just for fun or to compete in the tournament. Build tracks to pick up and deliver goods to fulfill contracts in Australia. Qualifies for Empire Builder International Tournament. PBT"],
+                "score":1.0},
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1229905",
+                "title_display":["Australian Rails"],
+                "short_description_display":["Come to play just for fun or to compete in the tournament. Build tracks to pick up and deliver goods to fulfill contracts in Australia. Qualifies for Empire Builder International Tournament. PBT"],
+                "score":1.0},
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1229906",
+                "title_display":["Australian Rails"],
+                "short_description_display":["Come to play just for fun or to compete in the tournament. Build tracks to pick up and deliver goods to fulfill contracts in Australia. Qualifies for Empire Builder International Tournament. PBT"],
+                "score":1.0},
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1229903",
+                "title_display":["Australian Rails"],
+                "short_description_display":["Come to play just for fun or to compete in the tournament. Build tracks to pick up and deliver goods to fulfill contracts in Australia. Qualifies for Empire Builder International Tournament. PBT"],
+                "score":1.0},
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1229907",
+                "title_display":["Australian Rails"],
+                "short_description_display":["Come to play just for fun or to compete in the tournament. Build tracks to pick up and deliver goods to fulfill contracts in Australia. Qualifies for Empire Builder International Tournament. PBT"],
+                "score":1.0},
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1229886",
+                "title_display":["British Rails"],
+                "short_description_display":["Come to play just for fun or to compete in the tournament. Build tracks to pick up and deliver goods to fulfill contracts in Great Britain. Qualifies for Empire Builder International Tournament. PBT"],
+                "score":1.0},
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1229889",
+                "title_display":["British Rails"],
+                "short_description_display":["Come to play just for fun or to compete in the tournament. Build tracks to pick up and deliver goods to fulfill contracts in Great Britain. Qualifies for Empire Builder International Tournament. PBT"],
+                "score":1.0},
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1229887",
+                "title_display":["British Rails"],
+                "short_description_display":["Come to play just for fun or to compete in the tournament. Build tracks to pick up and deliver goods to fulfill contracts in Great Britain. Qualifies for Empire Builder International Tournament. PBT"],
+                "score":1.0},
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1229888",
+                "title_display":["British Rails"],
+                "short_description_display":["Come to play just for fun or to compete in the tournament. Build tracks to pick up and deliver goods to fulfill contracts in Great Britain. Qualifies for Empire Builder International Tournament. PBT"],
+                "score":1.0},
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1229890",
+                "title_display":["British Rails"],
+                "short_description_display":["Come to play just for fun or to compete in the tournament. Build tracks to pick up and deliver goods to fulfill contracts in Great Britain. Qualifies for Empire Builder International Tournament. PBT"],
+                "score":1.0}]
+          },
+          "facet_counts":{
+            "facet_queries":{},
+            "facet_fields":{
+              "year_facet":[
+                "2002",9,
+                "2012",70],
+              "group_facet":[
+                "Train Gamers Association",70,
+                "Game Base 7",7,
+                "Dustbunny/Zipse",2],
+              "event_type_facet":[
+                "BGM - Board Game",70,
+                "BG",9],
+              "game_system_facet":[
+                "Empire Builder",79]},
+            "facet_ranges":{},
+            "facet_intervals":{},
+            "facet_heatmaps":{}}}
+    http_version: null
+  recorded_at: Tue, 14 Apr 2020 19:50:15 GMT
+recorded_with: VCR 5.1.0

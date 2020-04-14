@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:8090/solr/gencon50-1.0/get?fl=*&ids=2002-8084&q=%7B!term%20f=id%20v=$id%7D&qt=document&rows=1&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Tue, 14 Apr 2020 19:41:18 GMT
+      Etag:
+      - '"YjU2MDAwMDAwMDAwMDAwMFNvbHI="'
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '1581'
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "response":{"numFound":1,"start":0,"docs":[
+              {
+                "year_display":["2002"],
+                "year_facet":["2002"],
+                "year_sort":2002,
+                "year_t":["2002"],
+                "original_order_display":["1740"],
+                "game_id_display":["2002-8084"],
+                "id":"2002-8084",
+                "start_date_time_display":["8/8/2002 17:00:00"],
+                "start_date_time_t":["8/8/2002 17:00:00"],
+                "duration_display":["225"],
+                "duration_t":["225"],
+                "event_type_display":["RP"],
+                "event_type_facet":["RP"],
+                "event_type_t":["RP"],
+                "game_system_display":["Warhammer Fantasy Roleplaying, A Grimm World of Perilous Adventure"],
+                "game_system_facet":["Warhammer Fantasy Roleplaying, A Grimm World of Perilous Adventure"],
+                "game_system_t":["Warhammer Fantasy Roleplaying, A Grimm World of Perilous Adventure"],
+                "title_display":["A Grimm World of Perilous Adventure"],
+                "title_sort":"A Grimm World of Perilous Adventure",
+                "title_t":["A Grimm World of Perilous Adventure"],
+                "tickets_available_display":["6"],
+                "tickets_available_t":["6"],
+                "maximum_players_display":["6"],
+                "maximum_players_t":["6"],
+                "special_category_display":["S-1"],
+                "special_category_t":["S-1"],
+                "group_display":["Hogshead Publishing Limited"],
+                "group_facet":["Hogshead Publishing Limited"],
+                "group_t":["Hogshead Publishing Limited"],
+                "_version_":1663978204205940737,
+                "year":"2020-04-14T19:41:16.401Z",
+                "timestamp":"2020-04-14T19:41:16.401Z"}]
+          }}
+    http_version: null
+  recorded_at: Tue, 14 Apr 2020 19:50:14 GMT
+recorded_with: VCR 5.1.0

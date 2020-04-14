@@ -1,4 +1,7 @@
 require 'rails_helper'
+require "net/http"
+require "webmock/rspec"
+require "vcr"
 
 RSpec.describe "Catalogs", type: :request do
 
@@ -8,8 +11,20 @@ RSpec.describe "Catalogs", type: :request do
   let(:search_service) { instance_double(Blacklight::SearchService) }
 
   context "default index" do
+    before(:all) do
+      VCR.configure do |config|
+        config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+        config.hook_into :webmock
+        config.default_cassette_options = {
+          match_requests_on: [:method, VCR.request_matchers.uri_without_param(:key)]
+        }
+      end
+    end
+
     subject {
-      get "?search_field=all_fields&q="
+      VCR.use_cassette("responseDefaultIndex", record: :none) do
+        get "?search_field=all_fields&q="
+      end
       response.body
     }
 
@@ -36,7 +51,9 @@ RSpec.describe "Catalogs", type: :request do
 
   context "catalog record page" do
     subject {
-      get "/catalog/2002-8084"
+      VCR.use_cassette("responseCatalogRecordPage", record: :none) do
+        get "/catalog/2002-8084"
+      end
       response.body
     }
 
@@ -53,7 +70,9 @@ RSpec.describe "Catalogs", type: :request do
   context "search" do
     describe "all fields" do
       subject {
-        get "?search_field=all_fields&q=Realms"
+        VCR.use_cassette("responseSearchAllFields", record: :none) do
+          get "?search_field=all_fields&q=Realms"
+        end
         response.body
       }
 
@@ -64,7 +83,9 @@ RSpec.describe "Catalogs", type: :request do
     describe "summary in all fields" do
       subject {
         search_text = URI::encode("Afrika Korps attacks US II Corps in 10th Annual Family Team Event")
-        get "?search_field=all_fields&q=#{search_text}"
+        VCR.use_cassette("responseSummaryInAllFields", record: :none) do
+          get "?search_field=all_fields&q=#{search_text}"
+        end
         response.body
       }
       it { is_expected.to include("2012-HMN1230462") }
@@ -72,7 +93,9 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Title Search" do
       subject {
-        get "?search_field=title&q=War+With+Asgard"
+        VCR.use_cassette("responseTitleSearch", record: :none) do
+          get "?search_field=title&q=War+With+Asgard"
+        end
         response.body
       }
 
@@ -81,7 +104,9 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Game System Search" do
       subject {
-        get "?search_field=game_system_t&q=Dungeons+%26+Dragons"
+        VCR.use_cassette("responseGameSystemSearch", record: :none) do
+          get "?search_field=game_system_t&q=Dungeons+%26+Dragons"
+        end
         response.body
       }
 
@@ -90,7 +115,9 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Event Type Search" do
       subject {
-        get "?search_field=event_type_t&q=bg"
+        VCR.use_cassette("responseEventTypeSearch", record: :none) do
+          get "?search_field=event_type_t&q=bg"
+        end
         response.body
       }
 
@@ -100,7 +127,9 @@ RSpec.describe "Catalogs", type: :request do
     describe "Long Description Search" do
       subject {
         search_text = URI::encode("Imperial Japan invades Midway in three huge connected Air-Sea & Land Miniatures Battles")
-        get "?search_field=all_fields&q=" + search_text
+        VCR.use_cassette("responseLongDescriptionSearch", record: :none) do
+          get "?search_field=all_fields&q=" + search_text
+        end
         response.body
       }
 
@@ -109,7 +138,9 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "GM Name Search" do
       subject {
-        get "?search_field=gm_names_t&q=charles"
+        VCR.use_cassette("responseGMNameSearch", record: :none) do
+          get "?search_field=gm_names_t&q=charles"
+        end
         response.body
       }
 
@@ -118,7 +149,9 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Group Search" do
       subject {
-        get "?search_field=group_t&q=smith"
+        VCR.use_cassette("responseGroupSearch", record: :none) do
+          get "?search_field=group_t&q=smith"
+        end
         response.body
       }
 
@@ -127,7 +160,9 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Location Search" do
       subject {
-        get "?search_field=location_t&q=marriott"
+        VCR.use_cassette("responseLocationSearch", record: :none) do
+          get "?search_field=location_t&q=marriott"
+        end
         response.body
       }
 
@@ -138,7 +173,9 @@ RSpec.describe "Catalogs", type: :request do
   context "facet" do
     describe "Year Facet Search" do
       subject {
-        get "?f[year_facet][]=2001"
+        VCR.use_cassette("responseYearFacetSearch", record: :none) do
+          get "?f[year_facet][]=2001"
+        end
         response.body
       }
 
@@ -147,7 +184,9 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Group Facet Search" do
       subject {
-        get "?f[group_facet][]=Fantasy+Flight+Games"
+        VCR.use_cassette("responseGroupFacetSearch", record: :none) do
+          get "?f[group_facet][]=Fantasy+Flight+Games"
+        end
         response.body
       }
 
@@ -156,7 +195,9 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Event Type Facet Search" do
       subject {
-        get "?f[event_type_facet][]=NM"
+        VCR.use_cassette("responseEventTypeFacetSearch", record: :none) do
+          get "?f[event_type_facet][]=NM"
+        end
         response.body
       }
 
@@ -165,7 +206,9 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Game System Facet Search" do
       subject {
-        get "?f[game_system_facet][]=Empire%20Builder"
+        VCR.use_cassette("responseGameSystemFacetSearch", record: :none) do
+          get "?f[game_system_facet][]=Empire%20Builder"
+        end
         response.body
       }
 
@@ -175,7 +218,9 @@ RSpec.describe "Catalogs", type: :request do
 
   context "Embedded ID's in ID" do
     subject {
-      get "/catalog/2001-2135%202136%202137%202138"
+      VCR.use_cassette("responseEnbeddedIdsInIdSearch", record: :none) do
+        get "/catalog/2001-2135%202136%202137%202138"
+      end
       response.body
     }
 

@@ -67,18 +67,30 @@ In a web browser, visit http://localhost:3000 and search the Gencon programs for
 
 ## Running the Tests
 
-Tests require an instance of Solr to which to connect.
+Setup for developing new request and feature tests
 
-Work with a fresh Solr database. In `ansible-playbook-solrcloud`, restart the SolrCloud
+Tests require an instance of Solr to which to connect, and run once to record into the VCR gem test fixtures.
+To update the initial index database to create these fixtures, go to the `ansible-playbook-solrcloud`, restart the SolrCloud
 instance with `make up-lite`.
 
 Testing requires a fresh solr index. restart Solr Cloud instances before running these tests.
 
-The first run, load the test fixture
+If you need to access Solr index to generate new tests, harvest the csv files in the spec/fixtures directory
 
     LOADSOLR=y bundle exec rspec spec
 
-No need to reload the test fixtures on subsequent runs:
+Ensure that requests to the Solr server are in VCR blocks. For example:
+
+    VCR.use_cassette("responseDefaultIndex", record: :once) do
+      get "?search_field=all_fields&q="
+    end
+
+Note the `:record` mode is set to once. After you perform this spec, change the record mode to `:none`.
+
+Subsequent runs of the specs should execute without need to connect to the Solr server. At this point, you may go to the
+`andible-playbook-solrcloud` directory and stop SolrCloud instance with `make down`
+
+Execute your specs with:
 
     bundle exec rspec spec
 
