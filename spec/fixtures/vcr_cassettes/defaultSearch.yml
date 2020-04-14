@@ -1,0 +1,171 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:8090/solr/gencon50-1.0/select?f.event_type_facet.facet.mincount=1&f.game_system_facet.facet.mincount=1&f.group_facet.facet.mincount=1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&qf=title_t%20short_description_t%20long_description_t%20gm_names_t%20year_t%20also_runs_t%20prize_t%20group_t%20event_type_t%20game_system_t%20rules_edition_t%20age_required_t%20experience_required_t%20duration_t%20website_t%20room_name_t%20table_number_t%20special_category_t%20rules_complexity_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Tue, 14 Apr 2020 14:45:52 GMT
+      Etag:
+      - '"N2Y5YzAwMDAwMDAwMDAwMFNvbHI="'
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '7895'
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "responseHeader":{
+            "zkConnected":true,
+            "status":0,
+            "QTime":54,
+            "params":{
+              "f.year_facet.facet.mincount":"1",
+              "facet.field":["year_facet",
+                "group_facet",
+                "event_type_facet",
+                "game_system_facet"],
+              "f.group_facet.facet.mincount":"1",
+              "f.game_system_facet.facet.mincount":"1",
+              "qf":"title_t short_description_t long_description_t gm_names_t year_t also_runs_t prize_t group_t event_type_t game_system_t rules_edition_t age_required_t experience_required_t duration_t website_t room_name_t table_number_t special_category_t rules_complexity_t",
+              "fl":"id,\n           score,\n           year_display,\n           title_display,\n           short_description_display,\n           long_description_display",
+              "sort":"score desc, year_sort desc, title_sort asc",
+              "rows":"10",
+              "facet":"true",
+              "wt":"json",
+              "f.event_type_facet.facet.mincount":"1",
+              "f.year_facet.facet.sort":"index"}},
+          "response":{"numFound":160391,"start":0,"maxScore":1.0,"docs":[
+              {
+                "year_display":["2017"],
+                "id":"2017-RPG17108625",
+                "title_display":[" Fortune & Glory"],
+                "short_description_display":["1930s pulp adventure serials. Enter their world, fight mobsters, cultists, & Nazis. Collect treasures, delve into the occult. Travel the world as a 1930s Pulp Hero seeking Fortune & Glory."],
+                "long_description_display":["Pulp serials of 1930's radio and movies to Indiana Jones. Enter that world with choosing a Hero, collect sidekicks, allies and equipment. Travel the world seeking things of arcane power to keep them out of the hands of evil human and otherwise. How can it not be fun when there are Mobsters, Nazis, a Zeppelin and fanatical cultists? Seek Fortune and Glory and save the world too!"],
+                "score":1.0},
+              {
+                "year_display":["2017"],
+                "id":"2017-RPG17108628",
+                "title_display":[" Fortune & Glory"],
+                "short_description_display":["1930s pulp adventure serials. Enter their world, fight mobsters, cultists, & Nazis. Collect treasures, delve into the occult. Travel the world as a 1930s Pulp Hero seeking Fortune & Glory."],
+                "long_description_display":["Pulp serials of 1930's radio and movies to Indiana Jones. Enter that world with choosing a Hero, collect sidekicks, allies and equipment. Travel the world seeking things of arcane power to keep them out of the hands of evil human and otherwise. How can it not be fun when there are Mobsters, Nazis, a Zeppelin and fanatical cultists? Seek Fortune and Glory and save the world too!"],
+                "score":1.0},
+              {
+                "year_display":["2017"],
+                "id":"2017-RPG17108629",
+                "title_display":[" Fortune & Glory"],
+                "short_description_display":["1930s pulp adventure serials. Enter their world, fight mobsters, cultists, & Nazis. Collect treasures, delve into the occult. Travel the world as a 1930s Pulp Hero seeking Fortune & Glory."],
+                "long_description_display":["Pulp serials of 1930's radio and movies to Indiana Jones. Enter that world with choosing a Hero, collect sidekicks, allies and equipment. Travel the world seeking things of arcane power to keep them out of the hands of evil human and otherwise. How can it not be fun when there are Mobsters, Nazis, a Zeppelin and fanatical cultists? Seek Fortune and Glory and save the world too!"],
+                "score":1.0},
+              {
+                "year_display":["2017"],
+                "id":"2017-BGM17106867",
+                "title_display":[" Say Anything Rhymes"],
+                "short_description_display":["Oh this game 'tis far from lame, because it is never a crime when you make a rhyme. All answers will be in the form of rhyme."],
+                "score":1.0},
+              {
+                "year_display":["2017"],
+                "id":"2017-SEM17122328",
+                "title_display":[" Starfinder Rules Q&A "],
+                "short_description_display":["Take an up-close look at the rules of Starfinder, including differences between the Starfinder & Pathfinder rules. Ask questions & discuss the philosophy behind the Starfinder game system."],
+                "long_description_display":["Join the Starfinder team for an up-close look at the rules of Starfinder, including a glimpse at some of the key differences between the Starfinder and Pathfinder rules. They will take your questions and discuss the philosophy behind the Starfinder game system."],
+                "score":1.0},
+              {
+                "year_display":["2017"],
+                "id":"2017-RPG17114287",
+                "title_display":["\"Standby, Ion Control.\""],
+                "short_description_display":["The Empire has blockaded the Rebel base on Hoth. It is up to a band of plucky rebels to help the Rebel transports escape by firing the ion cannon. That means that they will also be the last to leave."],
+                "score":1.0},
+              {
+                "year_display":["2017"],
+                "id":"2017-BGM17110672",
+                "title_display":["\"The Iron Throne Is Mine By Rights. All That Deny That Are My Foes.\""],
+                "short_description_display":["Control 1 of the 6 Great Houses of Westeros.By mustering armies, conquering territory, & forming alliances each House strives to control the most Castles/Strongholds to claim the Iron Throne."],
+                "score":1.0},
+              {
+                "year_display":["2017"],
+                "id":"2017-BGM17110673",
+                "title_display":["\"The Iron Throne Is Mine By Rights. All That Deny That Are My Foes.\""],
+                "short_description_display":["Control 1 of the 6 Great Houses of Westeros.By mustering armies, conquering territory, & forming alliances each House strives to control the most Castles/Strongholds to claim the Iron Throne."],
+                "score":1.0},
+              {
+                "year_display":["2017"],
+                "id":"2017-BGM17110674",
+                "title_display":["\"The Iron Throne Is Mine By Rights. All That Deny That Are My Foes.\""],
+                "short_description_display":["Control 1 of the 6 Great Houses of Westeros.By mustering armies, conquering territory, & forming alliances each House strives to control the most Castles/Strongholds to claim the Iron Throne."],
+                "score":1.0},
+              {
+                "year_display":["2017"],
+                "id":"2017-ANI17123255",
+                "title_display":["(Anime) Deal or No Deal"],
+                "short_description_display":["We will be playing Deal or No Deal and giving out anime related prizes for participation! "],
+                "score":1.0}]
+          },
+          "facet_counts":{
+            "facet_queries":{},
+            "facet_fields":{
+              "year_facet":[
+                "1968",2,
+                "1969",18,
+                "1970",14,
+                "1971",21,
+                "1972",18,
+                "1974",17,
+                "1975",48,
+                "1976",70,
+                "1977",102,
+                "1978",188],
+              "group_facet":[
+                "Wizards of the Coast",6930,
+                "True Adventures, Ltd.",6443,
+                "Mayfair Games",5954,
+                "Game Base 7",4757,
+                "eBash Video Game Center",3607,
+                "Fantasy Flight Games",3284,
+                "Catalyst Game Labs",2448,
+                "Train Gamers Association",2126,
+                "Fight in the Skies Society",2029,
+                "Rogue Judges",1850],
+              "event_type_facet":[
+                "BGM - Board Game",32170,
+                "RPG - Role Playing Game",31847,
+                "TCG - Tradable Card Game",10339,
+                "NMN - Non-Historical Miniatures",7968,
+                "CGM - Non-Collectible / Tradable Card Game",7281,
+                "TDA - True Dungeon Adventures!",6416,
+                "EGM - Electronic Games",6031,
+                "SEM - Seminar",3561,
+                "ZED - Isle of Misfit Events",3008,
+                "BG - Board Game",2989],
+              "game_system_facet":[
+                "Dungeons & Dragons",4612,
+                "Pathfinder",2975,
+                "Magic: the Gathering",2468,
+                "Magic The Gathering",2075,
+                "Call of Cthulhu",1881,
+                "Magic: The Gathering",1833,
+                "Shadowrun",1461,
+                "D20",1328,
+                "N/A",1203,
+                "Star Wars",1115]},
+            "facet_ranges":{},
+            "facet_intervals":{},
+            "facet_heatmaps":{}}}
+    http_version: null
+  recorded_at: Tue, 14 Apr 2020 18:44:07 GMT
+recorded_with: VCR 5.1.0
