@@ -1,0 +1,144 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:8090/solr/gencon50-1.0/select?f.event_type_facet.facet.mincount=1&f.game_system_facet.facet.mincount=1&f.group_facet.facet.mincount=1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&pf=event_type_t&q=bg&qf=event_type_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Tue, 14 Apr 2020 19:41:18 GMT
+      Etag:
+      - '"YjU2MDAwMDAwMDAwMDAwMFNvbHI="'
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '3305'
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "responseHeader":{
+            "zkConnected":true,
+            "status":0,
+            "QTime":1,
+            "params":{
+              "facet.field":["year_facet",
+                "group_facet",
+                "event_type_facet",
+                "game_system_facet"],
+              "f.group_facet.facet.mincount":"1",
+              "fl":"id,\n           score,\n           year_display,\n           title_display,\n           short_description_display,\n           long_description_display",
+              "sort":"score desc, year_sort desc, title_sort asc",
+              "rows":"10",
+              "f.event_type_facet.facet.mincount":"1",
+              "f.year_facet.facet.mincount":"1",
+              "q":"bg",
+              "f.game_system_facet.facet.mincount":"1",
+              "qf":"event_type_t",
+              "pf":"event_type_t",
+              "facet":"true",
+              "wt":"json",
+              "f.year_facet.facet.sort":"index"}},
+          "response":{"numFound":899,"start":0,"maxScore":3.56699,"docs":[
+              {
+                "year_display":["2002"],
+                "id":"2002-1079",
+                "title_display":["100 Acres, Treasure Hunt"],
+                "score":3.56699},
+              {
+                "year_display":["2002"],
+                "id":"2002-1962",
+                "title_display":["1830 Tournament"],
+                "score":3.56699},
+              {
+                "year_display":["2002"],
+                "id":"2002-1963",
+                "title_display":["1830 Tournament"],
+                "score":3.56699},
+              {
+                "year_display":["2002"],
+                "id":"2002-1964",
+                "title_display":["1830 Tournament"],
+                "score":3.56699},
+              {
+                "year_display":["2002"],
+                "id":"2002-1970",
+                "title_display":["1835"],
+                "score":3.56699},
+              {
+                "year_display":["2002"],
+                "id":"2002-1971",
+                "title_display":["1835"],
+                "score":3.56699},
+              {
+                "year_display":["2002"],
+                "id":"2002-1966",
+                "title_display":["1856"],
+                "score":3.56699},
+              {
+                "year_display":["2002"],
+                "id":"2002-1967",
+                "title_display":["1856"],
+                "score":3.56699},
+              {
+                "year_display":["2002"],
+                "id":"2002-1271",
+                "title_display":["1861"],
+                "score":3.56699},
+              {
+                "year_display":["2002"],
+                "id":"2002-1272",
+                "title_display":["1861"],
+                "score":3.56699}]
+          },
+          "facet_counts":{
+            "facet_queries":{},
+            "facet_fields":{
+              "year_facet":[
+                "2002",899],
+              "group_facet":[
+                "Game Base 7",539,
+                "GMT Games",59,
+                "Train Gamers Association",57,
+                "Columbia Games, Inc.",46,
+                "Fantasy Flight Games, Inc.",46,
+                "Frederuck Lange",18,
+                "Inner City Games Designs / Hekaforge Productions",17,
+                "Cheapass Games",16,
+                "ROGUE Judges",14,
+                "Council 12 Computing",13],
+              "event_type_facet":[
+                "BG",899],
+              "game_system_facet":[
+                "Settlers of Cataan, Settlers of Catan",28,
+                "Settlers of Cataan, Historical Scenarios",26,
+                "Seafarers of Catan",22,
+                "Wizard Kings , If an Orc Dies in the Forest",16,
+                "Wizard Kings, Thar's Gold in them Thar Hills",16,
+                "Lord of the Rings",15,
+                "Kingmaker",14,
+                "Roborally",14,
+                "Taj Mahal, Talisman",14,
+                "Simply More Cosmic  , Simply More Cosmic",13]},
+            "facet_ranges":{},
+            "facet_intervals":{},
+            "facet_heatmaps":{}},
+          "spellcheck":{
+            "suggestions":[],
+            "correctlySpelled":true}}
+    http_version: null
+  recorded_at: Tue, 14 Apr 2020 19:50:14 GMT
+recorded_with: VCR 5.1.0

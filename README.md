@@ -1,3 +1,9 @@
+---
+title: Blacklight Instance for The Best 50 Years in Gaming site (Version 2)
+author: Steven Ng
+date: 2020-04-14
+---
+
 # Blacklight Instance for The Best 50 Years in Gaming site (Version 2)
 
 ## Prerequisite
@@ -6,66 +12,86 @@ This Blacklight instance requires SolrCloud. A local version of SolrCloud may be
 by using the TULibraries Ansible SolrCloud Playbook:
 https://github.com/tulibraries/ansible-playbook-solrcloud
 
+SolrCloud will require Docker...
+
 ## Getting started
 
 Clone the github repository locally and change into the directory
 
-```
-git clone https://github.com/tulibraries/gencon50.git
-cd gencon50
-```
+    git clone https://github.com/tulibraries/gencon50.git
+    cd gencon50
 
-### Setup
+### Install
 
 Install the gem dependencies (generally we do this in an rvm gemset)
 
-```
-bundle install
-```
+
+    bundle install
+
 
 Run the database migration
 
-```
-bundle exec rails db:migrate
-```
+
+    bundle exec rails db:migrate
+
 
 Create the application file
 
-```
-cp .env.example .env
-```
+    cp .env.example .env
+
 and edit the `.env` content's `SOLR_URL` enviornment variable.
+
+Start up SolrCloud
+
+    cd ../ansible-playbook-solrcloud
+    make up-lite
+    cd ../gencon50
 
 Create a local user. Feel free to use your own email and password
 
-```
-bundle exec rails runner " User.new(:email => 'test@example.com', :password => 'password', :password_confirmation => 'password').save!"
-```
+    bundle exec rails runner " User.new(:email => 'test@example.com', :password => 'password', :password_confirmation => 'password').save!"
 
-Start the rails server
+Start the Gencon50 application
 
-```
-bundle exec rails s`
----
+    bundle exec rails server`
+
+Ingest some data 
+
+To seed the database with a csv file form the command line ,use the following command. Replace `path/to/datafile.csv`
+with the path to the file to upload.
+
+    bin/csv2solr harvest path/to/datafile.csv --mapfile=config/solr_map.yml
+
+In a web browser, visit http://localhost:3000 and search the Gencon programs for the first fifty years.
 
 
-# Running the Tests
+## Running the Tests
 
-Tests require an instance of Solr to which to connect.
+Setup for developing new request and feature tests
 
-Work with a fresh Solr database. In `ansible-playbook-solrcloud`, restart the SolrCloud
+Tests require an instance of Solr to which to connect, and run once to record into the VCR gem test fixtures.
+To update the initial index database to create these fixtures, go to the `ansible-playbook-solrcloud`, restart the SolrCloud
 instance with `make up-lite`.
 
-- Run the tests
+Testing requires a fresh solr index. restart Solr Cloud instances before running these tests.
 
-The first run, load the test fixture
-```
-LOADSOLR=y bundle exec rspec spec
-```
+If you need to access Solr index to generate new tests, harvest the csv files in the spec/fixtures directory
 
-No need to reload the test fixtures on subsequent runs:
-```
-bundle exec rspec spec
-```
+    LOADSOLR=y bundle exec rspec spec
 
-* Deployment instructions
+Ensure that requests to the Solr server are in VCR blocks. For example:
+
+    VCR.use_cassette("responseDefaultIndex", record: :once) do
+      get "?search_field=all_fields&q="
+    end
+
+Note the `:record` mode is set to once. After you perform this spec, change the record mode to `:none`.
+
+Subsequent runs of the specs should execute without need to connect to the Solr server. At this point, you may go to the
+`andible-playbook-solrcloud` directory and stop SolrCloud instance with `make down`
+
+Execute your specs with:
+
+    bundle exec rspec spec
+
+## Deployment instructions

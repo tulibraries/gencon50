@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:8090/solr/gencon50-1.0/get?fl=*&ids=2001-2135%202136%202137%202138&q=%7B!term%20f=id%20v=$id%7D&qt=document&rows=1&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Tue, 14 Apr 2020 19:41:18 GMT
+      Etag:
+      - '"YjU2MDAwMDAwMDAwMDAwMFNvbHI="'
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '1094'
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "response":{"numFound":1,"start":0,"docs":[
+              {
+                "year_display":["2001"],
+                "year_facet":["2001"],
+                "year_sort":2001,
+                "year_t":["2001"],
+                "original_order_display":["1898"],
+                "title_display":["\n Pokemon"],
+                "title_sort":"\n Pokemon",
+                "title_t":["\n Pokemon"],
+                "cost_display":["$6"],
+                "cost_t":["$6"],
+                "duration_display":["6:00"],
+                "duration_t":["6:00"],
+                "maximum_players_display":["14"],
+                "maximum_players_t":["14"],
+                "rules_complexity_display":["E-2"],
+                "rules_complexity_t":["E-2"],
+                "gm_names_display":["Wizards of the Coast, Inc."],
+                "gm_names_t":["Wizards of the Coast, Inc."],
+                "start_date_time_display":["Th 1 PM. Fr Noon Sa Noon Su Noon"],
+                "start_date_time_t":["Th 1 PM. Fr Noon Sa Noon Su Noon"],
+                "game_id_display":["2001-2135 2136 2137 2138"],
+                "id":"2001-2135 2136 2137 2138",
+                "_version_":1663978198405218306,
+                "year":"2020-04-14T19:41:10.866Z",
+                "timestamp":"2020-04-14T19:41:10.866Z"}]
+          }}
+    http_version: null
+  recorded_at: Tue, 14 Apr 2020 19:50:15 GMT
+recorded_with: VCR 5.1.0

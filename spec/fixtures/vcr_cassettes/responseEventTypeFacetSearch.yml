@@ -1,0 +1,140 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:8090/solr/gencon50-1.0/select?f.event_type_facet.facet.mincount=1&f.game_system_facet.facet.mincount=1&f.group_facet.facet.mincount=1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&fq=%7B!term%20f=event_type_facet%7DNM&qf=title_t%20short_description_t%20long_description_t%20gm_names_t%20year_t%20also_runs_t%20prize_t%20group_t%20event_type_t%20game_system_t%20rules_edition_t%20age_required_t%20experience_required_t%20duration_t%20website_t%20room_name_t%20table_number_t%20special_category_t%20rules_complexity_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Last-Modified:
+      - Tue, 14 Apr 2020 19:41:18 GMT
+      Etag:
+      - '"YjU2MDAwMDAwMDAwMDAwMFNvbHI="'
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '3693'
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "responseHeader":{
+            "zkConnected":true,
+            "status":0,
+            "QTime":1,
+            "params":{
+              "facet.field":["year_facet",
+                "group_facet",
+                "event_type_facet",
+                "game_system_facet"],
+              "f.group_facet.facet.mincount":"1",
+              "fl":"id,\n           score,\n           year_display,\n           title_display,\n           short_description_display,\n           long_description_display",
+              "fq":"{!term f=event_type_facet}NM",
+              "sort":"score desc, year_sort desc, title_sort asc",
+              "rows":"10",
+              "f.event_type_facet.facet.mincount":"1",
+              "f.year_facet.facet.mincount":"1",
+              "f.game_system_facet.facet.mincount":"1",
+              "qf":"title_t short_description_t long_description_t gm_names_t year_t also_runs_t prize_t group_t event_type_t game_system_t rules_edition_t age_required_t experience_required_t duration_t website_t room_name_t table_number_t special_category_t rules_complexity_t",
+              "facet":"true",
+              "wt":"json",
+              "f.year_facet.facet.sort":"index"}},
+          "response":{"numFound":335,"start":0,"maxScore":1.0,"docs":[
+              {
+                "year_display":["2002"],
+                "id":"2002-7003",
+                "title_display":["A Short Victorious War"],
+                "score":1.0},
+              {
+                "year_display":["2002"],
+                "id":"2002-7011",
+                "title_display":["Admiral Tournament"],
+                "score":1.0},
+              {
+                "year_display":["2002"],
+                "id":"2002-7002",
+                "title_display":["Angels & Edlar - Battle for Shi-ar III"],
+                "score":1.0},
+              {
+                "year_display":["2002"],
+                "id":"2002-7001",
+                "title_display":["Angels & Eldar - Battle for Shi-ar III"],
+                "score":1.0},
+              {
+                "year_display":["2002"],
+                "id":"2002-7293",
+                "title_display":["Assault on the Kaiu Wall"],
+                "score":1.0},
+              {
+                "year_display":["2002"],
+                "id":"2002-7274",
+                "title_display":["Aux Control (Guard the hole)"],
+                "score":1.0},
+              {
+                "year_display":["2002"],
+                "id":"2002-7311",
+                "title_display":["Barbarian Attack"],
+                "score":1.0},
+              {
+                "year_display":["2002"],
+                "id":"2002-7312",
+                "title_display":["Barbarian Attack"],
+                "score":1.0},
+              {
+                "year_display":["2002"],
+                "id":"2002-7109",
+                "title_display":["Barbie's Bad Hair Day"],
+                "score":1.0},
+              {
+                "year_display":["2002"],
+                "id":"2002-7110",
+                "title_display":["Barbie's Bad Hair Day"],
+                "score":1.0}]
+          },
+          "facet_counts":{
+            "facet_queries":{},
+            "facet_fields":{
+              "year_facet":[
+                "2002",335],
+              "group_facet":[
+                "Wizkids Games",139,
+                "Inner City Games Designs / Hekaforge Productions",35,
+                "Ottawa Red Shirts",30,
+                "Game Base 7",17,
+                "Crunchy Frog/Nightshift Games",12,
+                "Pinnacle Entertainment Group",8,
+                "Steve Rysemsus",6,
+                "GEOHEX",5,
+                "Aldebaran Imports, Inc",4,
+                "Daniel Dimitroff",4],
+              "event_type_facet":[
+                "NM",335],
+              "game_system_facet":[
+                "Mage Knight, Necropolis: City of Death",30,
+                "MechWarrior: Dark Age, MechWarrior: Dark Ages",30,
+                "DC HeroClix: Hypertime",29,
+                "Inquirius Games & Meck Wars By RedShirts Games, Injurius Games - Meck Wars",20,
+                "Critter Commandos, Showdown!",12,
+                "The Great Rail Wars, Weird Old West",7,
+                "Mage Knight Conquest, Siege",6,
+                "Mage Knight, Pirates",6,
+                "Silent Death, by Iron Crown Enterprises, Silent Death-Red Shirt Smash",6,
+                "Battletech  , Marik's Revenge",4]},
+            "facet_ranges":{},
+            "facet_intervals":{},
+            "facet_heatmaps":{}}}
+    http_version: null
+  recorded_at: Tue, 14 Apr 2020 19:50:15 GMT
+recorded_with: VCR 5.1.0
