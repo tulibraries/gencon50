@@ -80,5 +80,5 @@ gem 'jquery-rails'
 gem "carrierwave", "2.1.0"
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'devise-guests'
-gem 'blimp', git: 'https://github.com/tulibraries/blimp'
+gem 'blimp', github: 'tulibraries/blimp'
 gem 'dotenv-rails'
