@@ -33,11 +33,8 @@ jobs:
             sudo gem update --system
             sudo gem install -f bundler --version "$BUNDLER_VERSION"
             sudo apt-get update
-            sudo apt-get install postgresql-client
-            sudo psql -c "create role manifold with createdb login password 'password';" -U postgres -h localhost
             sudo bundle install
             RAILS_ENV=test sudo bundle exec rake db:setup
-            RAILS_ENV=test sudo bundle exec rake db:seed
             sudo bundle exec rspec spec
 
   prod_deploy:
