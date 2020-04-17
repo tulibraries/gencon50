@@ -6,20 +6,6 @@ workflows:
   run_tests:
     jobs:
       - run_tests
-  qa_deploy:
-   jobs:
-     - qa_deploy:
-         filters:
-           branches:
-             only:
-               - qa
-  stage_deploy:
-    jobs:
-      - stage_deploy:
-          filters:
-            branches:
-              only:
-                - master
   prod_deploy:
     jobs:
       - prod_deploy:
@@ -52,38 +38,7 @@ jobs:
             sudo bundle install
             RAILS_ENV=test sudo bundle exec rake db:setup
             RAILS_ENV=test sudo bundle exec rake db:seed
-            sudo npm install -g ajv
-            sudo npm install -g ajv-cli
-            sudo bundle exec rubocop
-            sudo bundle exec brakeman --no-pager
             sudo bundle exec rspec spec
-  qa_deploy:
-    docker:
-      - image: circleci/python:3.6.6
-        environment:
-          PIPENV_VENV_IN_PROJECT: true
-    steps:
-      - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "08:05:8e:1f:ff:2e:4d:59:60:3e:a2:d5:e3:e2:b8:68"
-            - "2f:37:66:17:11:ae:f9:0f:9e:52:98:41:fe:d0:0c:78"
-      - run:
-          command: bash .circleci/deploy-qa.sh
-
-  stage_deploy:
-    docker:
-      - image: circleci/python:3.6.6
-        environment:
-          PIPENV_VENV_IN_PROJECT: true
-    steps:
-      - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "08:05:8e:1f:ff:2e:4d:59:60:3e:a2:d5:e3:e2:b8:68"
-            - "2f:37:66:17:11:ae:f9:0f:9e:52:98:41:fe:d0:0c:78"
-      - run:
-          command: bash .circleci/deploy-stage.sh
 
   prod_deploy:
     docker:
