@@ -25,15 +25,11 @@ Clone the github repository locally and change into the directory
 
 Install the gem dependencies (generally we do this in an rvm gemset)
 
-
     bundle install
-
 
 Run the database migration
 
-
     bundle exec rails db:migrate
-
 
 Create the application file
 
@@ -41,7 +37,25 @@ Create the application file
 
 and edit the `.env` content's `SOLR_URL` enviornment variable.
 
-Start up SolrCloud
+## Configure for Solr
+
+Configure dotenv to use SolrWrapper
+
+    cp .env.example .env
+
+Ensure .env contains
+
+    SOLR_URL="http://localhost:8090/solr/gencon50-1.0"
+
+Solr may be run with Solr_Wrapper or SolrCloud (preferred).
+
+### Start up with `solr_wrapper`
+
+In a separate terminal window:
+
+    bundle exec solr_wrapper
+
+### Start up SolrCloud
 
     cd ../ansible-playbook-solrcloud
     make up-lite
@@ -55,7 +69,7 @@ Start the Gencon50 application
 
     bundle exec rails server`
 
-Ingest some data 
+Ingest some data
 
 To seed the database with a csv file form the command line ,use the following command. Replace `path/to/datafile.csv`
 with the path to the file to upload.
