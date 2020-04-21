@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    container_name: web-gc50
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    environment:
+      SOLR_URL: http://solr-gc50:8983/solr/gencon50-1.0
+    volumes:
+      - .:/gencon50
+    ports:
+      - "3000:3000"
+    depends_on:
+      - solr
+  solr:
+    container_name: solr-gc50
+    image: solr:8.1
+    ports:
+      - "9983:9983"
+      - "8090:8983"
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr
+      - start
+      - -c
+      - -f
