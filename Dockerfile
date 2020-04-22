@@ -9,11 +9,9 @@ RUN \
 
 RUN mkdir /gencon50
 WORKDIR /gencon50
+RUN git clone https://github.com/tulibraries/gencon50.git .
 RUN gem install -f bundler --version "2.1.4"
-ADD Gemfile .
-ADD Gemfile.lock .
 RUN bundle install
-COPY . .
 RUN bundle exec rake db:setup
 RUN bundle exec rake db:migrate
 
