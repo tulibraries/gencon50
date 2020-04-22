@@ -31,6 +31,8 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+bin/admin_user.*
+
 # Ignore raw data files
 /csv
 
