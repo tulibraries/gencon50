@@ -6,7 +6,7 @@ workflows:
   run_tests:
     jobs:
       - run_tests
-  prod_deploy:
+  qa_deploy:
     jobs:
       - prod_deploy:
           filters:
@@ -37,7 +37,7 @@ jobs:
             RAILS_ENV=test sudo bundle exec rake db:setup
             sudo bundle exec rspec spec
 
-  prod_deploy:
+  qa_deploy:
     docker:
       - image: circleci/python:3.6.6
         environment:
@@ -49,4 +49,4 @@ jobs:
             - "2c:e8:55:f8:43:47:17:d6:b3:0d:15:23:72:27:13:ad"
             - "2f:37:66:17:11:ae:f9:0f:9e:52:98:41:fe:d0:0c:78"
       - run:
-          command: bash .circleci/deploy-prod.sh
+          command: bash .circleci/deploy-qa.sh
