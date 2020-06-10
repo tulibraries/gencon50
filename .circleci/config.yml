@@ -11,9 +11,11 @@ workflows:
       - qa_deploy:
           filters:
             branches:
-              ignore: /.*/
-            tags:
-              only: /^v[0-9]+(\.[0-9]+)*$/
+              only:
+                - DEVO-28-Deploy_to_qa               
+#              ignore: /.*/
+#            tags:
+#              only: /^v[0-9]+(\.[0-9]+)*$/
 
 jobs:
   run_tests:
@@ -37,7 +39,7 @@ jobs:
             RAILS_ENV=test sudo bundle exec rake db:setup
             sudo bundle exec rspec spec
 
-  deploy:
+  qa_deploy:
     docker:
       - image: circleci/python:3.6.6
         environment:
