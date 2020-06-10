@@ -37,7 +37,7 @@ jobs:
             RAILS_ENV=test sudo bundle exec rake db:setup
             sudo bundle exec rspec spec
 
-  qa_deploy:
+  deploy:
     docker:
       - image: circleci/python:3.6.6
         environment:

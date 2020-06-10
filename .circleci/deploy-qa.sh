@@ -3,7 +3,7 @@ set -e
 
 cd ..
 # clone deployment playbook
-git clone --single-branch --branch qa git@github.com:tulibraries/ansible-playbook-gencon50.git
+git clone --single-branch --branch DEVO-28-Deploy_to_qa git@github.com:tulibraries/ansible-playbook-gencon50.git
 cd ansible-playbook-gencon50
 # install playbook requirements
 sudo pip install pipenv
