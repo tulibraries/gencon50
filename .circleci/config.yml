@@ -6,9 +6,9 @@ workflows:
   run_tests:
     jobs:
       - run_tests
-  qa_deploy:
+  deploy:
     jobs:
-      - prod_deploy:
+      - qa_deploy:
           filters:
             branches:
               ignore: /.*/
