@@ -12,7 +12,7 @@ workflows:
           filters:
             branches:
               only:
-                - DEVO-28-Deploy_to_qa               
+                - qa
 #              ignore: /.*/
 #            tags:
 #              only: /^v[0-9]+(\.[0-9]+)*$/
