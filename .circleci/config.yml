@@ -13,9 +13,14 @@ workflows:
             branches:
               only:
                 - qa
-#              ignore: /.*/
-#            tags:
-#              only: /^v[0-9]+(\.[0-9]+)*$/
+      - prod_deploy:
+          filters:
+            branches:
+              only:
+                - main
+              ignore: /.*/
+            tags:
+              only: /^v[0-9]+(\.[0-9]+)*$/
 
 jobs:
   run_tests:
@@ -39,6 +44,20 @@ jobs:
             RAILS_ENV=test sudo bundle exec rake db:setup
             sudo bundle exec rspec spec
 
+  prod_deploy:
+    docker:
+      - image: circleci/python:3.6.6
+        environment:
+          PIPENV_VENV_IN_PROJECT: true
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "8e:bf:3b:97:2e:69:5f:ce:15:fb:cd:50:36:61:f9:89"
+            - "3d:cb:80:92:7d:fb:e5:d4:f8:61:54:02:3b:2f:e2:cd"
+      - run:
+          command: bash .circleci/deploy-prod.sh
+
   qa_deploy:
     docker:
       - image: circleci/python:3.6.6
@@ -50,7 +69,5 @@ jobs:
           fingerprints:
             - "8e:bf:3b:97:2e:69:5f:ce:15:fb:cd:50:36:61:f9:89"
             - "3d:cb:80:92:7d:fb:e5:d4:f8:61:54:02:3b:2f:e2:cd"
-#            - "2c:e8:55:f8:43:47:17:d6:b3:0d:15:23:72:27:13:ad"
-#            - "2f:37:66:17:11:ae:f9:0f:9e:52:98:41:fe:d0:0c:78"
       - run:
           command: bash .circleci/deploy-qa.sh
