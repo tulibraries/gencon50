@@ -105,10 +105,10 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'year_facet', label: 'Year', sort: 'index',  solr_params: { 'facet.mincount' => 1 }
-    config.add_facet_field 'group_facet', label: 'Group', solr_params: { 'facet.mincount' => 1 }
-    config.add_facet_field 'event_type_facet', label: 'Event Type', solr_params: { 'facet.mincount' => 1 }
-    config.add_facet_field 'game_system_facet', label: 'Game System', solr_params: { 'facet.mincount' => 1 }
+    config.add_facet_field 'year_facet', label: 'Year', sort: 'index', limit: -1, solr_params: { 'facet.mincount' => 1 }
+    config.add_facet_field 'group_facet', label: 'Group', sort: 'count', limit:-1, solr_params: { 'facet.mincount' => 1 }
+    config.add_facet_field 'event_type_facet', label: 'Event Type', sort: 'count', limit: -1, solr_params: { 'facet.mincount' => 1 }
+    config.add_facet_field 'game_system_facet', label: 'Game System', sort: 'count', limit: -1, solr_params: { 'facet.mincount' => 1 }
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
