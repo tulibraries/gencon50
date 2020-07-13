@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:8090/solr/gencon50-1.0/select?f.event_type_facet.facet.mincount=1&f.game_system_facet.facet.mincount=1&f.group_facet.facet.mincount=1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&pf=title_t&q=tobruk&qf=title_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
+    uri: http://localhost:8090/solr/gencon50-1.0.0/select?f.event_type_facet.facet.limit=-1&f.event_type_facet.facet.mincount=1&f.event_type_facet.facet.sort=count&f.game_system_facet.facet.limit=-1&f.game_system_facet.facet.mincount=1&f.game_system_facet.facet.sort=count&f.group_facet.facet.limit=-1&f.group_facet.facet.mincount=1&f.group_facet.facet.sort=count&f.year_facet.facet.limit=-1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&pf=title_t&q=bunny&qf=title_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -19,17 +19,104 @@ http_interactions:
       message: OK
     headers:
       Last-Modified:
-      - Tue, 14 Apr 2020 14:45:52 GMT
+      - Mon, 13 Jul 2020 15:04:31 GMT
       Etag:
-      - '"N2Y5YzAwMDAwMDAwMDAwMFNvbHI="'
+      - '"MTM0MDAwMDAwMDAwMDAwMFNvbHI="'
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '3691'
+      - '3223'
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        ewogICJyZXNwb25zZUhlYWRlciI6ewogICAgInprQ29ubmVjdGVkIjp0cnVlLAogICAgInN0YXR1cyI6MCwKICAgICJRVGltZSI6MiwKICAgICJwYXJhbXMiOnsKICAgICAgImZhY2V0LmZpZWxkIjpbInllYXJfZmFjZXQiLAogICAgICAgICJncm91cF9mYWNldCIsCiAgICAgICAgImV2ZW50X3R5cGVfZmFjZXQiLAogICAgICAgICJnYW1lX3N5c3RlbV9mYWNldCJdLAogICAgICAiZi5ncm91cF9mYWNldC5mYWNldC5taW5jb3VudCI6IjEiLAogICAgICAiZmwiOiJpZCxcbiAgICAgICAgICAgc2NvcmUsXG4gICAgICAgICAgIHllYXJfZGlzcGxheSxcbiAgICAgICAgICAgdGl0bGVfZGlzcGxheSxcbiAgICAgICAgICAgc2hvcnRfZGVzY3JpcHRpb25fZGlzcGxheSxcbiAgICAgICAgICAgbG9uZ19kZXNjcmlwdGlvbl9kaXNwbGF5IiwKICAgICAgInNvcnQiOiJzY29yZSBkZXNjLCB5ZWFyX3NvcnQgZGVzYywgdGl0bGVfc29ydCBhc2MiLAogICAgICAicm93cyI6IjEwIiwKICAgICAgImYuZXZlbnRfdHlwZV9mYWNldC5mYWNldC5taW5jb3VudCI6IjEiLAogICAgICAiZi55ZWFyX2ZhY2V0LmZhY2V0Lm1pbmNvdW50IjoiMSIsCiAgICAgICJxIjoidG9icnVrIiwKICAgICAgImYuZ2FtZV9zeXN0ZW1fZmFjZXQuZmFjZXQubWluY291bnQiOiIxIiwKICAgICAgInFmIjoidGl0bGVfdCIsCiAgICAgICJwZiI6InRpdGxlX3QiLAogICAgICAiZmFjZXQiOiJ0cnVlIiwKICAgICAgInd0IjoianNvbiIsCiAgICAgICJmLnllYXJfZmFjZXQuZmFjZXQuc29ydCI6ImluZGV4In19LAogICJyZXNwb25zZSI6eyJudW1Gb3VuZCI6Niwic3RhcnQiOjAsIm1heFNjb3JlIjoxNC43NDIxNDEsImRvY3MiOlsKICAgICAgewogICAgICAgICJ5ZWFyX2Rpc3BsYXkiOlsiMTk3OSJdLAogICAgICAgICJ0aXRsZV9kaXNwbGF5IjpbIlRvYnJ1ayJdLAogICAgICAgICJsb25nX2Rlc2NyaXB0aW9uX2Rpc3BsYXkiOlsiQXZhbG9uIEhpbGzigJlzIGRlc2VydCB3YXJmYXJlIGdhbWUuIFRoZSAxc3Qgcm91bmQgd2lsbCBiZSBzaW5nbGUgZWxpbWluYXRpb24uIFRoZSB3aW5uZXIgb2YgdGhlIDJuZCByb3VuZCB3aWxsIGJlIGRldGVybWluZWQgYnkgcG9pbnRzLiBQbGVhc2UgYnJpbmcgYSBjb3B5IG9mIHRoZSBnYW1lISJdLAogICAgICAgICJpZCI6IjE5NzktMTIiLAogICAgICAgICJzY29yZSI6MTQuNzQyMTQxfSwKICAgICAgewogICAgICAgICJ5ZWFyX2Rpc3BsYXkiOlsiMjAwNSJdLAogICAgICAgICJpZCI6IjIwMDUtSE0wMDA1MiIsCiAgICAgICAgInRpdGxlX2Rpc3BsYXkiOlsiVGFuZ28gb3ZlciBUb2JydWsiXSwKICAgICAgICAibG9uZ19kZXNjcmlwdGlvbl9kaXNwbGF5IjpbIjEvMTQ0dGggV1dJSSBhaXIgY29tYmF0LiAxOTQyIGFpciB3YXJmYXJlIG92ZXIgdGhlIGRlc2VydC4gVGhlIGdvb2QgdGhpbmcgaXMgaXQncyBub3QgZmFyIHRvIHdhbGsgaWYgeW91J3JlIHNob3QgZG93bi4iXSwKICAgICAgICAic2NvcmUiOjExLjU0MTAyMn0sCiAgICAgIHsKICAgICAgICAieWVhcl9kaXNwbGF5IjpbIjE5OTYiXSwKICAgICAgICAidGl0bGVfZGlzcGxheSI6WyJPbiB0byBUb2JydWsiXSwKICAgICAgICAiaWQiOiIxOTk2LTI3MDAwMiIsCiAgICAgICAgImxvbmdfZGVzY3JpcHRpb25fZGlzcGxheSI6WyJBZnJpa2EgS29ycHMgdnMuIEJyaXRpc2ggQ29tbW9ud2VhbHRoIGZvcmNlcyBjbGFzaCBpbiB0aGUgYXJpZCB3YXN0ZXMgb2YgTm9ydGggQWZyaWNhLiJdLAogICAgICAgICJzY29yZSI6MTEuNTQxMDIyfSwKICAgICAgewogICAgICAgICJ5ZWFyX2Rpc3BsYXkiOlsiMjAxMCJdLAogICAgICAgICJpZCI6IjIwMTAtSE1OMTAxNDE3NyIsCiAgICAgICAgInRpdGxlX2Rpc3BsYXkiOlsi4oCcUk9NTUVMIElOIFRIRSBEVVNU4oCdIC0tIFRPQlJVSyJdLAogICAgICAgICJsb25nX2Rlc2NyaXB0aW9uX2Rpc3BsYXkiOlsiRmFtaWx5IEZ1biBQYXZpbGlvbiAtIOKAnFBhcmVudC1DaGlsZCBmcmllbmRseeKAnSBldmVudC4uV1dJSSBOb3J0aCBBZnJpY2EgYW5kIHRoZSBHZXJtYW5zIEFGUklLQSBLT1JQUyB1bmRlciBSb21tZWwgYXR0YWNrIHRvIHBlbmV0cmF0ZSB0aGUgVG9icnVrIERlZmVuc2VzIGFuZCBkZWZlYXQgdGhlIERlc2VydCBSYXRzLiBDYW4gdGhlIEdlcm1hbnMgb3ZlcmNvbWUgdGhlIERlc2VydCBhbmQgdGhlIEF1c3RyYWxpYW5zPyBKb2luIEdhbWUgTWFzdGVyIGFuZCDigJxST01NRUwgUlVMRVMhIEF1dGhvciBQZXRlIFBhbnplcmkgZm9yIGEgaHVnZSBEZXNlcnQgYmF0dGxlIHdpdGggaHVuZHJlZHMgb2YgMjBtbSBwbGFuZXMsIHRhbmtzIGFuZCB0cm9vcHMuIE1vc3QgRmVhcmVkIE9wcG9uZW50cyBQcml6ZXMuIl0sCiAgICAgICAgInNjb3JlIjo5LjQ4MjA3OTV9LAogICAgICB7CiAgICAgICAgInllYXJfZGlzcGxheSI6WyIyMDA1Il0sCiAgICAgICAgImlkIjoiMjAwNS1ITTAwMDUzIiwKICAgICAgICAidGl0bGVfZGlzcGxheSI6WyJUYW5nbyBvdmVyIFRvYnJ1ayAtIFBhcnQgMiJdLAogICAgICAgICJsb25nX2Rlc2NyaXB0aW9uX2Rpc3BsYXkiOlsiMS8xNDR0aCBXV0lJIGFpciBjb21iYXQuIDE5NDIgYWlyIHdhcmZhcmUgb3ZlciB0aGUgZGVzZXJ0LiBIYXZlIGZ1biBpbiBhIHNlY29uZGFyeSB0aGVhdHJlIG9mIHdhci4gVGhlIGdvb2Qgc3R1ZmYgaXMgaW4gRXVyb3BlLiJdLAogICAgICAgICJzY29yZSI6OS40ODIwNzk1fSwKICAgICAgewogICAgICAgICJ5ZWFyX2Rpc3BsYXkiOlsiMTk5NyJdLAogICAgICAgICJ0aXRsZV9kaXNwbGF5IjpbIk9uIHRvIFRvYnJ1aywgTi4gQWZyaWNhIDE5NDIiXSwKICAgICAgICAibG9uZ19kZXNjcmlwdGlvbl9kaXNwbGF5IjpbIlRoZSBmYW1lZCBCcml0aXNoIERlc2VydCBSYXRzIHRhY2tsZSB0aGUgdmF1bnRlZCBBZnJpa2EgS29ycHMuIEluIHRoZSBncml0dHkgaGVhdCBvZiBkZXNlcnQgYmF0dGxlLCB3aG8gd2lsbCBzZWN1cmUgYW5kIHdobyB3aWxsIGxvc2UgdGhlaXIgcmVwdXRhdGlvbj8iXSwKICAgICAgICAiaWQiOiIxOTk3LTI3MDA5MSIsCiAgICAgICAgInNjb3JlIjo4LjcwNTUzNn1dCiAgfSwKICAiZmFjZXRfY291bnRzIjp7CiAgICAiZmFjZXRfcXVlcmllcyI6e30sCiAgICAiZmFjZXRfZmllbGRzIjp7CiAgICAgICJ5ZWFyX2ZhY2V0IjpbCiAgICAgICAgIjE5NzkiLDEsCiAgICAgICAgIjE5OTYiLDEsCiAgICAgICAgIjE5OTciLDEsCiAgICAgICAgIjIwMDUiLDIsCiAgICAgICAgIjIwMTAiLDFdLAogICAgICAiZ3JvdXBfZmFjZXQiOlsKICAgICAgICAiMTkgJiBPbmUgYW5kIEJvYXJkcm9vbSBHYW1lcyIsMiwKICAgICAgICAiR0VOQ09OIiwxXSwKICAgICAgImV2ZW50X3R5cGVfZmFjZXQiOlsKICAgICAgICAiSE0gLSBIaXN0b3JpY2FsIE1pbmlhdHVyZXMiLDIsCiAgICAgICAgIkhJU1RPUklDQUwgTUlOSUFUVVJFUyIsMSwKICAgICAgICAiSE1OIC0gSGlzdG9yaWNhbCBNaW5pYXR1cmVzIiwxXSwKICAgICAgImdhbWVfc3lzdGVtX2ZhY2V0IjpbCiAgICAgICAgIkJsdWUgTWF4IiwyLAogICAgICAgICJKQUdEUEFOWkVSIiwxLAogICAgICAgICLigJxST01NRUwgUlVMRVMhIiwxXX0sCiAgICAiZmFjZXRfcmFuZ2VzIjp7fSwKICAgICJmYWNldF9pbnRlcnZhbHMiOnt9LAogICAgImZhY2V0X2hlYXRtYXBzIjp7fX0sCiAgInNwZWxsY2hlY2siOnsKICAgICJzdWdnZXN0aW9ucyI6W10sCiAgICAiY29ycmVjdGx5U3BlbGxlZCI6dHJ1ZX19Cg==
+      encoding: UTF-8
+      string: |
+        {
+          "responseHeader":{
+            "zkConnected":true,
+            "status":0,
+            "QTime":1,
+            "params":{
+              "f.event_type_facet.facet.limit":"-1",
+              "f.group_facet.facet.sort":"count",
+              "facet.field":["year_facet",
+                "group_facet",
+                "event_type_facet",
+                "game_system_facet"],
+              "f.group_facet.facet.mincount":"1",
+              "fl":"id,\n           score,\n           year_display,\n           title_display,\n           short_description_display,\n           long_description_display",
+              "f.group_facet.facet.limit":"-1",
+              "f.game_system_facet.facet.limit":"-1",
+              "f.year_facet.facet.limit":"-1",
+              "sort":"score desc, year_sort desc, title_sort asc",
+              "rows":"10",
+              "f.event_type_facet.facet.sort":"count",
+              "f.event_type_facet.facet.mincount":"1",
+              "f.year_facet.facet.mincount":"1",
+              "q":"bunny",
+              "f.game_system_facet.facet.sort":"count",
+              "f.game_system_facet.facet.mincount":"1",
+              "qf":"title_t",
+              "pf":"title_t",
+              "facet":"true",
+              "wt":"json",
+              "f.year_facet.facet.sort":"index"}},
+          "response":{"numFound":6,"start":0,"maxScore":7.083096,"docs":[
+              {
+                "year_display":["2012"],
+                "id":"2012-ANI1239205",
+                "title_display":["Tiger & Bunny (Episodes 1-4)"],
+                "short_description_display":["Sternbild City is home to people called Next, who use their special abilities to protect the people as superheroes so they can acquire hero points. Their activities are shown the show Hero TV."],
+                "score":7.083096},
+              {
+                "year_display":["2012"],
+                "id":"2012-ANI1239198",
+                "title_display":["bunny drop (Episodes 1-4)"],
+                "short_description_display":["After his grandfather dies, Daikichi is floored to discover the old man had an illegitimate child with a younger lover. Daikichi decides to take the child in himself, when the family shuns her."],
+                "score":7.083096},
+              {
+                "year_display":["2002"],
+                "id":"2002-8605",
+                "title_display":["I Double Dare Ya! (a Bunny Adventure)"],
+                "score":5.9876494},
+              {
+                "year_display":["2002"],
+                "id":"2002-1097",
+                "title_display":["Life-Size Devil Bunny Needs a Ham"],
+                "score":5.9876494},
+              {
+                "year_display":["2002"],
+                "id":"2002-1098",
+                "title_display":["Life-Size Devil Bunny Needs a Ham"],
+                "score":5.9876494},
+              {
+                "year_display":["2002"],
+                "id":"2002-1099",
+                "title_display":["Life-Size Devil Bunny Needs a Ham"],
+                "score":5.9876494}]
+          },
+          "facet_counts":{
+            "facet_queries":{},
+            "facet_fields":{
+              "year_facet":[
+                "2002",4,
+                "2012",2],
+              "group_facet":[
+                "Cheapass Games",3,
+                "Grey Ghost Press Inc.",1,
+                "NIS America",1,
+                "Viz Media",1],
+              "event_type_facet":[
+                "BG",3,
+                "ANI - Anime Activities",2,
+                "RP",1],
+              "game_system_facet":[
+                "Cheapass Games, Life-Size Devil Bunny Needs a Ham",3,
+                "Fudge, I Double Dare Ya!\" (a Bunny Adventure)",1]},
+            "facet_ranges":{},
+            "facet_intervals":{},
+            "facet_heatmaps":{}},
+          "spellcheck":{
+            "suggestions":[],
+            "correctlySpelled":true}}
     http_version: null
-  recorded_at: Tue, 14 Apr 2020 18:49:14 GMT
+  recorded_at: Mon, 13 Jul 2020 15:14:01 GMT
 recorded_with: VCR 5.1.0

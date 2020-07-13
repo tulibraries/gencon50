@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:8090/solr/gencon50-1.0/get?fl=*&ids=2002-8084&q=%7B!term%20f=id%20v=$id%7D&qt=document&rows=1&wt=json
+    uri: http://localhost:8090/solr/gencon50-1.0.0/get?fl=*&ids=2002-8084&q=%7B!term%20f=id%20v=$id%7D&qt=document&rows=1&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Last-Modified:
-      - Tue, 14 Apr 2020 19:41:18 GMT
+      - Mon, 13 Jul 2020 15:04:31 GMT
       Etag:
-      - '"YjU2MDAwMDAwMDAwMDAwMFNvbHI="'
+      - '"MTM0MDAwMDAwMDAwMDAwMFNvbHI="'
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -61,10 +61,10 @@ http_interactions:
                 "group_display":["Hogshead Publishing Limited"],
                 "group_facet":["Hogshead Publishing Limited"],
                 "group_t":["Hogshead Publishing Limited"],
-                "_version_":1663978204205940737,
-                "year":"2020-04-14T19:41:16.401Z",
-                "timestamp":"2020-04-14T19:41:16.401Z"}]
+                "_version_":1672114494611914752,
+                "year":"2020-07-13T15:04:07.596Z",
+                "timestamp":"2020-07-13T15:04:07.596Z"}]
           }}
     http_version: null
-  recorded_at: Tue, 14 Apr 2020 19:50:14 GMT
+  recorded_at: Mon, 13 Jul 2020 15:14:08 GMT
 recorded_with: VCR 5.1.0

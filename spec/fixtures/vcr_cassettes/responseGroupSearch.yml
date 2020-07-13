@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:8090/solr/gencon50-1.0/select?f.event_type_facet.facet.mincount=1&f.game_system_facet.facet.mincount=1&f.group_facet.facet.mincount=1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&pf=group_t&q=smith&qf=group_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
+    uri: http://localhost:8090/solr/gencon50-1.0.0/select?f.event_type_facet.facet.limit=-1&f.event_type_facet.facet.mincount=1&f.event_type_facet.facet.sort=count&f.game_system_facet.facet.limit=-1&f.game_system_facet.facet.mincount=1&f.game_system_facet.facet.sort=count&f.group_facet.facet.limit=-1&f.group_facet.facet.mincount=1&f.group_facet.facet.sort=count&f.year_facet.facet.limit=-1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&pf=group_t&q=smith&qf=group_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -19,13 +19,13 @@ http_interactions:
       message: OK
     headers:
       Last-Modified:
-      - Tue, 14 Apr 2020 19:41:18 GMT
+      - Mon, 13 Jul 2020 15:04:31 GMT
       Etag:
-      - '"YjU2MDAwMDAwMDAwMDAwMFNvbHI="'
+      - '"MTM0MDAwMDAwMDAwMDAwMFNvbHI="'
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '2080'
+      - '2387'
     body:
       encoding: UTF-8
       string: |
@@ -35,17 +35,24 @@ http_interactions:
             "status":0,
             "QTime":1,
             "params":{
+              "f.event_type_facet.facet.limit":"-1",
+              "f.group_facet.facet.sort":"count",
               "facet.field":["year_facet",
                 "group_facet",
                 "event_type_facet",
                 "game_system_facet"],
               "f.group_facet.facet.mincount":"1",
               "fl":"id,\n           score,\n           year_display,\n           title_display,\n           short_description_display,\n           long_description_display",
+              "f.group_facet.facet.limit":"-1",
+              "f.game_system_facet.facet.limit":"-1",
+              "f.year_facet.facet.limit":"-1",
               "sort":"score desc, year_sort desc, title_sort asc",
               "rows":"10",
+              "f.event_type_facet.facet.sort":"count",
               "f.event_type_facet.facet.mincount":"1",
               "f.year_facet.facet.mincount":"1",
               "q":"smith",
+              "f.game_system_facet.facet.sort":"count",
               "f.game_system_facet.facet.mincount":"1",
               "qf":"group_t",
               "pf":"group_t",
@@ -92,5 +99,5 @@ http_interactions:
             "suggestions":[],
             "correctlySpelled":true}}
     http_version: null
-  recorded_at: Tue, 14 Apr 2020 19:50:14 GMT
+  recorded_at: Mon, 13 Jul 2020 15:14:08 GMT
 recorded_with: VCR 5.1.0

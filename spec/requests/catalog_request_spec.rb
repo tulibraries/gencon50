@@ -76,7 +76,7 @@ RSpec.describe "Catalogs", type: :request do
         response.body
       }
 
-      it { is_expected.to include("2012-BGM1237524") }
+      it { is_expected.to include("2012-BGM1237526") }
       it { is_expected.to include("2002-9036") }
     end
 

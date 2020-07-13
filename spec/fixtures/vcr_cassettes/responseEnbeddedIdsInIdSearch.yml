@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:8090/solr/gencon50-1.0/get?fl=*&ids=2001-2135%202136%202137%202138&q=%7B!term%20f=id%20v=$id%7D&qt=document&rows=1&wt=json
+    uri: http://localhost:8090/solr/gencon50-1.0.0/get?fl=*&ids=2001-2135%202136%202137%202138&q=%7B!term%20f=id%20v=$id%7D&qt=document&rows=1&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Last-Modified:
-      - Tue, 14 Apr 2020 19:41:18 GMT
+      - Mon, 13 Jul 2020 15:04:31 GMT
       Etag:
-      - '"YjU2MDAwMDAwMDAwMDAwMFNvbHI="'
+      - '"MTM0MDAwMDAwMDAwMDAwMFNvbHI="'
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -54,10 +54,10 @@ http_interactions:
                 "start_date_time_t":["Th 1 PM. Fr Noon Sa Noon Su Noon"],
                 "game_id_display":["2001-2135 2136 2137 2138"],
                 "id":"2001-2135 2136 2137 2138",
-                "_version_":1663978198405218306,
-                "year":"2020-04-14T19:41:10.866Z",
-                "timestamp":"2020-04-14T19:41:10.866Z"}]
+                "_version_":1672114423476518912,
+                "year":"2020-07-13T15:02:59.744Z",
+                "timestamp":"2020-07-13T15:02:59.744Z"}]
           }}
     http_version: null
-  recorded_at: Tue, 14 Apr 2020 19:50:15 GMT
+  recorded_at: Mon, 13 Jul 2020 15:14:09 GMT
 recorded_with: VCR 5.1.0
