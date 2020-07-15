@@ -45,7 +45,7 @@ Configure dotenv to use SolrWrapper
 
 Ensure .env contains
 
-    SOLR_URL="http://localhost:8090/solr/gencon50-1.0"
+    SOLR_URL="http://localhost:8090/solr/gencon50-1.0.0"
 
 Solr may be run with Solr_Wrapper or SolrCloud (preferred).
 

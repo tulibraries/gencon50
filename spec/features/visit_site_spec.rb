@@ -19,29 +19,29 @@ RSpec.feature "VisitSites", type: :feature do
       VCR.use_cassette("defaultSearch", record: :none) do
         visit('/?utf8=%E2%9C%93&search_field=all_fields&q=')
       end
-      expect(page).to have_text('160,391')
-      expect(page).to have_text('2017-RPG17108625')
-      expect(page).to have_text('2017-ANI17123255')
+      expect(page).to have_text('14,425')
+      expect(page).to have_text('2012-HMN1230463')
+      expect(page).to have_text('2012-HMN1230462')
     end
 
     it "searches the title field" do
       VCR.use_cassette("titleSearch", record: :none) do
-        visit('/?utf8=%E2%9C%93&search_field=title&q=tobruk')
+        visit('/?utf8=%E2%9C%93&search_field=title&q=bunny')
       end
       expect(page).to have_text('1 - 6 of 6')
-      expect(page).to have_text('1979-12')
-      expect(page).to have_text('2005-HM00052')
-      expect(page).to have_text('1996-270002')
-      expect(page).to have_text('2010-HMN1014177')
-      expect(page).to have_text('2005-HM00053')
-      expect(page).to have_text('1997-270091')
+      expect(page).to have_text('2012-ANI1239205')
+      expect(page).to have_text('2012-ANI1239198')
+      expect(page).to have_text('2002-8605')
+      expect(page).to have_text('2002-1097')
+      expect(page).to have_text('2002-1098')
+      expect(page).to have_text('2002-1099')
     end
 
     it "searches text with facets " do
       VCR.use_cassette("facetAllFieldsSearch", record: :none) do
-        visit('/?f%5Byear_facet%5D%5B%5D=2010&q=strat-o-matic+hockey&search_field=all_fields')
+        visit('/?f%5Byear_facet%5D%5B%5D=2012&q=strat-o-matic+hockey&search_field=all_fields')
       end
-      expect(page).to have_text('2010-BGM1011250')
+      expect(page).to have_text('2012-BGM1234347')
     end
   end
 end

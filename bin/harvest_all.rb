@@ -5,7 +5,7 @@ require 'dotenv/load'
 Dotenv.load
 
 files = Dir["csv/*.csv"]
-files.each do |fn|
+files.sort.each do |fn|
   fp = File.expand_path(fn)
   puts "process #{fp}"
   command = [
