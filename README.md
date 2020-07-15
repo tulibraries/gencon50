@@ -108,4 +108,13 @@ Execute your specs with:
 
     bundle exec rspec spec
 
-## Deployment instructions
+## CI/CD
+
+Each branch and each PR merge will trigger a build on CircleCI that will run all tests.
+
+### QA Deploy
+Merges to `main` trigger a deploy to qa.
+
+### Prod Deploy
+Creating a release triggers a deploy to production.
+
