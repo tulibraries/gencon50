@@ -8,6 +8,7 @@ require "securerandom"
 require "active_support/core_ext/string"
 require "ruby-progressbar"
 require "uri"
+require "logger"
 
 module HarvestCSV
   def self.csv_to_solr(csv_hash, schema_map)
@@ -41,12 +42,13 @@ module HarvestCSV
                    map_source = "solr_map.yml",
                    solr_endpoint = ENV["SOLR_URL"],
                    batch_size = 100)
+    logger = Logger.new(STDOUT)
     logger.info("Batch size = #{batch_size}")
     schema_map = YAML.load_file(map_source)
     batch_thread = []
 
     # Use compatible encoding
-    csv_encoding = `file -b --mime-encoding #{csv_source}`.rstrip
+    csv_encoding = File.read(csv_source).encoding.to_s
 
     csv = CSV.read(csv_source, headers: true, encoding: "utf-8")
 
