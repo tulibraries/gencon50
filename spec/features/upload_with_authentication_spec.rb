@@ -1,4 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.feature "UploadWithAuthentications", type: :feature do
   before(:all) do
@@ -16,7 +18,7 @@ RSpec.feature "UploadWithAuthentications", type: :feature do
       visit("/upload")
       expect(page).to_not have_xpath("//body[contains(., 'New Upload')]")
       expect(page).to have_xpath("//main[contains(., 'Log in')]")
-      
+
       fill_in("Email", with: @email)
       fill_in("Password", with: @password)
       click_button("Log in")
