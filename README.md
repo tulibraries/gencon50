@@ -8,8 +8,7 @@ date: 2020-04-14
 
 ## System Requirements
 
-- ruby 2.7.2
-- postgres >= 9.5
+Requires Ruby 2.7.2
 
 This Blacklight instance requires SolrCloud. A local version of SolrCloud may be run
 by using the TULibraries Ansible SolrCloud Playbook:
