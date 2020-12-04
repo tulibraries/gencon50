@@ -1,11 +1,13 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 require "net/http"
 require "webmock/rspec"
 require "vcr"
 
 RSpec.describe "Catalogs", type: :request do
 
-  let(:doc_id) { '2007020969' }
+  let(:doc_id) { "2007020969" }
   let(:mock_response) { instance_double(Blacklight::Solr::Response) }
   let(:mock_document) { instance_double(SolrDocument, export_formats: {}) }
   let(:search_service) { instance_double(Blacklight::SearchService) }
