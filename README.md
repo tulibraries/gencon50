@@ -6,7 +6,9 @@ date: 2020-04-14
 
 # Blacklight Instance for The Best 50 Years in Gaming site (Version 2)
 
-## Prerequisite
+## System Requirements
+
+Requires Ruby 2.7.2
 
 This Blacklight instance requires SolrCloud. A local version of SolrCloud may be run
 by using the TULibraries Ansible SolrCloud Playbook:
