@@ -37,7 +37,7 @@ jobs:
           command: |
             sudo gem update --system
             sudo gem install -f bundler --version "$BUNDLER_VERSION"
-            sudo apt-get update
+            sudo apt-get --allow-releaseinfo-change update
             sudo bundle install
             sudo bundle exec rubocop
             sudo bundle exec brakeman --no-pager
