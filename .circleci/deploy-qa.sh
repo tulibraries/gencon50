@@ -5,6 +5,7 @@ cd ..
 # clone deployment playbook
 git clone --single-branch --branch qa git@github.com:tulibraries/ansible-playbook-gencon50.git
 cd ansible-playbook-gencon50
+git checkout fix_deprecated_rails_role_bundle_flags
 # install playbook requirements
 sudo pip install pipenv
 # install playbook requirements
