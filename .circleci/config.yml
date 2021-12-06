@@ -23,11 +23,11 @@ workflows:
 jobs:
   run_tests:
     docker:
-      - image: circleci/ruby:2.7.2-node
+      - image: cimg/ruby:2.7.5-node
         environment:
           TZ: "America/New_York"
 
-      - image: circleci/postgres:11-alpine
+      - image: cimg/postgres:11.12
         environment:
           TZ: "America/New_York"
           BUNDLER_VERSION: "2.0.1"
@@ -46,7 +46,7 @@ jobs:
 
   prod_deploy:
     docker:
-      - image: circleci/python:3.6.6
+      - image: cimg/python:3.7.11
         environment:
           PIPENV_VENV_IN_PROJECT: true
     steps:
@@ -60,7 +60,7 @@ jobs:
 
   qa_deploy:
     docker:
-      - image: circleci/python:3.6.6
+      - image: cimg/python:3.7.11
         environment:
           PIPENV_VENV_IN_PROJECT: true
     steps:
