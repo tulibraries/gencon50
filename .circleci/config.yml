@@ -40,7 +40,7 @@ jobs:
             sudo apt-get --allow-releaseinfo-change update
             sudo bundle install
             sudo bundle exec rubocop
-            sudo bundle exec brakeman --no-pager
+            sudo bundle exec brakeman --no-pager --no-threads
             RAILS_ENV=test sudo bundle exec rake db:setup
             sudo bundle exec rspec spec
 
