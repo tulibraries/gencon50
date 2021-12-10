@@ -38,6 +38,7 @@ jobs:
             sudo gem update --system
             sudo gem install -f bundler --version "$BUNDLER_VERSION"
             sudo apt-get --allow-releaseinfo-change update
+            sudo apt-get install sqlite3 libsqlite3-dev
             sudo bundle install
             sudo bundle exec rubocop
             sudo bundle exec brakeman --no-pager
