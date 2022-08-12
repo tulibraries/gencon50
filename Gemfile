@@ -67,7 +67,7 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Blacklight
-gem "blacklight", "~> 7.7"
+gem "blacklight", "~> 7.29"
 
 group :development, :test do
   gem "solr_wrapper", ">= 0.3"
@@ -84,6 +84,5 @@ gem "jquery-rails"
 gem "carrierwave", "2.1.1"
 gem "devise", "~> 4.7", ">= 4.7.1"
 gem "devise-guests"
-#gem "blimp", github: "tulibraries/blimp"
-gem "blimp", path: "vendor/blimp"
+gem "blimp", github: "tulibraries/blimp"
 gem "dotenv-rails"
