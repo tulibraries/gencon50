@@ -23,14 +23,14 @@ workflows:
 jobs:
   run_tests:
     docker:
-      - image: cimg/ruby:2.7.2-node
+      - image: cimg/ruby:2.7.6-node
         environment:
           TZ: "America/New_York"
 
       - image: cimg/postgres:11.12
         environment:
           TZ: "America/New_York"
-          BUNDLER_VERSION: "2.0.1"
+          BUNDLER_VERSION: "2.2.33"
     steps:
       - checkout
       - run:
