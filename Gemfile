@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.7.6"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 5.2.8.1"
+gem "rails", "~> 6.1.7"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3"
 # Use Puma as the app server
@@ -83,7 +83,7 @@ gem "jquery-rails"
 gem "carrierwave", "~> 2.1.1"
 gem "devise", "~> 4.7", ">= 4.7.1"
 gem "devise-guests"
-gem "blimp", github: "tulibraries/blimp"
+gem "blimp", github: "tulibraries/blimp", branch: "GM-18-Update_rails_to_supported_version"
 gem "dotenv-rails"
 gem "nokogiri", "1.13.9"
 gem "image_processing", "1.12.2"
