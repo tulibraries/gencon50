@@ -70,6 +70,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "blacklight", "~> 7.31"
 
 group :development, :test do
+  gem "solr_wrapper", ">= 4.0.2"
   gem "webmock"
   gem "pry"
   gem "rubocop", require: false
@@ -83,7 +84,7 @@ gem "jquery-rails"
 gem "carrierwave", "~> 2.1.1"
 gem "devise", "~> 4.7", ">= 4.7.1"
 gem "devise-guests"
-gem "blimp", github: "tulibraries/blimp", branch: "GM-18-Update_rails_to_supported_version"
+gem "blimp", github: "tulibraries/blimp"
 gem "dotenv-rails"
 gem "nokogiri", "1.13.9"
 gem "image_processing", "1.12.2"

@@ -1,7 +1,6 @@
 GIT
   remote: https://github.com/tulibraries/blimp.git
-  revision: e7232a2d807eddff166696ecd74f0687dd216ff2
-  branch: GM-18-Update_rails_to_supported_version
+  revision: db23046c59d5c6fc11a6f0c0e16ea807c74c4091
   specs:
     blimp (0.3.5)
       carrierwave (= 2.1.1)
@@ -142,6 +141,8 @@ GEM
     devise-guests (0.8.1)
       devise
     diff-lcs (1.5.0)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -153,9 +154,20 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.1)
     ffi (1.15.5)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashdiff (1.0.1)
+    http (5.1.0)
+      addressable (~> 2.8)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      llhttp-ffi (~> 0.4.0)
+    http-cookie (1.0.5)
+      domain_name (~> 0.5)
+    http-form_data (2.3.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -186,6 +198,9 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
+    llhttp-ffi (0.4.0)
+      ffi-compiler (~> 1.0)
+      rake (~> 13.0)
     loofah (2.19.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -199,6 +214,7 @@ GEM
       rake
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    minitar (0.9)
     minitest (5.16.3)
     msgpack (1.6.0)
     nio4r (2.5.8)
@@ -255,6 +271,7 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    retriable (3.1.2)
     rexml (3.2.5)
     rsolr (2.5.0)
       builder (>= 2.1.2)
@@ -322,6 +339,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    solr_wrapper (4.0.2)
+      http
+      minitar
+      retriable
+      ruby-progressbar
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -348,6 +370,9 @@ GEM
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8.2)
     unicode-display_width (2.3.0)
     vcr (6.1.0)
     view_component (2.74.1)
@@ -404,6 +429,7 @@ DEPENDENCIES
   rubocop-rails
   sass-rails (~> 5.0)
   selenium-webdriver
+  solr_wrapper (>= 4.0.2)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
