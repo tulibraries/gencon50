@@ -3,14 +3,14 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.2"
+ruby "2.7.6"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 5.2.4", ">= 5.2.4.3"
+gem "rails", "~> 6.1.7"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3"
 # Use Puma as the app server
-gem "puma", "~> 4.3"
+gem "puma", "~> 4.3.12"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
 # Use Uglifier as compressor for JavaScript assets
@@ -55,10 +55,8 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem "capybara", ">= 2.15"
-  gem "selenium-webdriver"
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem "chromedriver-helper"
+  gem "capybara", ">= 3.36"
+  gem "rspec"
   gem "rspec-rails"
   gem "vcr"
 end
@@ -67,10 +65,10 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Blacklight
-gem "blacklight", "~> 7.7"
+gem "blacklight", "~> 7.31"
 
 group :development, :test do
-  gem "solr_wrapper", ">= 0.3"
+  gem "solr_wrapper", ">= 4.0.2"
   gem "webmock"
   gem "pry"
   gem "rubocop", require: false
@@ -81,8 +79,10 @@ gem "rsolr", ">= 1.0", "< 3"
 gem "bootstrap", "~> 4.0"
 gem "twitter-typeahead-rails", "0.11.1.pre.corejavascript"
 gem "jquery-rails"
-gem "carrierwave", "2.1.0"
+gem "carrierwave", "~> 2.1.1"
 gem "devise", "~> 4.7", ">= 4.7.1"
 gem "devise-guests"
 gem "blimp", github: "tulibraries/blimp"
 gem "dotenv-rails"
+gem "nokogiri", "1.13.9"
+gem "image_processing", "1.12.2"
