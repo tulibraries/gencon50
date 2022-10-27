@@ -71,8 +71,6 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
-    archive-zip (0.12.0)
-      io-like (~> 0.3.0)
     ast (2.4.2)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
@@ -114,10 +112,6 @@ GEM
       mimemagic (>= 0.3.0)
       mini_mime (>= 0.1.3)
       ssrf_filter (~> 1.0)
-    childprocess (4.1.0)
-    chromedriver-helper (2.1.1)
-      archive-zip (~> 0.10)
-      nokogiri (~> 1.8)
     coderay (1.1.3)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -173,7 +167,6 @@ GEM
     image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
-    io-like (0.3.1)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -276,6 +269,10 @@ GEM
     rsolr (2.5.0)
       builder (>= 2.1.2)
       faraday (>= 0.9, < 3, != 2.0.0)
+    rspec (3.12.0)
+      rspec-core (~> 3.12.0)
+      rspec-expectations (~> 3.12.0)
+      rspec-mocks (~> 3.12.0)
     rspec-core (3.12.0)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.0)
@@ -314,7 +311,6 @@ GEM
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     ruby_dep (1.5.0)
-    rubyzip (2.3.2)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -334,11 +330,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.5.0)
-      childprocess (>= 0.5, < 5.0)
-      rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2, < 3.0)
-      websocket (~> 1.0)
     solr_wrapper (4.0.2)
       http
       minitar
@@ -390,7 +381,6 @@ GEM
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -408,9 +398,8 @@ DEPENDENCIES
   bootstrap (~> 4.0)
   brakeman
   byebug
-  capybara (>= 3.37.1)
+  capybara (>= 3.36)
   carrierwave (~> 2.1.1)
-  chromedriver-helper
   coffee-rails (~> 4.2)
   devise (~> 4.7, >= 4.7.1)
   devise-guests
@@ -424,11 +413,11 @@ DEPENDENCIES
   puma (~> 4.3.12)
   rails (~> 6.1.7)
   rsolr (>= 1.0, < 3)
+  rspec
   rspec-rails
   rubocop
   rubocop-rails
   sass-rails (~> 5.0)
-  selenium-webdriver
   solr_wrapper (>= 4.0.2)
   spring
   spring-watcher-listen (~> 2.0.0)
