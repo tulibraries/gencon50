@@ -408,7 +408,7 @@ DEPENDENCIES
   bootstrap (~> 4.0)
   brakeman
   byebug
-  capybara (>= 2.15)
+  capybara (>= 3.37.1)
   carrierwave (~> 2.1.1)
   chromedriver-helper
   coffee-rails (~> 4.2)
