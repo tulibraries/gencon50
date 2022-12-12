@@ -207,10 +207,14 @@ GEM
       rake
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.0)
     minitar (0.9)
     minitest (5.16.3)
     msgpack (1.6.0)
     nio4r (2.5.8)
+    nokogiri (1.13.9)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -346,6 +350,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.5.3)
+      mini_portile2 (~> 2.8.0)
     sqlite3 (1.5.3-x86_64-linux)
     ssrf_filter (1.1.1)
     thor (1.2.1)
@@ -389,6 +395,7 @@ GEM
     zeitwerk (2.6.3)
 
 PLATFORMS
+  ruby
   x86_64-linux
   x86_64-linux-musl
 
@@ -432,7 +439,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 2.7.5p203
+   ruby 2.7.7p221
 
 BUNDLED WITH
    2.3.24
