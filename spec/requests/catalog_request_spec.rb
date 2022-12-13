@@ -84,7 +84,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "summary in all fields" do
       subject {
-        search_text = URI::encode("Afrika Korps attacks US II Corps in 10th Annual Family Team Event")
+        search_text = Addressable::URI.encode("Afrika Korps attacks US II Corps in 10th Annual Family Team Event")
         VCR.use_cassette("responseSummaryInAllFields", record: :none) do
           get "?search_field=all_fields&q=#{search_text}"
         end
@@ -128,7 +128,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Long Description Search" do
       subject {
-        search_text = URI::encode("Imperial Japan invades Midway in three huge connected Air-Sea & Land Miniatures Battles")
+        search_text = Addressable::URI.encode("Imperial Japan invades Midway in three huge connected Air-Sea & Land Miniatures Battles")
         VCR.use_cassette("responseLongDescriptionSearch", record: :none) do
           get "?search_field=all_fields&q=" + search_text
         end

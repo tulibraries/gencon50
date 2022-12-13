@@ -101,7 +101,7 @@ end
 if ENV["LOADSOLR"] == "y"
   RSpec.configure do |config|
     config.before(:suite) do
-      Dir["#{::Rails.root}/spec/fixtures/*.csv"].each do |fn|
+      Dir[Rails.root.join("spec/fixtures/*.csv")].each do |fn|
         fp = File.expand_path(fn)
         command = [
           "bundle",
@@ -109,7 +109,7 @@ if ENV["LOADSOLR"] == "y"
           "bin/csv2solr",
           "harvest",
           "'#{fp}'",
-          "--mapfile=#{::Rails.root}/config/solr_map.yml",
+          "--mapfile=#{Rails.root.join('/config/solr_map.yml')}",
           "--solr-url=#{ENV['SOLR_URL']}"].join(" ")
         puts command
         `#{command}`
