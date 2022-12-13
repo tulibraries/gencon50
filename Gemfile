@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.5"
+ruby "2.7.7"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 6.1.7"
@@ -84,5 +84,5 @@ gem "devise", "~> 4.7", ">= 4.7.1"
 gem "devise-guests"
 gem "blimp", github: "tulibraries/blimp"
 gem "dotenv-rails"
-gem "nokogiri", "1.13.9"
+gem "nokogiri", "1.13.10"
 gem "image_processing", "1.12.2"
