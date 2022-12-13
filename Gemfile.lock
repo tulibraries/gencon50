@@ -223,7 +223,9 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.13.9-x86_64-darwin)
+    nokogiri (1.13.10-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     ostruct (0.5.5)
@@ -358,6 +360,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.5.4-x86_64-darwin)
+    sqlite3 (1.5.4-x86_64-linux)
     ssrf_filter (1.1.1)
     thor (1.2.1)
     tilt (2.0.11)
@@ -402,6 +405,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux-musl
 
 DEPENDENCIES
   blacklight (~> 7.31)
@@ -420,7 +424,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
-  nokogiri (= 1.13.9)
+  nokogiri (= 1.13.10)
   pry
   puma (~> 4.3.12)
   rails (~> 6.1.7)
