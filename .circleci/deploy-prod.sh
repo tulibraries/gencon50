@@ -11,7 +11,7 @@ pipenv install
 pipenv run ansible-galaxy install -r requirements.yml
 
 # setup vault password retrieval from travis envvar
-echo $ANSIBLE_PLAYBOOK_PASSWORD > ~/.vault
+echo $ANSIBLE_VAULT_PASSWORD > ~/.vault
 #chmod +x ~/.vault
 
 # deploy to qa using ansible-playbook
