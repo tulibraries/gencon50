@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.7"
+ruby "3.1.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 6.1.7"
@@ -65,7 +65,7 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Blacklight
-gem "blacklight", "~> 7.31"
+gem "blacklight", "~> 7.33.0"
 
 group :development, :test do
   gem "solr_wrapper", ">= 4.0.2"
