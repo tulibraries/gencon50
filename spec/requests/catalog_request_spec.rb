@@ -13,7 +13,6 @@ RSpec.describe "Catalogs", type: :request do
   let(:search_service) { instance_double(Blacklight::SearchService) }
 
   context "default index" do
-    skip "GC-29 Workaround" do
     before(:all) do
       VCR.configure do |config|
         config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
@@ -50,11 +49,9 @@ RSpec.describe "Catalogs", type: :request do
       it { is_expected.to include("Midway Mahem") }
       it { is_expected.to include("WWII 1942 - 70th Anniversary") }
     end
-    end
   end
 
   context "catalog record page" do
-    skip "GC-29 Workaround" do
     subject {
       VCR.use_cassette("responseCatalogRecordPage", record: :none) do
         get "/catalog/2002-8084"
@@ -70,11 +67,9 @@ RSpec.describe "Catalogs", type: :request do
     it { is_expected.to include("Warhammer Fantasy Roleplaying, A Grimm World of Perilous Adventure") }
     it { is_expected.to include("225") }
     it { is_expected.to include("S-1") }
-    end
   end
 
   context "search" do
-    skip "GC-29 Workaround" do
     describe "all fields" do
       subject {
         VCR.use_cassette("responseSearchAllFields", record: :none) do
@@ -175,11 +170,9 @@ RSpec.describe "Catalogs", type: :request do
 
       it { is_expected.to include("2012-RPG1237794") }
     end
-    end
   end
 
   context "facet" do
-    skip "GC-29 Workaround" do
     describe "Year Facet Search" do
       subject {
         VCR.use_cassette("responseYearFacetSearch", record: :none) do
@@ -223,11 +216,9 @@ RSpec.describe "Catalogs", type: :request do
 
       it { is_expected.to include("79") }
     end
-    end
   end
 
   context "Embedded ID's in ID" do
-    skip "GC-29 Workaround" do
     subject {
       VCR.use_cassette("responseEnbeddedIdsInIdSearch", record: :none) do
         get "/catalog/2001-2135%202136%202137%202138"
@@ -237,6 +228,5 @@ RSpec.describe "Catalogs", type: :request do
 
     it { is_expected.to include("Pokemon") }
     it { is_expected.to include("2001-2135 2136 2137 2138") }
-    end
   end
 end
