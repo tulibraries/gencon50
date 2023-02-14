@@ -108,12 +108,12 @@ class CatalogController < ApplicationController
     config.add_facet_field "year_facet", label: "Year", sort: "index", limit: -1, solr_params: { "facet.mincount" => 1 }
     config.add_facet_field "group_facet", label: "Group", sort: "count", limit: -1, solr_params: { "facet.mincount" => 1 }
     config.add_facet_field "event_type_facet", label: "Event Type", sort: "count", limit: -1, solr_params: { "facet.mincount" => 1 }
-    #config.add_facet_field "game_system_facet", label: "Game System", sort: "count", limit: -1, solr_params: { "facet.mincount" => 1 }
+    config.add_facet_field "game_system_facet", label: "Game System", sort: "count", limit: -1, solr_params: { "facet.mincount" => 1 }
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
-    config.add_facet_fields_to_solr_request!
+    #config.add_facet_fields_to_solr_request!
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
