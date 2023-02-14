@@ -47,13 +47,15 @@ Style/HashSyntax:
 
 # Method definitions after `private` or `protected` isolated calls need one
 # extra level of indentation.
+# TMP GM-29 true => false
 Layout/IndentationConsistency:
-  Enabled: true
+  Enabled: false
   EnforcedStyle: indented_internal_methods
 
 # Two spaces, no tabs (for indentation).
+# TMP GM-29 true => false
 Layout/IndentationWidth:
-  Enabled: true
+  Enabled: false
 
 Layout/SpaceAfterColon:
   Enabled: true
