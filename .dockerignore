@@ -1,0 +1,6 @@
+tmp/db
+#vendor/*
+*.sw[p-z]
+*.tgz
+*.tar
+*.zip
