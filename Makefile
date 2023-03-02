@@ -6,7 +6,6 @@ export #exports the .env variables
 VERSION ?= $(DOCKER_IMAGE_VERSION)
 IMAGE ?= tulibraries/$(PROJECT_NAME)
 SOLR_IMAGE ?= tulibraries/tul-solr
-HARBOR ?= harbor.k8s.temple.edu
 CLEAR_CACHES ?= no
 RAILS_MASTER_KEY = $(shell cat config/master.key)
 GENCON50_DB_HOST ?= host.docker.internal
@@ -50,8 +49,8 @@ show-env:
 
 build: pull-db
 	@docker build --build-arg RAILS_MASTER_KEY=$(RAILS_MASTER_KEY) \
-		--tag $(HARBOR)/$(IMAGE):$(VERSION) \
-		--tag $(HARBOR)/$(IMAGE):latest \
+		--tag $(IMAGE):$(VERSION) \
+		--tag $(IMAGE):latest \
 		--file .docker/app/Dockerfile \
 		--no-cache .
 
@@ -63,13 +62,13 @@ up: start-network run-solr run-db run-app
 run-app:
 	@docker run --name=$(PROJECT_NAME) -d -p 127.0.0.1:3000:3000/tcp \
 		$(DEFAULT_RUN_ARGS) \
-		$(HARBOR)/$(IMAGE):$(VERSION)
+		$(IMAGE):$(VERSION)
 	@docker network connect $(DOCKER_NETWORK) $(PROJECT_NAME)
 
 run-shell:
 	@docker run --name=$(PROJECT_NAME) -it -p 127.0.0.1:3000:3000/tcp \
 		$(DEFAULT_RUN_ARGS) \
-		$(HARBOR)/$(IMAGE):$(VERSION) \
+		$(IMAGE):$(VERSION) \
 		bash -l
 	@docker network connect $(DOCKER_NETWORK) $(PROJECT_NAME)
 
@@ -144,15 +143,12 @@ lint:
 scan:
 	@if [ $(CLEAR_CACHES) == yes ]; \
 		then \
-			trivy $(HARBOR)/$(IMAGE):$(VERSION); \
+			trivy $(IMAGE):$(VERSION); \
 		fi
 	@if [ $(CI) == false ]; \
 		then \
-			trivy image $(HARBOR)/$(IMAGE):$(VERSION); \
+			trivy image $(IMAGE):$(VERSION); \
 		fi
-
-deploy:
-	echo "*** docker push to $(HARBOR) is not aavaiable"
 
 zip-solr:
 	zip -r ~/solrconfig.zip . -x ".git*" \
