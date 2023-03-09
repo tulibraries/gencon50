@@ -47,15 +47,12 @@ show-env:
 	@echo "RAILS_MASTER_KEY: $(RAILS_MASTER_KEY)"
 	@echo "BUNDLE_PATH: $(DEV_BUNDLE_PATH)"
 
-build: pull-db
+build:
 	@docker build --build-arg RAILS_MASTER_KEY=$(RAILS_MASTER_KEY) \
 		--tag $(IMAGE):$(VERSION) \
 		--tag $(IMAGE):latest \
 		--file .docker/app/Dockerfile \
 		--no-cache .
-
-pull-db:
-	@docker pull bitnami/mariadb:latest
 
 up: start-network run-solr run-db run-app
 
@@ -130,7 +127,7 @@ rm-network:
 
 rm-all: stop-app rm-solr rm-db rm-network
 
-reload: stop-app run
+reload: stop-app run-app
 
 repl: build-app reload
 
@@ -180,6 +177,8 @@ shell-dev:
 	@docker exec -it $(PROJECT_NAME)-dev bash -l
 
 reload-dev: stop-dev run-dev
+
+reload-solr: rm-solr run-solr
 
 build-cci:
 	@docker build --build-arg RAILS_MASTER_KEY=$(RAILS_MASTER_KEY) \
