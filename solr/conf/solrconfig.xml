@@ -82,9 +82,11 @@
 
        <str name="facet">true</str>
        <str name="facet.mincount">1</str>
-       <str name="facet.limit">10</str>
        <str name="facet.field">active_fedora_model_ssi</str>
-       <str name="facet.field">subject_ssim</str>
+       <str name="facet.field">year_facet</str>
+       <str name="facet.field">group_facet</str>
+       <str name="facet.field">event_type_facet</str>
+       <str name="facet.field">game_system_facet</str>
 
        <str name="spellcheck">true</str>
        <str name="spellcheck.dictionary">default</str>
