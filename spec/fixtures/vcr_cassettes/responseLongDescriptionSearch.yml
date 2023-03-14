@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:8090/solr/gencon50-1.0.0/select?f.event_type_facet.facet.limit=-1&f.event_type_facet.facet.mincount=1&f.event_type_facet.facet.sort=count&f.game_system_facet.facet.limit=-1&f.game_system_facet.facet.mincount=1&f.game_system_facet.facet.sort=count&f.group_facet.facet.limit=-1&f.group_facet.facet.mincount=1&f.group_facet.facet.sort=count&f.year_facet.facet.limit=-1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&q=Imperial%20Japan%20invades%20Midway%20in%20three%20huge%20connected%20Air-Sea%20&qf=title_t%20short_description_t%20long_description_t%20gm_names_t%20year_t%20also_runs_t%20prize_t%20group_t%20event_type_t%20game_system_t%20rules_edition_t%20age_required_t%20experience_required_t%20duration_t%20website_t%20room_name_t%20table_number_t%20special_category_t%20rules_complexity_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
+    uri: http://localhost:8090/solr/gencon50-1.0/select?f.event_type_facet.facet.limit=11&f.event_type_facet.facet.mincount=1&f.event_type_facet.facet.sort=count&f.game_system_facet.facet.limit=11&f.game_system_facet.facet.mincount=1&f.game_system_facet.facet.sort=count&f.group_facet.facet.limit=11&f.group_facet.facet.mincount=1&f.group_facet.facet.sort=count&f.year_facet.facet.limit=-1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&q=Imperial%20Japan%20invades%20Midway%20in%20three%20huge%20connected%20Air-Sea%20&qf=title_t%20short_description_t%20long_description_t%20gm_names_t%20year_t%20also_runs_t%20prize_t%20group_t%20event_type_t%20game_system_t%20rules_edition_t%20age_required_t%20experience_required_t%20duration_t%20website_t%20room_name_t%20table_number_t%20special_category_t%20rules_complexity_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v1.0.0
+      - Faraday v2.7.4
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,23 +19,22 @@ http_interactions:
       message: OK
     headers:
       Last-Modified:
-      - Mon, 13 Jul 2020 15:04:31 GMT
+      - Mon, 13 Mar 2023 22:39:17 GMT
       Etag:
-      - '"MTM0MDAwMDAwMDAwMDAwMFNvbHI="'
+      - '"MzIyMDAwMDAwMDAwMDAwMFNvbHI="'
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '2258'
+      - '2237'
     body:
       encoding: UTF-8
       string: |
         {
           "responseHeader":{
-            "zkConnected":true,
             "status":0,
-            "QTime":8,
+            "QTime":17,
             "params":{
-              "f.event_type_facet.facet.limit":"-1",
+              "f.event_type_facet.facet.limit":"11",
               "f.group_facet.facet.sort":"count",
               "facet.field":["year_facet",
                 "group_facet",
@@ -43,8 +42,8 @@ http_interactions:
                 "game_system_facet"],
               "f.group_facet.facet.mincount":"1",
               "fl":"id,\n           score,\n           year_display,\n           title_display,\n           short_description_display,\n           long_description_display",
-              "f.group_facet.facet.limit":"-1",
-              "f.game_system_facet.facet.limit":"-1",
+              "f.group_facet.facet.limit":"11",
+              "f.game_system_facet.facet.limit":"11",
               "f.year_facet.facet.limit":"-1",
               "sort":"score desc, year_sort desc, title_sort asc",
               "rows":"10",
@@ -58,13 +57,13 @@ http_interactions:
               "facet":"true",
               "wt":"json",
               "f.year_facet.facet.sort":"index"}},
-          "response":{"numFound":1,"start":0,"maxScore":55.70882,"docs":[
+          "response":{"numFound":1,"start":0,"maxScore":56.063854,"docs":[
               {
                 "year_display":["2012"],
                 "id":"2012-HMN1230465",
                 "title_display":["\"Midway Mahem \"  WWII 1942 - 70th Anniversary  "],
                 "short_description_display":["Imperial Japan invades Midway in three huge connected Air-Sea & Land Miniatures Battles. Join GM/Rules Author Pete Panzeri with hundreds of planes, troops & Navy ships. Most Feared Opponent Prizes."],
-                "score":55.70882}]
+                "score":56.063854}]
           },
           "facet_counts":{
             "facet_queries":{},
@@ -82,6 +81,5 @@ http_interactions:
           "spellcheck":{
             "suggestions":[],
             "correctlySpelled":true}}
-    http_version: null
-  recorded_at: Mon, 13 Jul 2020 15:14:08 GMT
-recorded_with: VCR 5.1.0
+  recorded_at: Mon, 13 Mar 2023 23:59:08 GMT
+recorded_with: VCR 6.1.0

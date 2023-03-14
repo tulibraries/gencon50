@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:8090/solr/gencon50-1.0.0/select?f.event_type_facet.facet.limit=-1&f.event_type_facet.facet.mincount=1&f.event_type_facet.facet.sort=count&f.game_system_facet.facet.limit=-1&f.game_system_facet.facet.mincount=1&f.game_system_facet.facet.sort=count&f.group_facet.facet.limit=-1&f.group_facet.facet.mincount=1&f.group_facet.facet.sort=count&f.year_facet.facet.limit=-1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&fq=%7B!term%20f=group_facet%7DFantasy%20Flight%20Games&qf=title_t%20short_description_t%20long_description_t%20gm_names_t%20year_t%20also_runs_t%20prize_t%20group_t%20event_type_t%20game_system_t%20rules_edition_t%20age_required_t%20experience_required_t%20duration_t%20website_t%20room_name_t%20table_number_t%20special_category_t%20rules_complexity_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
+    uri: http://localhost:8090/solr/gencon50-1.0/select?f.event_type_facet.facet.limit=11&f.event_type_facet.facet.mincount=1&f.event_type_facet.facet.sort=count&f.game_system_facet.facet.limit=11&f.game_system_facet.facet.mincount=1&f.game_system_facet.facet.sort=count&f.group_facet.facet.limit=11&f.group_facet.facet.mincount=1&f.group_facet.facet.sort=count&f.year_facet.facet.limit=-1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&fq=%7B!term%20f=group_facet%7DFantasy%20Flight%20Games&qf=title_t%20short_description_t%20long_description_t%20gm_names_t%20year_t%20also_runs_t%20prize_t%20group_t%20event_type_t%20game_system_t%20rules_edition_t%20age_required_t%20experience_required_t%20duration_t%20website_t%20room_name_t%20table_number_t%20special_category_t%20rules_complexity_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v1.0.0
+      - Faraday v2.7.4
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,23 +19,22 @@ http_interactions:
       message: OK
     headers:
       Last-Modified:
-      - Mon, 13 Jul 2020 15:04:31 GMT
+      - Mon, 13 Mar 2023 22:39:17 GMT
       Etag:
-      - '"MTM0MDAwMDAwMDAwMDAwMFNvbHI="'
+      - '"MzIyMDAwMDAwMDAwMDAwMFNvbHI="'
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '6659'
+      - '5720'
     body:
       encoding: UTF-8
       string: |
         {
           "responseHeader":{
-            "zkConnected":true,
             "status":0,
-            "QTime":1,
+            "QTime":0,
             "params":{
-              "f.event_type_facet.facet.limit":"-1",
+              "f.event_type_facet.facet.limit":"11",
               "f.group_facet.facet.sort":"count",
               "facet.field":["year_facet",
                 "group_facet",
@@ -43,8 +42,8 @@ http_interactions:
                 "game_system_facet"],
               "f.group_facet.facet.mincount":"1",
               "fl":"id,\n           score,\n           year_display,\n           title_display,\n           short_description_display,\n           long_description_display",
-              "f.group_facet.facet.limit":"-1",
-              "f.game_system_facet.facet.limit":"-1",
+              "f.group_facet.facet.limit":"11",
+              "f.game_system_facet.facet.limit":"11",
               "f.year_facet.facet.limit":"-1",
               "fq":"{!term f=group_facet}Fantasy Flight Games",
               "sort":"score desc, year_sort desc, title_sort asc",
@@ -61,20 +60,14 @@ http_interactions:
           "response":{"numFound":379,"start":0,"maxScore":1.0,"docs":[
               {
                 "year_display":["2012"],
-                "id":"2012-BGM1237645",
-                "title_display":["A Game of Thrones"],
-                "short_description_display":["Westeros bleeds in this thrilling new edition of the classic game of battle and diplomacy based on George R.R. Martin's A Song of Ice and Fire."],
-                "score":1.0},
-              {
-                "year_display":["2012"],
                 "id":"2012-BGM1237644",
                 "title_display":["A Game of Thrones"],
                 "short_description_display":["Westeros bleeds in this thrilling new edition of the classic game of battle and diplomacy based on George R.R. Martin's A Song of Ice and Fire."],
                 "score":1.0},
               {
                 "year_display":["2012"],
-                "id":"2012-BGM1231722",
-                "title_display":["A Game of Thrones: The Board Game 2nd Edition"],
+                "id":"2012-BGM1237645",
+                "title_display":["A Game of Thrones"],
                 "short_description_display":["Westeros bleeds in this thrilling new edition of the classic game of battle and diplomacy based on George R.R. Martin's A Song of Ice and Fire."],
                 "score":1.0},
               {
@@ -85,19 +78,13 @@ http_interactions:
                 "score":1.0},
               {
                 "year_display":["2012"],
-                "id":"2012-BGM1239037",
-                "title_display":["A Game of Thrones: The Board Game 2nd Edition"],
-                "short_description_display":["Westeros bleeds in this thrilling new edition of the classic game of battle and diplomacy based on George R.R. Martin's A Song of Ice and Fire."],
-                "score":1.0},
-              {
-                "year_display":["2012"],
-                "id":"2012-BGM1236879",
-                "title_display":["A Game of Thrones: The Board Game 2nd Edition"],
-                "short_description_display":["Westeros bleeds in this thrilling new edition of the classic game of battle and diplomacy based on George R.R. Martin's A Song of Ice and Fire."],
-                "score":1.0},
-              {
-                "year_display":["2012"],
                 "id":"2012-BGM1236875",
+                "title_display":["A Game of Thrones: The Board Game 2nd Edition"],
+                "short_description_display":["Westeros bleeds in this thrilling new edition of the classic game of battle and diplomacy based on George R.R. Martin's A Song of Ice and Fire."],
+                "score":1.0},
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1231722",
                 "title_display":["A Game of Thrones: The Board Game 2nd Edition"],
                 "short_description_display":["Westeros bleeds in this thrilling new edition of the classic game of battle and diplomacy based on George R.R. Martin's A Song of Ice and Fire."],
                 "score":1.0},
@@ -110,6 +97,18 @@ http_interactions:
               {
                 "year_display":["2012"],
                 "id":"2012-BGM1231723",
+                "title_display":["A Game of Thrones: The Board Game 2nd Edition"],
+                "short_description_display":["Westeros bleeds in this thrilling new edition of the classic game of battle and diplomacy based on George R.R. Martin's A Song of Ice and Fire."],
+                "score":1.0},
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1239037",
+                "title_display":["A Game of Thrones: The Board Game 2nd Edition"],
+                "short_description_display":["Westeros bleeds in this thrilling new edition of the classic game of battle and diplomacy based on George R.R. Martin's A Song of Ice and Fire."],
+                "score":1.0},
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1231726",
                 "title_display":["A Game of Thrones: The Board Game 2nd Edition"],
                 "short_description_display":["Westeros bleeds in this thrilling new edition of the classic game of battle and diplomacy based on George R.R. Martin's A Song of Ice and Fire."],
                 "score":1.0},
@@ -143,36 +142,9 @@ http_interactions:
                 "A Game of Thrones: The Board Game",14,
                 "Dust Tactics",14,
                 "Fortress America",14,
-                "Deadwood",13,
-                "X-Wing",13,
-                "Cosmic Encounter",12,
-                "Gears of War: The Board Game",12,
-                "Blood Bowl: Team Manager - The Card Game",10,
-                "Chaos in the Old World",10,
-                "Nexus Ops",10,
-                "Rune Age",10,
-                "Space Hulk - Death Angel: The Card Game",10,
-                "Mansions of Madness",9,
-                "Rex: Final Days of an Empire",9,
-                "Twilight Imperium",9,
-                "Arkham Horror",7,
-                "Sid Meier's Civilization: The Board Game",7,
-                "Battles of Westeros",6,
-                "Lord of the Rings: The Board Game",6,
-                "Sky Traders",6,
-                "Tannhauser",6,
-                "The Hobbit",6,
-                "Runewars",4,
-                "Talisman",4,
-                "A Game of Thrones: The Card Game",3,
-                "Call of Cthulhu: The Card Game",2,
-                "Lord of the Rings: The Card Game",2,
-                "Warhammer: Invasion - The Card Game",2,
-                "Android: Netrunner",1,
-                "Dust Warfare",1]},
+                "Deadwood",13]},
             "facet_ranges":{},
             "facet_intervals":{},
             "facet_heatmaps":{}}}
-    http_version: null
-  recorded_at: Mon, 13 Jul 2020 15:14:09 GMT
-recorded_with: VCR 5.1.0
+  recorded_at: Mon, 13 Mar 2023 23:59:09 GMT
+recorded_with: VCR 6.1.0

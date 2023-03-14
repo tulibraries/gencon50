@@ -21,7 +21,7 @@ RSpec.feature "VisitSites", type: :feature do
       VCR.use_cassette("defaultSearch", record: :none) do
         visit("/?utf8=%E2%9C%93&search_field=all_fields&q=")
       end
-      expect(page).to have_text("14,425")
+      expect(page).to have_text("14,776")
       expect(page).to have_text("2012-HMN1230463")
       expect(page).to have_text("2012-HMN1230462")
     end

@@ -12,16 +12,17 @@ RSpec.describe "Catalogs", type: :request do
   let(:mock_document) { instance_double(SolrDocument, export_formats: {}) }
   let(:search_service) { instance_double(Blacklight::SearchService) }
 
-  context "default index" do
-    before(:all) do
-      VCR.configure do |config|
-        config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
-        config.hook_into :webmock
-        config.default_cassette_options = {
-          match_requests_on: [:method, VCR.request_matchers.uri_without_param(:key)]
-        }
-      end
+  before(:all) do
+    VCR.configure do |config|
+      config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+      config.hook_into :webmock
+      config.default_cassette_options = {
+        match_requests_on: [:method, VCR.request_matchers.uri_without_param(:key)]
+      }
     end
+  end
+
+  context "default index" do
 
     subject {
       VCR.use_cassette("responseDefaultIndex", record: :none) do
@@ -31,7 +32,7 @@ RSpec.describe "Catalogs", type: :request do
     }
 
     describe "All fixture items" do
-      it { is_expected.to include("14,425") }
+      it { is_expected.to include("14,776") }
     end
 
     describe "First Item" do
@@ -60,13 +61,12 @@ RSpec.describe "Catalogs", type: :request do
     }
 
     it { is_expected.to include("A Grimm World of Perilous Adventure") }
-    it { is_expected.to include("1740") }
+    it { is_expected.to include("723") }
     it { is_expected.to include("2002-8084") }
     it { is_expected.to include("Hogshead Publishing Limited") }
-    it { is_expected.to include("RP") }
+    it { is_expected.to include("Roleplaying Games") }
     it { is_expected.to include("Warhammer Fantasy Roleplaying, A Grimm World of Perilous Adventure") }
-    it { is_expected.to include("225") }
-    it { is_expected.to include("S-1") }
+    it { is_expected.to include("101C:5") }
   end
 
   context "search" do
@@ -118,12 +118,12 @@ RSpec.describe "Catalogs", type: :request do
     describe "Event Type Search" do
       subject {
         VCR.use_cassette("responseEventTypeSearch", record: :none) do
-          get "?search_field=event_type_t&q=bg"
+          get "?search_field=event_type_t&q=BGM+-+Board+Game"
         end
         response.body
       }
 
-      it { is_expected.to include("2002-1079") }
+      it { is_expected.to include("2012-BGM1230015") }
     end
 
     describe "Long Description Search" do
@@ -157,7 +157,7 @@ RSpec.describe "Catalogs", type: :request do
         response.body
       }
 
-      it { is_expected.to include("2002-7292") }
+      it { is_expected.to include("2012-ENT1233888") }
     end
 
     describe "Location Search" do
@@ -198,12 +198,12 @@ RSpec.describe "Catalogs", type: :request do
     describe "Event Type Facet Search" do
       subject {
         VCR.use_cassette("responseEventTypeFacetSearch", record: :none) do
-          get "?f[event_type_facet][]=NM"
+          get "?f[event_type_facet][]=Non-Historical+Miniatures"
         end
         response.body
       }
 
-      it { is_expected.to include("335") }
+      it { is_expected.to include("384") }
     end
 
     describe "Game System Facet Search" do

@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:8090/solr/gencon50-1.0.0/select?f.event_type_facet.facet.limit=-1&f.event_type_facet.facet.mincount=1&f.event_type_facet.facet.sort=count&f.game_system_facet.facet.limit=-1&f.game_system_facet.facet.mincount=1&f.game_system_facet.facet.sort=count&f.group_facet.facet.limit=-1&f.group_facet.facet.mincount=1&f.group_facet.facet.sort=count&f.year_facet.facet.limit=-1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&pf=title_t&q=bunny&qf=title_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
+    uri: http://localhost:8090/solr/gencon50-1.0/select?f.event_type_facet.facet.limit=11&f.event_type_facet.facet.mincount=1&f.event_type_facet.facet.sort=count&f.game_system_facet.facet.limit=11&f.game_system_facet.facet.mincount=1&f.game_system_facet.facet.sort=count&f.group_facet.facet.limit=11&f.group_facet.facet.mincount=1&f.group_facet.facet.sort=count&f.year_facet.facet.limit=-1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&pf=title_t&q=bunny&qf=title_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v1.0.0
+      - Faraday v2.7.4
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,104 +19,16 @@ http_interactions:
       message: OK
     headers:
       Last-Modified:
-      - Mon, 13 Jul 2020 15:04:31 GMT
+      - Mon, 13 Mar 2023 22:39:17 GMT
       Etag:
-      - '"MTM0MDAwMDAwMDAwMDAwMFNvbHI="'
+      - '"MzIyMDAwMDAwMDAwMDAwMFNvbHI="'
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '3223'
+      - '3687'
     body:
-      encoding: UTF-8
-      string: |
-        {
-          "responseHeader":{
-            "zkConnected":true,
-            "status":0,
-            "QTime":1,
-            "params":{
-              "f.event_type_facet.facet.limit":"-1",
-              "f.group_facet.facet.sort":"count",
-              "facet.field":["year_facet",
-                "group_facet",
-                "event_type_facet",
-                "game_system_facet"],
-              "f.group_facet.facet.mincount":"1",
-              "fl":"id,\n           score,\n           year_display,\n           title_display,\n           short_description_display,\n           long_description_display",
-              "f.group_facet.facet.limit":"-1",
-              "f.game_system_facet.facet.limit":"-1",
-              "f.year_facet.facet.limit":"-1",
-              "sort":"score desc, year_sort desc, title_sort asc",
-              "rows":"10",
-              "f.event_type_facet.facet.sort":"count",
-              "f.event_type_facet.facet.mincount":"1",
-              "f.year_facet.facet.mincount":"1",
-              "q":"bunny",
-              "f.game_system_facet.facet.sort":"count",
-              "f.game_system_facet.facet.mincount":"1",
-              "qf":"title_t",
-              "pf":"title_t",
-              "facet":"true",
-              "wt":"json",
-              "f.year_facet.facet.sort":"index"}},
-          "response":{"numFound":6,"start":0,"maxScore":7.083096,"docs":[
-              {
-                "year_display":["2012"],
-                "id":"2012-ANI1239205",
-                "title_display":["Tiger & Bunny (Episodes 1-4)"],
-                "short_description_display":["Sternbild City is home to people called Next, who use their special abilities to protect the people as superheroes so they can acquire hero points. Their activities are shown the show Hero TV."],
-                "score":7.083096},
-              {
-                "year_display":["2012"],
-                "id":"2012-ANI1239198",
-                "title_display":["bunny drop (Episodes 1-4)"],
-                "short_description_display":["After his grandfather dies, Daikichi is floored to discover the old man had an illegitimate child with a younger lover. Daikichi decides to take the child in himself, when the family shuns her."],
-                "score":7.083096},
-              {
-                "year_display":["2002"],
-                "id":"2002-8605",
-                "title_display":["I Double Dare Ya! (a Bunny Adventure)"],
-                "score":5.9876494},
-              {
-                "year_display":["2002"],
-                "id":"2002-1097",
-                "title_display":["Life-Size Devil Bunny Needs a Ham"],
-                "score":5.9876494},
-              {
-                "year_display":["2002"],
-                "id":"2002-1098",
-                "title_display":["Life-Size Devil Bunny Needs a Ham"],
-                "score":5.9876494},
-              {
-                "year_display":["2002"],
-                "id":"2002-1099",
-                "title_display":["Life-Size Devil Bunny Needs a Ham"],
-                "score":5.9876494}]
-          },
-          "facet_counts":{
-            "facet_queries":{},
-            "facet_fields":{
-              "year_facet":[
-                "2002",4,
-                "2012",2],
-              "group_facet":[
-                "Cheapass Games",3,
-                "Grey Ghost Press Inc.",1,
-                "NIS America",1,
-                "Viz Media",1],
-              "event_type_facet":[
-                "BG",3,
-                "ANI - Anime Activities",2,
-                "RP",1],
-              "game_system_facet":[
-                "Cheapass Games, Life-Size Devil Bunny Needs a Ham",3,
-                "Fudge, I Double Dare Ya!\" (a Bunny Adventure)",1]},
-            "facet_ranges":{},
-            "facet_intervals":{},
-            "facet_heatmaps":{}},
-          "spellcheck":{
-            "suggestions":[],
-            "correctlySpelled":true}}
-    http_version: null
-  recorded_at: Mon, 13 Jul 2020 15:14:01 GMT
-recorded_with: VCR 5.1.0
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICJyZXNwb25zZUhlYWRlciI6ewogICAgInN0YXR1cyI6MCwKICAgICJRVGltZSI6MSwKICAgICJwYXJhbXMiOnsKICAgICAgImYuZXZlbnRfdHlwZV9mYWNldC5mYWNldC5saW1pdCI6IjExIiwKICAgICAgImYuZ3JvdXBfZmFjZXQuZmFjZXQuc29ydCI6ImNvdW50IiwKICAgICAgImZhY2V0LmZpZWxkIjpbInllYXJfZmFjZXQiLAogICAgICAgICJncm91cF9mYWNldCIsCiAgICAgICAgImV2ZW50X3R5cGVfZmFjZXQiLAogICAgICAgICJnYW1lX3N5c3RlbV9mYWNldCJdLAogICAgICAiZi5ncm91cF9mYWNldC5mYWNldC5taW5jb3VudCI6IjEiLAogICAgICAiZmwiOiJpZCxcbiAgICAgICAgICAgc2NvcmUsXG4gICAgICAgICAgIHllYXJfZGlzcGxheSxcbiAgICAgICAgICAgdGl0bGVfZGlzcGxheSxcbiAgICAgICAgICAgc2hvcnRfZGVzY3JpcHRpb25fZGlzcGxheSxcbiAgICAgICAgICAgbG9uZ19kZXNjcmlwdGlvbl9kaXNwbGF5IiwKICAgICAgImYuZ3JvdXBfZmFjZXQuZmFjZXQubGltaXQiOiIxMSIsCiAgICAgICJmLmdhbWVfc3lzdGVtX2ZhY2V0LmZhY2V0LmxpbWl0IjoiMTEiLAogICAgICAiZi55ZWFyX2ZhY2V0LmZhY2V0LmxpbWl0IjoiLTEiLAogICAgICAic29ydCI6InNjb3JlIGRlc2MsIHllYXJfc29ydCBkZXNjLCB0aXRsZV9zb3J0IGFzYyIsCiAgICAgICJyb3dzIjoiMTAiLAogICAgICAiZi5ldmVudF90eXBlX2ZhY2V0LmZhY2V0LnNvcnQiOiJjb3VudCIsCiAgICAgICJmLmV2ZW50X3R5cGVfZmFjZXQuZmFjZXQubWluY291bnQiOiIxIiwKICAgICAgImYueWVhcl9mYWNldC5mYWNldC5taW5jb3VudCI6IjEiLAogICAgICAicSI6ImJ1bm55IiwKICAgICAgImYuZ2FtZV9zeXN0ZW1fZmFjZXQuZmFjZXQuc29ydCI6ImNvdW50IiwKICAgICAgImYuZ2FtZV9zeXN0ZW1fZmFjZXQuZmFjZXQubWluY291bnQiOiIxIiwKICAgICAgInFmIjoidGl0bGVfdCIsCiAgICAgICJwZiI6InRpdGxlX3QiLAogICAgICAiZmFjZXQiOiJ0cnVlIiwKICAgICAgInd0IjoianNvbiIsCiAgICAgICJmLnllYXJfZmFjZXQuZmFjZXQuc29ydCI6ImluZGV4In19LAogICJyZXNwb25zZSI6eyJudW1Gb3VuZCI6Niwic3RhcnQiOjAsIm1heFNjb3JlIjo3LjM4MTU5NzUsImRvY3MiOlsKICAgICAgewogICAgICAgICJ5ZWFyX2Rpc3BsYXkiOlsiMjAxMiJdLAogICAgICAgICJpZCI6IjIwMTItQU5JMTIzOTIwNSIsCiAgICAgICAgInRpdGxlX2Rpc3BsYXkiOlsiVGlnZXIgJiBCdW5ueSAoRXBpc29kZXMgMS00KSJdLAogICAgICAgICJzaG9ydF9kZXNjcmlwdGlvbl9kaXNwbGF5IjpbIlN0ZXJuYmlsZCBDaXR5IGlzIGhvbWUgdG8gcGVvcGxlIGNhbGxlZCBOZXh0LCB3aG8gdXNlIHRoZWlyIHNwZWNpYWwgYWJpbGl0aWVzIHRvIHByb3RlY3QgdGhlIHBlb3BsZSBhcyBzdXBlcmhlcm9lcyBzbyB0aGV5IGNhbiBhY3F1aXJlIGhlcm8gcG9pbnRzLiBUaGVpciBhY3Rpdml0aWVzIGFyZSBzaG93biB0aGUgc2hvdyBIZXJvIFRWLiJdLAogICAgICAgICJzY29yZSI6Ny4zODE1OTc1fSwKICAgICAgewogICAgICAgICJ5ZWFyX2Rpc3BsYXkiOlsiMjAxMiJdLAogICAgICAgICJpZCI6IjIwMTItQU5JMTIzOTE5OCIsCiAgICAgICAgInRpdGxlX2Rpc3BsYXkiOlsiYnVubnkgZHJvcCAoRXBpc29kZXMgMS00KSJdLAogICAgICAgICJzaG9ydF9kZXNjcmlwdGlvbl9kaXNwbGF5IjpbIkFmdGVyIGhpcyBncmFuZGZhdGhlciBkaWVzLCBEYWlraWNoaSBpcyBmbG9vcmVkIHRvIGRpc2NvdmVyIHRoZSBvbGQgbWFuIGhhZCBhbiBpbGxlZ2l0aW1hdGUgY2hpbGQgd2l0aCBhIHlvdW5nZXIgbG92ZXIuIERhaWtpY2hpIGRlY2lkZXMgdG8gdGFrZSB0aGUgY2hpbGQgaW4gaGltc2VsZiwgd2hlbiB0aGUgZmFtaWx5IHNodW5zIGhlci4iXSwKICAgICAgICAic2NvcmUiOjcuMzgxNTk3NX0sCiAgICAgIHsKICAgICAgICAieWVhcl9kaXNwbGF5IjpbIjIwMDIiXSwKICAgICAgICAidGl0bGVfZGlzcGxheSI6WyJGdWRnZSwgMSBEb3VibGUgRGFyZSBZYSEgKGEgQnVubnkgQWR2ZW50dXJlKSJdLAogICAgICAgICJsb25nX2Rlc2NyaXB0aW9uX2Rpc3BsYXkiOlsiWW91ciB0cmlja3N0ZXIgZnJpZW5kIGhhcyBhY2NlcHRlZCBhIGRhcmUgYW5kLCBzaW5jZSB5b3Ugb3dlIGhlciBhIGZhdm9yLCB5b3UgaGF2ZSB0byBoZWxwIGhlciBvdXQgVW5mb3J0dW5hdGVseSwgdGhpcyB3aWxsIGxlYWQgeW91IGludG8gdGhlIHNjYXJpZXN0IHBsYWNlIHlvdSBrbm934oCUYSBodW1hbiBjaXR5ISJdLAogICAgICAgICJpZCI6IjIwMDItODYwNSIsCiAgICAgICAgInNjb3JlIjo1Ljg1MTk0N30sCiAgICAgIHsKICAgICAgICAieWVhcl9kaXNwbGF5IjpbIjIwMDIiXSwKICAgICAgICAidGl0bGVfZGlzcGxheSI6WyJDaGVhcGFzcyBHYW1lcywgTGlmZS1TaXplIERldmlsIEJ1bm55IE5lZWRzIGEgSGFtIl0sCiAgICAgICAgImxvbmdfZGVzY3JpcHRpb25fZGlzcGxheSI6WyIoRmlyc3QgT2NjdXJyZW5jZTogVGggMiBQTSAjMTA5NykiXSwKICAgICAgICAiaWQiOiIyMDAyLTEwOTkiLAogICAgICAgICJzY29yZSI6NS40NzM4NDE3fSwKICAgICAgewogICAgICAgICJ5ZWFyX2Rpc3BsYXkiOlsiMjAwMiJdLAogICAgICAgICJ0aXRsZV9kaXNwbGF5IjpbIkNoZWFwYXNzIEdhbWVzLCBMaWZlLVNpemUgRGV2aWwgQnVubnkgTmVlZHMgYSBIYW0iXSwKICAgICAgICAibG9uZ19kZXNjcmlwdGlvbl9kaXNwbGF5IjpbIkJlaW5nIGEgc291cyBjaGVmIGlzIGhhcmQgd29yay5XaHkgbm90IHRha2UgYSBicmVhaywgY2xpbWIgYSB0YWxsIGJ1aWxkaW5nIGFuZCBmaWdodCBvZmYgZGV2aWwgYnVubnk/Il0sCiAgICAgICAgImlkIjoiMjAwMi0xMDk3IiwKICAgICAgICAic2NvcmUiOjUuNDczODQxN30sCiAgICAgIHsKICAgICAgICAieWVhcl9kaXNwbGF5IjpbIjIwMDIiXSwKICAgICAgICAidGl0bGVfZGlzcGxheSI6WyJDaGVhcGFzcyBHYW1lcywgTGlmZS1TaXplIERldmlsIEJ1bm55IE5lZWRzIGEgSGFtIl0sCiAgICAgICAgImxvbmdfZGVzY3JpcHRpb25fZGlzcGxheSI6WyIoRmlyc3QgT2NjdXJyZW5jZTogVGggMiBQTSAjMTA5NykiXSwKICAgICAgICAiaWQiOiIyMDAyLTEwOTgiLAogICAgICAgICJzY29yZSI6NS40NzM4NDE3fV0KICB9LAogICJmYWNldF9jb3VudHMiOnsKICAgICJmYWNldF9xdWVyaWVzIjp7fSwKICAgICJmYWNldF9maWVsZHMiOnsKICAgICAgInllYXJfZmFjZXQiOlsKICAgICAgICAiMjAwMiIsNCwKICAgICAgICAiMjAxMiIsMl0sCiAgICAgICJncm91cF9mYWNldCI6WwogICAgICAgICJOSVMgQW1lcmljYSIsMSwKICAgICAgICAiVml6IE1lZGlhIiwxXSwKICAgICAgImV2ZW50X3R5cGVfZmFjZXQiOlsKICAgICAgICAiQm9hcmRnYW1lcyIsMywKICAgICAgICAiQU5JIC0gQW5pbWUgQWN0aXZpdGllcyIsMiwKICAgICAgICAiUm9sZXBsYXlpbmcgR2FtZXMiLDFdLAogICAgICAiZ2FtZV9zeXN0ZW1fZmFjZXQiOlsKICAgICAgICAiQ2hlYXBhc3MgR2FtZXMsIExpZmUtU2l6ZSBEZXZpbCBCdW5ueSBOZWVkcyBhIEhhbSIsMywKICAgICAgICAiRnVkZ2UiLDFdfSwKICAgICJmYWNldF9yYW5nZXMiOnt9LAogICAgImZhY2V0X2ludGVydmFscyI6e30sCiAgICAiZmFjZXRfaGVhdG1hcHMiOnt9fSwKICAic3BlbGxjaGVjayI6ewogICAgInN1Z2dlc3Rpb25zIjpbXSwKICAgICJjb3JyZWN0bHlTcGVsbGVkIjp0cnVlfX0K
+  recorded_at: Mon, 13 Mar 2023 23:59:03 GMT
+recorded_with: VCR 6.1.0
