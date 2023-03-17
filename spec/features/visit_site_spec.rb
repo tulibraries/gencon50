@@ -9,15 +9,20 @@ RSpec.feature "VisitSites", type: :feature do
   before(:all) do
     VCR.configure do |config|
       vcr_mode = :none
-      config.register_request_matcher :port do |request_1, request_2|
-        URI(request_1.uri).host == URI(request_2.uri).host
-        URI(request_1.uri).port == URI(request_2.uri).port
-      end
       config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
       config.hook_into :webmock
       config.default_cassette_options = {
         match_requests_on: [:method, VCR.request_matchers.uri_without_param(:key)]
       }
+    end
+  end
+
+  before(:each) do
+    VCR.configure do |config|
+      config.register_request_matcher :port do |request_1, request_2|
+        URI(request_1.uri).host == URI(request_2.uri).host
+        URI(request_1.uri).port == URI(request_2.uri).port
+      end
     end
   end
 
