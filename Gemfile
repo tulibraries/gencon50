@@ -70,7 +70,7 @@ gem "blacklight", "~> 7.33.0"
 group :development, :test do
   gem "solr_wrapper", ">= 4.0.2"
   gem "webmock"
-  gem "pry"
+  gem "pry-rails"
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
 end
