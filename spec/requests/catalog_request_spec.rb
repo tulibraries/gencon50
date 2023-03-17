@@ -23,15 +23,6 @@ RSpec.describe "Catalogs", type: :request do
     end
   end
 
-  before(:each) do
-    VCR.configure do |config|
-      config.register_request_matcher :port do |request_1, request_2|
-        URI(request_1.uri).host == URI(request_2.uri).host
-        URI(request_1.uri).port == URI(request_2.uri).port
-      end
-    end
-  end
-
   context "default index" do
 
     subject {
