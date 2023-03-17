@@ -35,15 +35,15 @@ jobs:
       - checkout
       - run:
           command: |
-            sudo gem update --system
-            sudo gem install -f bundler --version "$BUNDLER_VERSION"
+            gem update --system
+            gem install -f bundler --version "$BUNDLER_VERSION"
             sudo apt-get --allow-releaseinfo-change update
             sudo apt-get install sqlite3 libsqlite3-dev
-            sudo bundle install
-            sudo bundle exec rubocop
-            sudo bundle exec brakeman --no-pager --no-threads
-            RAILS_ENV=test sudo bundle exec rake db:setup
-            sudo bundle exec rspec spec
+            bundle install
+            bundle exec rubocop
+            bundle exec brakeman --no-pager --no-threads
+            RAILS_ENV=test bundle exec rake db:setup
+            bundle exec rspec spec
 
   prod_deploy:
     docker:
