@@ -43,6 +43,7 @@ jobs:
             bundle exec rubocop
             bundle exec brakeman --no-pager --no-threads
             RAILS_ENV=test bundle exec rake db:setup
+            echo "bundle exec rspec spec"
             bundle exec rspec spec
 
   prod_deploy:
