@@ -12,27 +12,28 @@ RSpec.describe "Catalogs", type: :request do
   let(:mock_document) { instance_double(SolrDocument, export_formats: {}) }
   let(:search_service) { instance_double(Blacklight::SearchService) }
 
-  context "default index" do
-    skip "GC-29 Workaround" do
-    before(:all) do
-      VCR.configure do |config|
-        config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
-        config.hook_into :webmock
-        config.default_cassette_options = {
-          match_requests_on: [:method, VCR.request_matchers.uri_without_param(:key)]
-        }
-      end
+  before(:all) do
+    VCR.configure do |config|
+      vcr_mode = :none
+      config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+      config.hook_into :webmock
+      config.default_cassette_options = {
+        match_requests_on: [:method, VCR.request_matchers.uri_without_param(:key)]
+      }
     end
+  end
+
+  context "default index" do
 
     subject {
-      VCR.use_cassette("responseDefaultIndex", record: :none) do
+      VCR.use_cassette("responseDefaultIndex") do
         get "?search_field=all_fields&q="
       end
       response.body
     }
 
     describe "All fixture items" do
-      it { is_expected.to include("14,425") }
+      it { is_expected.to include("14,776") }
     end
 
     describe "First Item" do
@@ -50,34 +51,29 @@ RSpec.describe "Catalogs", type: :request do
       it { is_expected.to include("Midway Mahem") }
       it { is_expected.to include("WWII 1942 - 70th Anniversary") }
     end
-    end
   end
 
   context "catalog record page" do
-    skip "GC-29 Workaround" do
     subject {
-      VCR.use_cassette("responseCatalogRecordPage", record: :none) do
+      VCR.use_cassette("responseCatalogRecordPage") do
         get "/catalog/2002-8084"
       end
       response.body
     }
 
     it { is_expected.to include("A Grimm World of Perilous Adventure") }
-    it { is_expected.to include("1740") }
+    it { is_expected.to include("723") }
     it { is_expected.to include("2002-8084") }
     it { is_expected.to include("Hogshead Publishing Limited") }
-    it { is_expected.to include("RP") }
+    it { is_expected.to include("Roleplaying Games") }
     it { is_expected.to include("Warhammer Fantasy Roleplaying, A Grimm World of Perilous Adventure") }
-    it { is_expected.to include("225") }
-    it { is_expected.to include("S-1") }
-    end
+    it { is_expected.to include("101C:5") }
   end
 
   context "search" do
-    skip "GC-29 Workaround" do
     describe "all fields" do
       subject {
-        VCR.use_cassette("responseSearchAllFields", record: :none) do
+        VCR.use_cassette("responseSearchAllFields") do
           get "?search_field=all_fields&q=Realms"
         end
         response.body
@@ -90,7 +86,7 @@ RSpec.describe "Catalogs", type: :request do
     describe "summary in all fields" do
       subject {
         search_text = Addressable::URI.encode("Afrika Korps attacks US II Corps in 10th Annual Family Team Event")
-        VCR.use_cassette("responseSummaryInAllFields", record: :none) do
+        VCR.use_cassette("responseSummaryInAllFields") do
           get "?search_field=all_fields&q=#{search_text}"
         end
         response.body
@@ -100,7 +96,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Title Search" do
       subject {
-        VCR.use_cassette("responseTitleSearch", record: :none) do
+        VCR.use_cassette("responseTitleSearch") do
           get "?search_field=title&q=War+With+Asgard"
         end
         response.body
@@ -111,7 +107,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Game System Search" do
       subject {
-        VCR.use_cassette("responseGameSystemSearch", record: :none) do
+        VCR.use_cassette("responseGameSystemSearch") do
           get "?search_field=game_system_t&q=Dungeons+%26+Dragons"
         end
         response.body
@@ -122,19 +118,19 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Event Type Search" do
       subject {
-        VCR.use_cassette("responseEventTypeSearch", record: :none) do
-          get "?search_field=event_type_t&q=bg"
+        VCR.use_cassette("responseEventTypeSearch") do
+          get "?search_field=event_type_t&q=BGM+-+Board+Game"
         end
         response.body
       }
 
-      it { is_expected.to include("2002-1079") }
+      it { is_expected.to include("2012-BGM1230015") }
     end
 
     describe "Long Description Search" do
       subject {
         search_text = Addressable::URI.encode("Imperial Japan invades Midway in three huge connected Air-Sea & Land Miniatures Battles")
-        VCR.use_cassette("responseLongDescriptionSearch", record: :none) do
+        VCR.use_cassette("responseLongDescriptionSearch") do
           get "?search_field=all_fields&q=" + search_text
         end
         response.body
@@ -145,7 +141,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "GM Name Search" do
       subject {
-        VCR.use_cassette("responseGMNameSearch", record: :none) do
+        VCR.use_cassette("responseGMNameSearch") do
           get "?search_field=gm_names_t&q=charles"
         end
         response.body
@@ -156,18 +152,18 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Group Search" do
       subject {
-        VCR.use_cassette("responseGroupSearch", record: :none) do
+        VCR.use_cassette("responseGroupSearch") do
           get "?search_field=group_t&q=smith"
         end
         response.body
       }
 
-      it { is_expected.to include("2002-7292") }
+      it { is_expected.to include("2012-ENT1233888") }
     end
 
     describe "Location Search" do
       subject {
-        VCR.use_cassette("responseLocationSearch", record: :none) do
+        VCR.use_cassette("responseLocationSearch") do
           get "?search_field=location_t&q=marriott"
         end
         response.body
@@ -175,14 +171,12 @@ RSpec.describe "Catalogs", type: :request do
 
       it { is_expected.to include("2012-RPG1237794") }
     end
-    end
   end
 
   context "facet" do
-    skip "GC-29 Workaround" do
     describe "Year Facet Search" do
       subject {
-        VCR.use_cassette("responseYearFacetSearch", record: :none) do
+        VCR.use_cassette("responseYearFacetSearch") do
           get "?f[year_facet][]=2001"
         end
         response.body
@@ -193,7 +187,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Group Facet Search" do
       subject {
-        VCR.use_cassette("responseGroupFacetSearch", record: :none) do
+        VCR.use_cassette("responseGroupFacetSearch") do
           get "?f[group_facet][]=Fantasy+Flight+Games"
         end
         response.body
@@ -204,18 +198,18 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Event Type Facet Search" do
       subject {
-        VCR.use_cassette("responseEventTypeFacetSearch", record: :none) do
-          get "?f[event_type_facet][]=NM"
+        VCR.use_cassette("responseEventTypeFacetSearch") do
+          get "?f[event_type_facet][]=Non-Historical+Miniatures"
         end
         response.body
       }
 
-      it { is_expected.to include("335") }
+      it { is_expected.to include("384") }
     end
 
     describe "Game System Facet Search" do
       subject {
-        VCR.use_cassette("responseGameSystemFacetSearch", record: :none) do
+        VCR.use_cassette("responseGameSystemFacetSearch") do
           get "?f[game_system_facet][]=Empire%20Builder"
         end
         response.body
@@ -223,13 +217,11 @@ RSpec.describe "Catalogs", type: :request do
 
       it { is_expected.to include("79") }
     end
-    end
   end
 
   context "Embedded ID's in ID" do
-    skip "GC-29 Workaround" do
     subject {
-      VCR.use_cassette("responseEnbeddedIdsInIdSearch", record: :none) do
+      VCR.use_cassette("responseEnbeddedIdsInIdSearch") do
         get "/catalog/2001-2135%202136%202137%202138"
       end
       response.body
@@ -237,6 +229,5 @@ RSpec.describe "Catalogs", type: :request do
 
     it { is_expected.to include("Pokemon") }
     it { is_expected.to include("2001-2135 2136 2137 2138") }
-    end
   end
 end

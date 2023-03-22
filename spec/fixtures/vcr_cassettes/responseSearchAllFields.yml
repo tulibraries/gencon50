@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:8090/solr/gencon50-1.0.0/select?f.event_type_facet.facet.limit=-1&f.event_type_facet.facet.mincount=1&f.event_type_facet.facet.sort=count&f.game_system_facet.facet.limit=-1&f.game_system_facet.facet.mincount=1&f.game_system_facet.facet.sort=count&f.group_facet.facet.limit=-1&f.group_facet.facet.mincount=1&f.group_facet.facet.sort=count&f.year_facet.facet.limit=-1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&q=Realms&qf=title_t%20short_description_t%20long_description_t%20gm_names_t%20year_t%20also_runs_t%20prize_t%20group_t%20event_type_t%20game_system_t%20rules_edition_t%20age_required_t%20experience_required_t%20duration_t%20website_t%20room_name_t%20table_number_t%20special_category_t%20rules_complexity_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
+    uri: http://localhost:8090/solr/gencon50-1.0/select?f.event_type_facet.facet.limit=11&f.event_type_facet.facet.mincount=1&f.event_type_facet.facet.sort=count&f.game_system_facet.facet.limit=11&f.game_system_facet.facet.mincount=1&f.game_system_facet.facet.sort=count&f.group_facet.facet.limit=11&f.group_facet.facet.mincount=1&f.group_facet.facet.sort=count&f.year_facet.facet.limit=-1&f.year_facet.facet.mincount=1&f.year_facet.facet.sort=index&facet=true&facet.field=game_system_facet&fl=id,%0A%20%20%20%20%20%20%20%20%20%20%20score,%0A%20%20%20%20%20%20%20%20%20%20%20year_display,%0A%20%20%20%20%20%20%20%20%20%20%20title_display,%0A%20%20%20%20%20%20%20%20%20%20%20short_description_display,%0A%20%20%20%20%20%20%20%20%20%20%20long_description_display&q=Realms&qf=title_t%20short_description_t%20long_description_t%20gm_names_t%20year_t%20also_runs_t%20prize_t%20group_t%20event_type_t%20game_system_t%20rules_edition_t%20age_required_t%20experience_required_t%20duration_t%20website_t%20room_name_t%20table_number_t%20special_category_t%20rules_complexity_t&rows=10&sort=score%20desc,%20year_sort%20desc,%20title_sort%20asc&wt=json
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v1.0.0
+      - Faraday v2.7.4
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,23 +19,22 @@ http_interactions:
       message: OK
     headers:
       Last-Modified:
-      - Mon, 13 Jul 2020 15:04:31 GMT
+      - Mon, 13 Mar 2023 22:39:17 GMT
       Etag:
-      - '"MTM0MDAwMDAwMDAwMDAwMFNvbHI="'
+      - '"MzIyMDAwMDAwMDAwMDAwMFNvbHI="'
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '10047'
+      - '10185'
     body:
       encoding: UTF-8
       string: |
         {
           "responseHeader":{
-            "zkConnected":true,
             "status":0,
-            "QTime":3,
+            "QTime":2,
             "params":{
-              "f.event_type_facet.facet.limit":"-1",
+              "f.event_type_facet.facet.limit":"11",
               "f.group_facet.facet.sort":"count",
               "facet.field":["year_facet",
                 "group_facet",
@@ -43,8 +42,8 @@ http_interactions:
                 "game_system_facet"],
               "f.group_facet.facet.mincount":"1",
               "fl":"id,\n           score,\n           year_display,\n           title_display,\n           short_description_display,\n           long_description_display",
-              "f.group_facet.facet.limit":"-1",
-              "f.game_system_facet.facet.limit":"-1",
+              "f.group_facet.facet.limit":"11",
+              "f.game_system_facet.facet.limit":"11",
               "f.year_facet.facet.limit":"-1",
               "sort":"score desc, year_sort desc, title_sort asc",
               "rows":"10",
@@ -58,79 +57,80 @@ http_interactions:
               "facet":"true",
               "wt":"json",
               "f.year_facet.facet.sort":"index"}},
-          "response":{"numFound":115,"start":0,"maxScore":8.406353,"docs":[
+          "response":{"numFound":119,"start":0,"maxScore":8.043081,"docs":[
               {
                 "year_display":["2012"],
                 "id":"2012-BGM1237524",
                 "title_display":["Story Realms Preview!"],
                 "short_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories!"],
                 "long_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories with your friends and family! Set in the magical Realm of Storm Hollow, Story Realms provides everything you need to play complete heroic adventures in less than an hour. One player takes on the role of Storyteller and runs the adventure for the other players. Everyone works together to create an exciting story and memorable experience. Quick and easy character making lets you jump right in, and quality board game components bring the adventures to life with visual aids and progress trackers that transcend the traditional role-playing experience. "],
-                "score":8.406353},
-              {
-                "year_display":["2012"],
-                "id":"2012-BGM1237526",
-                "title_display":["Story Realms Preview!"],
-                "short_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories!"],
-                "long_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories with your friends and family! Set in the magical Realm of Storm Hollow, Story Realms provides everything you need to play complete heroic adventures in less than an hour. One player takes on the role of Storyteller and runs the adventure for the other players. Everyone works together to create an exciting story and memorable experience. Quick and easy character making lets you jump right in, and quality board game components bring the adventures to life with visual aids and progress trackers that transcend the traditional role-playing experience. "],
-                "score":8.406353},
+                "score":8.043081},
               {
                 "year_display":["2012"],
                 "id":"2012-BGM1237525",
                 "title_display":["Story Realms Preview!"],
                 "short_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories!"],
                 "long_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories with your friends and family! Set in the magical Realm of Storm Hollow, Story Realms provides everything you need to play complete heroic adventures in less than an hour. One player takes on the role of Storyteller and runs the adventure for the other players. Everyone works together to create an exciting story and memorable experience. Quick and easy character making lets you jump right in, and quality board game components bring the adventures to life with visual aids and progress trackers that transcend the traditional role-playing experience. "],
-                "score":8.406353},
+                "score":8.043081},
+              {
+                "year_display":["2012"],
+                "id":"2012-BGM1237526",
+                "title_display":["Story Realms Preview!"],
+                "short_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories!"],
+                "long_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories with your friends and family! Set in the magical Realm of Storm Hollow, Story Realms provides everything you need to play complete heroic adventures in less than an hour. One player takes on the role of Storyteller and runs the adventure for the other players. Everyone works together to create an exciting story and memorable experience. Quick and easy character making lets you jump right in, and quality board game components bring the adventures to life with visual aids and progress trackers that transcend the traditional role-playing experience. "],
+                "score":8.043081},
               {
                 "year_display":["2012"],
                 "id":"2012-BGM1237527",
                 "title_display":["Story Realms Preview!"],
                 "short_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories!"],
                 "long_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories with your friends and family! Set in the magical Realm of Storm Hollow, Story Realms provides everything you need to play complete heroic adventures in less than an hour. One player takes on the role of Storyteller and runs the adventure for the other players. Everyone works together to create an exciting story and memorable experience. Quick and easy character making lets you jump right in, and quality board game components bring the adventures to life with visual aids and progress trackers that transcend the traditional role-playing experience. "],
-                "score":8.406353},
+                "score":8.043081},
               {
                 "year_display":["2012"],
                 "id":"2012-BGM1238222",
                 "title_display":["Story Realms Preview!"],
                 "short_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories!"],
                 "long_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories with your friends and family! Set in the magical Realm of Storm Hollow, Story Realms provides everything you need to play complete heroic adventures in less than an hour. One player takes on the role of Storyteller and runs the adventure for the other players. Everyone works together to create an exciting story and memorable experience. Quick and easy character making lets you jump right in, and quality board game components bring the adventures to life with visual aids and progress trackers that transcend the traditional role-playing experience. "],
-                "score":8.406353},
+                "score":8.043081},
               {
                 "year_display":["2012"],
                 "id":"2012-BGM1238223",
                 "title_display":["Story Realms Preview!"],
                 "short_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories!"],
                 "long_description_display":["A brand new roleplaying adventure game, where you become the heroes and tell epic stories with your friends and family! Set in the magical Realm of Storm Hollow, Story Realms provides everything you need to play complete heroic adventures in less than an hour. One player takes on the role of Storyteller and runs the adventure for the other players. Everyone works together to create an exciting story and memorable experience. Quick and easy character making lets you jump right in, and quality board game components bring the adventures to life with visual aids and progress trackers that transcend the traditional role-playing experience. "],
-                "score":8.406353},
-              {
-                "year_display":["2012"],
-                "id":"2012-RPG1235121",
-                "title_display":["Ultimate Arena"],
-                "short_description_display":["Choose your race and class then gear up for the fight of your life. Enter the arena and fight against other players and monsters in a battle to the death."],
-                "score":7.8855042},
+                "score":8.043081},
               {
                 "year_display":["2012"],
                 "id":"2012-BGM1237302",
                 "title_display":["Small World Realms"],
                 "short_description_display":["Small World is a land of orcs, dwarves amazons and other zany creatures. Use your troops and special powers to conquer adjacent regions. Come learn to play with the new Small World Realms expansion."],
-                "score":7.74676},
+                "score":7.9886084},
               {
                 "year_display":["2012"],
                 "id":"2012-BGM1231005",
                 "title_display":["Small World Realms"],
                 "short_description_display":["Small World is a land of orcs, dwarves amazons and other zany creatures. Use your troops and special powers to conquer adjacent regions. Come learn to play with the new Small World Realms expansion."],
-                "score":7.74676},
+                "score":7.9886084},
+              {
+                "year_display":["2012"],
+                "id":"2012-RPG1235121",
+                "title_display":["Ultimate Arena"],
+                "short_description_display":["Choose your race and class then gear up for the fight of your life. Enter the arena and fight against other players and monsters in a battle to the death."],
+                "score":7.549018},
               {
                 "year_display":["2002"],
-                "id":"2002-9036",
                 "title_display":["A Forgotten Realms Celebration"],
-                "score":6.981315}]
+                "long_description_display":["The Forgotten Realms reception is bigger and better than ever as we celebrate the 15th anniversary of the First novel! Join authors and game designers for a question-and-answer session, then rub elbows with all those who keep the Forgotten Realms going."],
+                "id":"2002-9036",
+                "score":7.241196}]
           },
           "facet_counts":{
             "facet_queries":{},
             "facet_fields":{
               "year_facet":[
                 "2001",9,
-                "2002",2,
+                "2002",6,
                 "2012",104],
               "group_facet":[
                 "WIzards of the Coast",62,
@@ -138,22 +138,19 @@ http_interactions:
                 "Game Salute",6,
                 "Margaret Weis Productions",6,
                 "Goodman Games",4,
-                "Wizards of the Coast",3,
                 "Days of Wonder",2,
                 "Pamean Games",2,
                 "Amorphous Blob Games",1,
                 "Candlekeep.com",1,
                 "Game Base 7",1,
-                "Professor Saphorsillias Noxweiler Berf's Deadly Cogwork Contraptions",1,
-                "SwordFin Games",1,
-                "The PYS Players",1,
-                "nether realms",1],
+                "Professor Saphorsillias Noxweiler Berf's Deadly Cogwork Contraptions",1],
               "event_type_facet":[
                 "RPGA - Role Playing Gamers Association!",62,
                 "RPG - Role Playing Game",30,
                 "BGM - Board Game",8,
+                "Seminars, Workshops and Q&As",4,
+                "Roleplaying Games",2,
                 "SEM - Seminar",2,
-                "SM",2,
                 "TCG - Tradable Card Game",2,
                 "Magic-intensive roleplaying for the Forgotten\n Realms",1],
               "game_system_facet":[
@@ -163,19 +160,16 @@ http_interactions:
                 "Story Realms",6,
                 "Pathfinder",5,
                 "Dungeon Crawl Classics",4,
+                "[Not Applicable]",4,
                 "Brass & Steel: A Game of Steampunk Adventure",2,
+                "Dungeons & Dragons, 3rd Edition",2,
                 "Savage Worlds",2,
-                "Small World",2,
-                "Spellfire",2,
-                "A Forgotten Realms Celebration",1,
-                "Marvel Super Heroes",1,
-                "What's New in the Forgotten Realms?",1]},
+                "Small World",2]},
             "facet_ranges":{},
             "facet_intervals":{},
             "facet_heatmaps":{}},
           "spellcheck":{
             "suggestions":[],
             "correctlySpelled":true}}
-    http_version: null
-  recorded_at: Mon, 13 Jul 2020 15:14:08 GMT
-recorded_with: VCR 5.1.0
+  recorded_at: Mon, 13 Mar 2023 23:59:07 GMT
+recorded_with: VCR 6.1.0

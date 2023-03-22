@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:8090/solr/gencon50-1.0.0/get?fl=*&ids=2001-2135%202136%202137%202138&q=%7B!term%20f=id%20v=$id%7D&qt=document&rows=1&wt=json
+    uri: http://localhost:8090/solr/gencon50-1.0/get?fl=*&ids=2001-2135%202136%202137%202138&q=%7B!term%20f=id%20v=$id%7D&qt=document&rows=1&wt=json
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Faraday v1.0.0
+      - Faraday v2.7.4
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Last-Modified:
-      - Mon, 13 Jul 2020 15:04:31 GMT
+      - Mon, 13 Mar 2023 22:39:17 GMT
       Etag:
-      - '"MTM0MDAwMDAwMDAwMDAwMFNvbHI="'
+      - '"MzIyMDAwMDAwMDAwMDAwMFNvbHI="'
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -54,10 +54,9 @@ http_interactions:
                 "start_date_time_t":["Th 1 PM. Fr Noon Sa Noon Su Noon"],
                 "game_id_display":["2001-2135 2136 2137 2138"],
                 "id":"2001-2135 2136 2137 2138",
-                "_version_":1672114423476518912,
-                "year":"2020-07-13T15:02:59.744Z",
-                "timestamp":"2020-07-13T15:02:59.744Z"}]
+                "_version_":1760292303509913601,
+                "year":"2023-03-13T22:12:39.095Z",
+                "timestamp":"2023-03-13T22:12:39.095Z"}]
           }}
-    http_version: null
-  recorded_at: Mon, 13 Jul 2020 15:14:09 GMT
-recorded_with: VCR 5.1.0
+  recorded_at: Mon, 13 Mar 2023 23:59:10 GMT
+recorded_with: VCR 6.1.0

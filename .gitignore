@@ -39,3 +39,6 @@
 
 # Ignore generated files
 yarn.lock
+
+# Ignore MacOS Files
+.DS_Store

@@ -109,7 +109,7 @@ if ENV["LOADSOLR"] == "y"
           "bin/csv2solr",
           "harvest",
           "'#{fp}'",
-          "--mapfile=#{Rails.root.join('/config/solr_map.yml')}",
+          "--mapfile=#{Rails.root.join('config/solr_map.yml')}",
           "--solr-url=#{ENV['SOLR_URL']}"].join(" ")
         puts command
         `#{command}`

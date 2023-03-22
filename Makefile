@@ -169,12 +169,28 @@ run-dev:
     -e "RAILS_ENV=development" \
     --mount type=bind,source=$(CWD),target=/app \
     $(IMAGE):dev sleep infinity
+	@docker network connect $(DOCKER_NETWORK) $(PROJECT_NAME)-dev
+
+run-test:
+	@docker run --name=$(PROJECT_NAME)-dev -d \
+		-p 127.0.0.1:3000:3000/tcp \
+    $(DEFAULT_RUN_ARGS) \
+    -e "BUNDLE_PATH=$(DEV_BUNDLE_PATH)" \
+    -e "RAILS_ENV=test" \
+		-e "SOLR_URL=http://localhost:8090/solr/gencon50-1.0/" \
+    --mount type=bind,source=$(CWD),target=/app \
+    $(IMAGE):dev sleep infinity
+	@docker network connect $(DOCKER_NETWORK) $(PROJECT_NAME)-dev
 
 stop-dev:
 	@docker stop $(PROJECT_NAME)-dev
 
+stop-test: stop-dev
+
 shell-dev:
 	@docker exec -it $(PROJECT_NAME)-dev bash -l
+
+shell-test: shell-dev
 
 reload-dev: stop-dev run-dev
 
