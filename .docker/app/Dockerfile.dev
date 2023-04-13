@@ -13,7 +13,7 @@ ARG BUNDLE_PATH
 RUN apk add -U --no-cache \
       bash=5.1.16-r0 \
       libxslt=1.1.35-r0 \
-      tzdata=2022f-r1 \
+      tzdata=2023c-r0 \
       shared-mime-info=2.1-r2 \
       imagemagick=7.1.0.16-r0 \
       mariadb-connector-c=3.1.13-r2 && \
@@ -26,7 +26,7 @@ RUN apk add -U --no-cache \
       sqlite=3.36.0-r0 \
       sqlite-dev=3.36.0-r0 \
       mariadb-dev=10.6.12-r0 \
-      nodejs=16.19.1-r0 \
+      nodejs=16.20.0-r0 \
       yarn=1.22.17-r0 && \
     gem install bundler:2.3.24 && \
     gem install rails:6.1.7 && \
