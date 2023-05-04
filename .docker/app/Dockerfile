@@ -18,7 +18,7 @@ RUN apk add -U --no-cache \
       mariadb-connector-c=3.1.13-r2 && \
     apk add -U --no-cache --virtual build-dependencies \
       curl \
-      git=2.34.7-r0 \
+      git=2.34.8-r0 \
       build-base=0.5-r3 \
       libxslt-dev=1.1.35-r0 \
       sqlite=3.36.0-r0 \
