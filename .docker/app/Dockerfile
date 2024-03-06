@@ -1,4 +1,4 @@
-FROM ruby:3.1.3-alpine3.15
+FROM harbor.k8s.temple.edu/library/ruby:3.3-alpine
 
 WORKDIR /app
 
@@ -10,22 +10,22 @@ ARG RAILS_MASTER_KEY
 ARG RAILS_ENV
 
 RUN apk add -U --no-cache \
-      bash=5.1.16-r0 \
-      libxslt=1.1.35-r0 \
-      tzdata=2023c-r0 \
-      shared-mime-info=2.1-r2 \
-      imagemagick=7.1.0.16-r0 \
-      mariadb-connector-c=3.1.13-r2 && \
+      bash=5.2.21-r0 \
+      libxslt=1.1.39-r0 \
+      tzdata=2024a-r0 \
+      shared-mime-info=2.4-r0 \
+      imagemagick=7.1.1.26-r0 \
+      mariadb-connector-c=3.3.8-r0 && \
     apk add -U --no-cache --virtual build-dependencies \
       curl \
-      git=2.34.8-r0 \
+      git=2.43.0-r0 \
       build-base=0.5-r3 \
-      libxslt-dev=1.1.35-r0 \
-      sqlite=3.36.0-r0 \
-      sqlite-dev=3.36.0-r0 \
-      mariadb-dev=10.6.12-r0 \
-      nodejs=16.20.0-r0 \
-      yarn=1.22.17-r0 && \
+      libxslt-dev=1.1.39-r0 \
+      sqlite=3.44.2-r0 \
+      sqlite-dev=3.44.2-r0 \
+      mariadb-dev=10.11.6-r0 \
+      nodejs=20.11.1-r0 \
+      yarn=1.22.19-r0 && \
     gem install bundler:2.3.24 && \
     gem update --system && \
     bundle config build.nokogiri --use-system-libraries && \

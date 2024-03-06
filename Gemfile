@@ -3,8 +3,6 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.3"
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 6.1.7.6"
 # Use sqlite3 as the database for Active Record
@@ -84,5 +82,5 @@ gem "devise", "~> 4.7", ">= 4.7.1"
 gem "devise-guests"
 gem "blimp", github: "tulibraries/blimp"
 gem "dotenv-rails"
-gem "nokogiri", "1.16.2"
+gem "nokogiri"
 gem "image_processing", "1.12.2"
