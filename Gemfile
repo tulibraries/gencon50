@@ -5,8 +5,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 6.1.7.6"
-# Use sqlite3 as the database for Active Record
-gem "sqlite3"
 # Use Puma as the app server
 gem "puma", "~> 5.6.8"
 # Use SCSS for stylesheets
@@ -49,6 +47,7 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "brakeman"
+  gem "sqlite3"
 end
 
 group :test do
