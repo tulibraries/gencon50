@@ -24,7 +24,7 @@ RUN apk add -U --no-cache \
       sqlite=3.44.2-r0 \
       sqlite-dev=3.44.2-r0 \
       mariadb-dev=10.11.6-r0 \
-      nodejs=20.11.1-r0 \
+      nodejs=20.12.1-r0 \
       yarn=1.22.19-r0 && \
     gem install bundler:2.3.24 && \
     gem update --system && \
