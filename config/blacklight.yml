@@ -3,7 +3,7 @@ development:
   url: <%= ENV['SOLR_URL'] || "http://localhost:8090/solr/gencon50-1.0.0" %>
 test: &test
   adapter: solr
-  url: <%= ENV['SOLR_URL'] || "http://localhost:8090/solr/gencon50-1.0.0" %>
+  url: <%= ENV['SOLR_URL'] || "http://localhost:8090/solr/gencon50-1.0" %>
 production:
   adapter: solr
   url: <%= ENV['SOLR_URL'] || "http://localhost:8090/solr/gencon50-1.0.0" %>
