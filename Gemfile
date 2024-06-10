@@ -62,7 +62,7 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Blacklight
-gem "blacklight", "~> 8.0.1"
+gem "blacklight", "~> 8.2.2"
 
 group :development, :test do
   gem "solr_wrapper", ">= 4.0.2"
