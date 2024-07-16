@@ -78,7 +78,7 @@ GEM
     bcrypt (3.1.20)
     bigdecimal (3.1.6)
     bindex (0.8.1)
-    blacklight (8.2.2)
+    blacklight (8.3.0)
       globalid
       i18n (>= 1.7.0)
       jbuilder (~> 2.7)
@@ -399,7 +399,7 @@ GEM
     unicode-display_width (2.5.0)
     uri (0.13.0)
     vcr (6.2.0)
-    view_component (3.12.1)
+    view_component (3.13.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
@@ -432,7 +432,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  blacklight (~> 8.2.2)
+  blacklight (~> 8.3)
   blimp!
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.0)
