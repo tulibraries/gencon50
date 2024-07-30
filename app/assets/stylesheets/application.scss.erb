@@ -162,8 +162,8 @@ ul.facet-values li {
     float: right;
   }
 }
-#search-navbar {
-	margin-bottom: 0;
+.navbar.navbar-default.navbar-static-top {
+	margin-bottom: 10;
 	background-color: #000;
 	.btn-primary {
 		color: #fff;
@@ -172,12 +172,29 @@ ul.facet-values li {
 	}
 	.btn-primary:hover {
 		color: #000;
-    background-color: #c1d62e;
-    border-color: #000;
+        background-color: #c1d62e;
+        border-color: #000;
 	}
-  .tt-input {
-    background-color: #fff !important;
+    .tt-input {
+        background-color: #fff !important;
+    }
+ 
+  .search-query-form {
+	width: 56%;
   }
+
+  .submit-search-text {
+	padding-right: 0.4em;
+  }
+}
+
+.show-document {
+	#appliedParams {
+	  display: none;
+	}
+	header {
+	  margin-left: 0px;
+	}
 }
 
 #main-container {
