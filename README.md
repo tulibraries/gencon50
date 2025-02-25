@@ -8,7 +8,7 @@ date: 2020-04-14
 
 ## System Requirements
 
-Requires Ruby 2.7.2
+Requires Ruby 3.4.2
 
 This Blacklight instance requires SolrCloud. A local version of SolrCloud may be run
 by using the TULibraries Ansible SolrCloud Playbook:
@@ -69,7 +69,7 @@ Create a local user. Feel free to use your own email and password
 
 Start the Gencon50 application
 
-    bundle exec rails server`
+    bundle exec rails server
 
 Ingest some data
 
@@ -97,7 +97,7 @@ If you need to access Solr index to generate new tests, harvest the csv files in
 
 Ensure that requests to the Solr server are in VCR blocks. For example:
 
-    VCR.use_cassette("responseDefaultIndex", record: :once) do
+    VCR.use_cassette("responseDefaultIndex", record: :none) do
       get "?search_field=all_fields&q="
     end
 
