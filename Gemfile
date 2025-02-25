@@ -35,11 +35,6 @@ gem "jbuilder", "~> 2.5"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-end
-
 gem "listen", "~> 3.5"
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -65,6 +60,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "blacklight", "~> 8.3"
 
 group :development, :test do
+  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "solr_wrapper", ">= 4.1.0"
   gem "webmock"
   gem "pry-rails"
@@ -79,7 +75,7 @@ gem "jquery-rails"
 gem "carrierwave", "~> 3.0.7"
 gem "devise", "~> 4.7", ">= 4.7.1"
 gem "devise-guests"
-gem "blimp", path: "../blimp"
+gem "blimp"
 gem "dotenv-rails"
 gem "nokogiri"
 gem "image_processing", "1.12.2"
