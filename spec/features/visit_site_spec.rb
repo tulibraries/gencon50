@@ -8,7 +8,6 @@ require "vcr"
 RSpec.feature "VisitSites", type: :feature do
   before(:all) do
     VCR.configure do |config|
-      vcr_mode = :none
       config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
       config.hook_into :webmock
       config.default_cassette_options = {
@@ -20,7 +19,7 @@ RSpec.feature "VisitSites", type: :feature do
   context "Visit catalog" do
 
     it "performs default search" do
-      VCR.use_cassette("defaultSearch") do
+      VCR.use_cassette("defaultSearch", record: :once) do
         visit("/?utf8=%E2%9C%93&search_field=all_fields&q=")
       end
       expect(page).to have_text("14,776")
@@ -29,7 +28,7 @@ RSpec.feature "VisitSites", type: :feature do
     end
 
     it "searches the title field" do
-      VCR.use_cassette("titleSearch") do
+      VCR.use_cassette("titleSearch", record: :once) do
         visit("/?utf8=%E2%9C%93&search_field=title&q=bunny")
       end
       expect(page).to have_text("1 - 6 of 6")
@@ -42,7 +41,7 @@ RSpec.feature "VisitSites", type: :feature do
     end
 
     it "searches text with facets " do
-      VCR.use_cassette("facetAllFieldsSearch") do
+      VCR.use_cassette("facetAllFieldsSearch", record: :once) do
         visit("/?f%5Byear_facet%5D%5B%5D=2012&q=strat-o-matic+hockey&search_field=all_fields")
       end
       expect(page).to have_text("2012-BGM1234347")
