@@ -177,7 +177,7 @@ run-test:
     $(DEFAULT_RUN_ARGS) \
     -e "BUNDLE_PATH=$(DEV_BUNDLE_PATH)" \
     -e "RAILS_ENV=test" \
-		-e "SOLR_URL=http://localhost:8090/solr/gencon50-1.0/" \
+		-e "SOLR_URL=http://localhost:8090/solr/gencon50-v3.0.1/" \
     --mount type=bind,source=$(CWD),target=/app \
     $(IMAGE):dev sleep infinity
 	@docker network connect $(DOCKER_NETWORK) $(PROJECT_NAME)-dev
