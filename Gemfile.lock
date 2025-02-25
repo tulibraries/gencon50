@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/tulibraries/blimp.git
+  revision: dd96e2137acf55855501a5b3849130535870ad31
+  specs:
+    blimp (0.3.7)
+      carrierwave
+      rails
+      ruby-progressbar (= 1.10.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -91,8 +100,6 @@ GEM
       rails (>= 6.1, < 9)
       view_component (>= 2.74, < 4)
       zeitwerk
-    blimp (0.0.5)
-      httparty (~> 0.11.0)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
     bootstrap (4.6.2.1)
@@ -169,9 +176,6 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashdiff (1.1.2)
-    httparty (0.11.0)
-      multi_json (~> 1.0)
-      multi_xml (>= 0.5.2)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -224,9 +228,6 @@ GEM
     minitar (1.0.2)
     minitest (5.25.4)
     msgpack (1.8.0)
-    multi_json (1.15.0)
-    multi_xml (0.7.1)
-      bigdecimal (~> 3.1)
     net-http (0.6.0)
       uri
     net-imap (0.5.6)
@@ -372,7 +373,7 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.72.1, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
-    ruby-progressbar (1.13.0)
+    ruby-progressbar (1.10.1)
     ruby-vips (2.2.3)
       ffi (~> 1.12)
       logger
@@ -482,7 +483,7 @@ PLATFORMS
 
 DEPENDENCIES
   blacklight (~> 8.3)
-  blimp
+  blimp!
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.0)
   brakeman
