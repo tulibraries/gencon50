@@ -26,7 +26,7 @@ jobs:
       - image: cimg/ruby:3.3.0-node
         environment:
           TZ: "America/New_York"
-          SOLR_URL: "http://localhost:8090/solr/gencon50-v3.0.1/"
+          SOLR_URL: "http://localhost:8090/solr/gencon50-1.0/"
 
       - image: cimg/postgres:11.12
         environment:

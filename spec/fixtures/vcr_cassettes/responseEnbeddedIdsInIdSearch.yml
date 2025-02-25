@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:8090/solr/gencon50-v3.0.1/get?fl=*&ids=2001-2135%202136%202137%202138&q=%7B!term%20f=id%20v=$id%7D&qt=document&rows=1&wt=json
+    uri: http://localhost:8090/solr/gencon50-1.0/get?fl=*&ids=2001-2135%202136%202137%202138&q=%7B!term%20f=id%20v=$id%7D&qt=document&rows=1&wt=json
     body:
       encoding: US-ASCII
       string: ''
