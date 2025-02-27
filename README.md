@@ -8,7 +8,7 @@ date: 2020-04-14
 
 ## System Requirements
 
-Requires Ruby 2.7.2
+Requires Ruby 3.4.2
 
 This Blacklight instance requires SolrCloud. A local version of SolrCloud may be run
 by using the TULibraries Ansible SolrCloud Playbook:
@@ -47,7 +47,7 @@ Configure dotenv to use SolrWrapper
 
 Ensure .env contains
 
-    SOLR_URL="http://localhost:8090/solr/gencon50-1.0.0"
+    SOLR_URL="http://localhost:8090/solr/gencon50-1.0"
 
 Solr may be run with Solr_Wrapper or SolrCloud (preferred).
 
@@ -69,7 +69,7 @@ Create a local user. Feel free to use your own email and password
 
 Start the Gencon50 application
 
-    bundle exec rails server`
+    bundle exec rails server
 
 Ingest some data
 
@@ -95,13 +95,14 @@ If you need to access Solr index to generate new tests, harvest the csv files in
 
     LOADSOLR=y bundle exec rspec spec
 
-Ensure that requests to the Solr server are in VCR blocks. For example:
+Ensure that requests to the Solr server are in VCR blocks set initially to record. For example:
 
     VCR.use_cassette("responseDefaultIndex", record: :once) do
       get "?search_field=all_fields&q="
     end
 
-Note the `:record` mode is set to once. After you perform this spec, change the record mode to `:none`.
+Note the `:record` mode is set to once. After you perform this spec, change the record mode to `:none` to run future tests 
+without the need for Solr to be running.
 
 Subsequent runs of the specs should execute without need to connect to the Solr server. At this point, you may go to the
 `andible-playbook-solrcloud` directory and stop SolrCloud instance with `make down`
