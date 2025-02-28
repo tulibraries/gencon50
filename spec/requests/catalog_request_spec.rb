@@ -12,21 +12,10 @@ RSpec.describe "Catalogs", type: :request do
   let(:mock_document) { instance_double(SolrDocument, export_formats: {}) }
   let(:search_service) { instance_double(Blacklight::SearchService) }
 
-  before(:all) do
-    VCR.configure do |config|
-      vcr_mode = :none
-      config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
-      config.hook_into :webmock
-      config.default_cassette_options = {
-        match_requests_on: [:method, VCR.request_matchers.uri_without_param(:key)]
-      }
-    end
-  end
-
   context "default index" do
 
     subject {
-      VCR.use_cassette("responseDefaultIndex", record: :none) do
+      VCR.use_cassette("responseDefaultIndex") do
         get "?search_field=all_fields&q="
       end
       response.body
@@ -55,7 +44,7 @@ RSpec.describe "Catalogs", type: :request do
 
   context "catalog record page" do
     subject {
-      VCR.use_cassette("responseCatalogRecordPage", record: :none) do
+      VCR.use_cassette("responseCatalogRecordPage") do
         get "/catalog/2002-8084"
       end
       response.body
@@ -73,7 +62,7 @@ RSpec.describe "Catalogs", type: :request do
   context "search" do
     describe "all fields" do
       subject {
-        VCR.use_cassette("responseSearchAllFields", record: :none) do
+        VCR.use_cassette("responseSearchAllFields") do
           get "?search_field=all_fields&q=Realms"
         end
         response.body
@@ -86,7 +75,7 @@ RSpec.describe "Catalogs", type: :request do
     describe "summary in all fields" do
       subject {
         search_text = Addressable::URI.encode("Afrika Korps attacks US II Corps in 10th Annual Family Team Event")
-        VCR.use_cassette("responseSummaryInAllFields", record: :none) do
+        VCR.use_cassette("responseSummaryInAllFields") do
           get "?search_field=all_fields&q=#{search_text}"
         end
         response.body
@@ -96,7 +85,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Title Search" do
       subject {
-        VCR.use_cassette("responseTitleSearch", record: :none) do
+        VCR.use_cassette("responseTitleSearch") do
           get "?search_field=title&q=War+With+Asgard"
         end
         response.body
@@ -107,7 +96,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Game System Search" do
       subject {
-        VCR.use_cassette("responseGameSystemSearch", record: :none) do
+        VCR.use_cassette("responseGameSystemSearch") do
           get "?search_field=game_system_t&q=Dungeons+%26+Dragons"
         end
         response.body
@@ -118,7 +107,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Event Type Search" do
       subject {
-        VCR.use_cassette("responseEventTypeSearch", record: :none) do
+        VCR.use_cassette("responseEventTypeSearch") do
           get "?search_field=event_type_t&q=BGM+-+Board+Game"
         end
         response.body
@@ -130,7 +119,7 @@ RSpec.describe "Catalogs", type: :request do
     describe "Long Description Search" do
       subject {
         search_text = Addressable::URI.encode("Imperial Japan invades Midway in three huge connected Air-Sea & Land Miniatures Battles")
-        VCR.use_cassette("responseLongDescriptionSearch", record: :none) do
+        VCR.use_cassette("responseLongDescriptionSearch") do
           get "?search_field=all_fields&q=" + search_text
         end
         response.body
@@ -141,7 +130,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "GM Name Search" do
       subject {
-        VCR.use_cassette("responseGMNameSearch", record: :none) do
+        VCR.use_cassette("responseGMNameSearch") do
           get "?search_field=gm_names_t&q=charles"
         end
         response.body
@@ -152,7 +141,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Group Search" do
       subject {
-        VCR.use_cassette("responseGroupSearch", record: :none) do
+        VCR.use_cassette("responseGroupSearch") do
           get "?search_field=group_t&q=smith"
         end
         response.body
@@ -163,7 +152,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Location Search" do
       subject {
-        VCR.use_cassette("responseLocationSearch", record: :none) do
+        VCR.use_cassette("responseLocationSearch") do
           get "?search_field=location_t&q=marriott"
         end
         response.body
@@ -176,7 +165,7 @@ RSpec.describe "Catalogs", type: :request do
   context "facet" do
     describe "Year Facet Search" do
       subject {
-        VCR.use_cassette("responseYearFacetSearch", record: :none) do
+        VCR.use_cassette("responseYearFacetSearch") do
           get "?f[year_facet][]=2001"
         end
         response.body
@@ -187,7 +176,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Group Facet Search" do
       subject {
-        VCR.use_cassette("responseGroupFacetSearch", record: :none) do
+        VCR.use_cassette("responseGroupFacetSearch") do
           get "?f[group_facet][]=Fantasy+Flight+Games"
         end
         response.body
@@ -198,7 +187,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Event Type Facet Search" do
       subject {
-        VCR.use_cassette("responseEventTypeFacetSearch", record: :none) do
+        VCR.use_cassette("responseEventTypeFacetSearch") do
           get "?f[event_type_facet][]=Non-Historical+Miniatures"
         end
         response.body
@@ -209,7 +198,7 @@ RSpec.describe "Catalogs", type: :request do
 
     describe "Game System Facet Search" do
       subject {
-        VCR.use_cassette("responseGameSystemFacetSearch", record: :none) do
+        VCR.use_cassette("responseGameSystemFacetSearch") do
           get "?f[game_system_facet][]=Empire%20Builder"
         end
         response.body
@@ -221,7 +210,7 @@ RSpec.describe "Catalogs", type: :request do
 
   context "Embedded ID's in ID" do
     subject {
-      VCR.use_cassette("responseEnbeddedIdsInIdSearch", record: :none) do
+      VCR.use_cassette("responseEnbeddedIdsInIdSearch") do
         get "/catalog/2001-2135%202136%202137%202138"
       end
       response.body
