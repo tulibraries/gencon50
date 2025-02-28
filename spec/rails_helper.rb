@@ -71,7 +71,7 @@ RSpec.configure do |config|
       match_requests_on: [:method]
     }
     record_mode = ENV["VCR"] ? ENV["VCR"].to_sym : :once # VCR=all before rspec command rerecords specified specs
-    config.default_cassette_options = { :record => record_mode }
+    config.default_cassette_options = { record: record_mode }
   end
 
 end
