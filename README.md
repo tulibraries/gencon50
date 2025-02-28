@@ -95,6 +95,12 @@ If you need to access Solr index to generate new tests, harvest the csv files in
 
     LOADSOLR=y bundle exec rspec spec
 
+To re-record VCR cassettes, pass the VCR arg to rspec
+
+    VCR=all LOADSOLR=y bundle exec rspec spec
+    or
+    VCR=all LOADSOLR=y bundle exec rspec spec/features/visit_site_spec.rb
+
 Ensure that requests to the Solr server are in VCR blocks set initially to record. For example:
 
     VCR.use_cassette("responseDefaultIndex", record: :once) do
