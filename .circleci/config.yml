@@ -1,5 +1,5 @@
 
-version: 2
+version: 2.1
 
 workflows:
   version: 2
@@ -35,12 +35,31 @@ jobs:
     steps:
       - checkout
       - run:
+          name: make sure we have the latest bundler
           command: |
             gem update --system
             gem install -f bundler --version "$BUNDLER_VERSION"
+
+      - restore_cache:
+          keys:
+            - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gem-cache-v1-{{ arch }}-{{ .Branch }}
+            - gem-cache-v1
+
+      - run:
+          command: |
             sudo apt-get --allow-releaseinfo-change update
             sudo apt-get install sqlite3 libsqlite3-dev
             bundle install
+
+      - save_cache:
+          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Run tests
+          command: |
             bundle exec rubocop
             bundle exec brakeman --no-pager --no-threads
             RAILS_ENV=test bundle exec rake db:setup
