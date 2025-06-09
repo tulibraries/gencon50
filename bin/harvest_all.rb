@@ -1,13 +1,15 @@
 #!/usr/bin/env ruby
 
 require 'dotenv/load'
+require 'logger'
 
 Dotenv.load
 
+logger = Logger.new(STDOUT)
 files = Dir["csv/*.csv"]
 files.sort.each do |fn|
   fp = File.expand_path(fn)
-  puts "process #{fp}"
+  logger.info("Processing #{fp}")
   command = [
     "bundle",
     "exec",
@@ -16,6 +18,12 @@ files.sort.each do |fn|
     "'#{fp}'",
     "--mapfile=config/solr_map.yml",
     "--solr-url=#{ENV['SOLR_URL']}"].join(" ")
-  puts command
-  `#{command}`
+  logger.info("Executing command: #{command}")
+  output = `#{command}`
+  if $?.exitstatus != 0
+    logger.error("Command failed with status #{$?.exitstatus}")
+    logger.error("Output: #{output}")
+  else
+    logger.info("Command succeeded")
+  end
 end

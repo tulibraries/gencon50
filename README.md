@@ -8,7 +8,7 @@ date: 2020-04-14
 
 ## System Requirements
 
-Requires Ruby 2.7.2
+Requires Ruby 3.4.2
 
 This Blacklight instance requires SolrCloud. A local version of SolrCloud may be run
 by using the TULibraries Ansible SolrCloud Playbook:
@@ -47,7 +47,7 @@ Configure dotenv to use SolrWrapper
 
 Ensure .env contains
 
-    SOLR_URL="http://localhost:8090/solr/gencon50-1.0.0"
+    SOLR_URL="http://localhost:8090/solr/gencon50-1.0"
 
 Solr may be run with Solr_Wrapper or SolrCloud (preferred).
 
