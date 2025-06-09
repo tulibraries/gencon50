@@ -31,7 +31,7 @@ jobs:
       - image: cimg/postgres:11.12
         environment:
           TZ: "America/New_York"
-          BUNDLER_VERSION: "2.3.24"
+          BUNDLER_VERSION: "2.6.2"
     steps:
       - checkout
       - run:
