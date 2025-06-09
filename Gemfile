@@ -8,9 +8,11 @@ gem "rails", "~> 6.1.7.6"
 # Use Puma as the app server
 gem "puma", "~> 5.6.8"
 # Use SCSS for stylesheets
-gem "sass-rails", "~> 5.0"
+gem "cssbundling-rails"
+gem "sassc-rails"
+gem "drb"
 # Use Uglifier as compressor for JavaScript assets
-gem "sqlite3"
+gem "sqlite3", "~> 1.4"
 gem "uglifier", ">= 1.3.0"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
@@ -38,6 +40,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "mutex_m"
 end
 
 gem "listen", ">= 3.0.5", "< 3.2"
@@ -56,10 +59,13 @@ group :test do
   gem "rspec"
   gem "rspec-rails"
   gem "vcr"
+  gem "csv"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "tzinfo", "~> 2.0"
+gem "zeitwerk", "~> 2.3"
 
 # Blacklight
 gem "blacklight", "~> 8.3"
@@ -73,7 +79,7 @@ group :development, :test do
 end
 
 gem "rsolr", ">= 1.0", "< 3"
-gem "bootstrap", "~> 4.0"
+gem "bootstrap"
 gem "twitter-typeahead-rails", "0.11.1.pre.corejavascript"
 gem "jquery-rails"
 gem "carrierwave", "~> 3.0.7"

@@ -12,17 +12,6 @@ RSpec.describe "Catalogs", type: :request do
   let(:mock_document) { instance_double(SolrDocument, export_formats: {}) }
   let(:search_service) { instance_double(Blacklight::SearchService) }
 
-  before(:all) do
-    VCR.configure do |config|
-      vcr_mode = :none
-      config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
-      config.hook_into :webmock
-      config.default_cassette_options = {
-        match_requests_on: [:method, VCR.request_matchers.uri_without_param(:key)]
-      }
-    end
-  end
-
   context "default index" do
 
     subject {

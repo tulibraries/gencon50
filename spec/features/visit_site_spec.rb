@@ -6,17 +6,6 @@ require "webmock/rspec"
 require "vcr"
 
 RSpec.feature "VisitSites", type: :feature do
-  before(:all) do
-    VCR.configure do |config|
-      vcr_mode = :none
-      config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
-      config.hook_into :webmock
-      config.default_cassette_options = {
-        match_requests_on: [:method, VCR.request_matchers.uri_without_param(:key)]
-      }
-    end
-  end
-
   context "Visit catalog" do
 
     it "performs default search" do

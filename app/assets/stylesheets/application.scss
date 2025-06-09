@@ -15,7 +15,7 @@
  */
 @font-face {
     font-family: Minecrafter;
-    src: url("<%= asset_path 'Minecrafter.Reg.ttf' %>")  format('truetype');
+    src: url("Minecrafter.Reg.ttf")  format('truetype');
 }
 @font-face {
     font-family: Rage;
@@ -23,10 +23,10 @@
 }
 @font-face {
     font-family: futura;
-    src: url("<%= asset_path 'Futura Light.ttf' %>")  format('truetype');
+    src: url("Futura Light.ttf")  format('truetype');
 }
 html {
-  background-image: url("<%= asset_path 'gamify.png' %>");
+  background-image: url("gamify.png");
   background-repeat:  no-repeat;
   background-position:  center center;
   background-attachment:  fixed;

@@ -1,5 +1,5 @@
 
-version: 2
+version: 2.1
 
 workflows:
   version: 2
@@ -23,7 +23,7 @@ workflows:
 jobs:
   run_tests:
     docker:
-      - image: cimg/ruby:3.3.0-node
+      - image: cimg/ruby:3.4.2-node
         environment:
           TZ: "America/New_York"
           SOLR_URL: "http://localhost:8090/solr/gencon50-1.0/"
@@ -31,16 +31,35 @@ jobs:
       - image: cimg/postgres:11.12
         environment:
           TZ: "America/New_York"
-          BUNDLER_VERSION: "2.3.24"
+          BUNDLER_VERSION: "2.6.2"
     steps:
       - checkout
       - run:
+          name: make sure we have the latest bundler
           command: |
             gem update --system
             gem install -f bundler --version "$BUNDLER_VERSION"
+
+      - restore_cache:
+          keys:
+            - gem-cache-v2-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gem-cache-v2-{{ arch }}-{{ .Branch }}
+            - gem-cache-v2
+
+      - run:
+          command: |
             sudo apt-get --allow-releaseinfo-change update
             sudo apt-get install sqlite3 libsqlite3-dev
             bundle install
+
+      - save_cache:
+          key: gem-cache-v2-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Run tests
+          command: |
             bundle exec rubocop
             bundle exec brakeman --no-pager --no-threads
             RAILS_ENV=test bundle exec rake db:setup

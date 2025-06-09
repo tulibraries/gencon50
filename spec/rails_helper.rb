@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "logger"
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require "spec_helper"
 ENV["RAILS_ENV"] ||= "test"
@@ -63,4 +64,15 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  VCR.configure do |config|
+    config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+    config.hook_into :webmock
+    config.default_cassette_options = {
+      match_requests_on: [:method]
+    }
+    record_mode = ENV["VCR"] ? ENV["VCR"].to_sym : :once # VCR=all before rspec command rerecords specified specs
+    config.default_cassette_options = { record: record_mode }
+  end
+
 end
