@@ -42,9 +42,9 @@ jobs:
 
       - restore_cache:
           keys:
-            - gem-cache-v3-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - gem-cache-v3-{{ arch }}-{{ .Branch }}
-            - gem-cache-v3
+            - gem-cache-v4-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gem-cache-v4-{{ arch }}-{{ .Branch }}
+            - gem-cache-v4
 
       - run:
           command: |
@@ -53,7 +53,7 @@ jobs:
             bundle install
 
       - save_cache:
-          key: gem-cache-v3-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          key: gem-cache-v4-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
 
