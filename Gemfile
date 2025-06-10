@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "rails", "~> 7.2.2"
 
-gem "blacklight", "~> 8.3"
+gem "blacklight", "~> 8.11"
 gem "blimp", github: "tulibraries/blimp"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap"
@@ -24,8 +24,8 @@ gem "listen", "~> 3.5"
 gem "nokogiri"
 gem "puma", "~> 5.6.8"
 gem "rsolr", ">= 1.0", "< 3"
-gem "sassc-rails"
 gem "solr_wrapper"
+gem "propshaft"
 gem "sqlite3"
 gem "uglifier", ">= 1.3.0"
 gem "turbolinks", "~> 5"
@@ -38,11 +38,11 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "mutex_m"
   gem "rubocop-rails", require: false
+  gem "pry-rails"
 end
 
 group :development do
   gem "brakeman"
-  gem "pry-rails"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.1.0"
   gem "web-console", ">= 3.3.0"
