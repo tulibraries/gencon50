@@ -1,0 +1,21 @@
+/* Search History */
+.search-history {
+  --bl-history-filter-name-color: var(--bs-secondary-color);
+
+  td {
+    padding: $spacer;
+  }
+
+  .constraints-container {
+    @extend .mb-0;
+  }
+
+  .constraint {
+    padding-inline-end: $spacer;
+    display: block;
+  }
+
+  .filter-name {
+    color: var(--bl-history-filter-name-color);
+  }
+}
