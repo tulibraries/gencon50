@@ -1,12 +1,17 @@
 {
   "name": "blgencon",
   "private": true,
-  "dependencies": {
-
-  },
-  "resolutions": {
-  },
+  "resolutions": {},
   "scripts": {
-    "build:css": "sass ./app/assets/stylesheets/application.scss:./app/assets/builds/application.css --load-path=node_modules"
+    "build:css": "sass ./app/assets/stylesheets/application.scss:./app/assets/builds/application.css --load-path=node_modules",
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.5"
+  },
+  "dependencies": {
+    "@hotwired/turbo-rails": "^8.0.16",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.6"
   }
 }
