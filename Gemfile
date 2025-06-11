@@ -27,7 +27,6 @@ gem "rsolr", ">= 1.0", "< 3"
 gem "sassc-rails"
 gem "solr_wrapper"
 gem "sqlite3"
-gem "stringio", "~> 3.1.7", require: false
 gem "uglifier", ">= 1.3.0"
 gem "turbolinks", "~> 5"
 gem "twitter-typeahead-rails", "0.11.1.pre.corejavascript"
