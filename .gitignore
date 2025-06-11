@@ -38,7 +38,7 @@
 .env
 
 # Ignore generated files
-yarn.lock
+# yarn.lock
 
 # Ignore MacOS Files
 .DS_Store
