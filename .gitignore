@@ -37,9 +37,6 @@
 # Ignore deploy configuration and secrets
 .env
 
-# Ignore generated files
-yarn.lock
-
 # Ignore MacOS Files
 .DS_Store
 
