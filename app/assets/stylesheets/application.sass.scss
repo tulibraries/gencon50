@@ -1,0 +1,195 @@
+// Entry point for your Sass build
+@import "bootstrap/scss/bootstrap";
+@import "blacklight-frontend/app/assets/stylesheets/blacklight/blacklight";
+
+@font-face {
+  font-family: Minecrafter;
+  src: url("Minecrafter.Reg.ttf")  format('truetype');
+}
+@font-face {
+  font-family: Rage;
+  src: url('./Rage.ttf')  format('truetype');
+}
+@font-face {
+  font-family: futura;
+  src: url("Futura Light.ttf")  format('truetype');
+}
+html {
+background-image: url("gamify.png");
+background-repeat:  no-repeat;
+background-position:  center center;
+background-attachment:  fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+body {
+background-color: transparent;
+}
+html, body {
+height: 100%;
+}
+.jumbotron {
+background-color: #c1d62e;
+border: solid #4f5812 1px;
+p.lead {
+  text-align: left;
+  line-height: 1.4;
+  font-family: Helvetica;
+  a {
+    color: #000;
+    border-color: #000;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+  }
+  a:hover {
+    text-decoration: none;
+    border-width: 0 0 4px 0;
+  }
+  a:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+}
+}
+a, .btn-default, #sort-dropdown .dropdown-toggle, #per_page-dropdown .dropdown-toggle, .pagination ul li a {
+color: #903 !important;
+}
+a:hover, a:focus, a:active {
+color: #4f5812;
+}
+.pagination ul li a:hover, .pagination ul li a:focus, .pagination ul li a:active {
+color: #903;
+}
+.pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+background-color: #c1d62e;
+border-color: #c1d62e;
+color: #951936;
+}
+.btn-default, #sort-dropdown .dropdown-toggle, #per_page-dropdown .dropdown-toggle {
+color: #4f5812;
+border-color: #667118;
+}
+.panel-success > .panel-heading, .facet_limit-active > .panel-heading {
+background-color: #7e8d1d !important;
+border-color: #4f5812 !important;
+color: #fff !important;
+}
+.facet-limit-active .card-header {
+background-color: #7e8d1d !important;
+border-color: #4f5812 !important;
+button {
+  color: #fff !important;
+}
+}
+ul.facet-values li {
+span.facet-label {
+  color: #903;
+  span.selected {
+    color: #3c763d!important;
+  }
+}
+span.selected.facet-count {
+  color: #3c763d!important;
+}
+}
+#header-navbar {
+flex-grow: 2;
+background-color: #c1d62e;
+border-color: #7e8d1d;
+#site-title {
+  color: #000!important;
+  line-height: 56px;
+  position: relative;
+  font-size: 35px;
+  font-family: futura, helvetica, arial, sans;
+  padding: 28px 0 14px 14px;
+  p {
+    padding: 0;
+    line-height: 1em;
+  }
+}
+#site-title a:link, #site-title a:visited {
+  font-family: Minecrafter;
+  color: #000!important;
+  letter-spacing: .35rem;
+  font-size: 56px;
+}
+.futura {
+  font-family: futura;
+}
+.navbar-right {
+  .navbar-nav li a {
+    color: #000000;
+  }
+  .navbar-nav li {
+    a:hover {
+      color: #000000;
+    }
+    a:focus {
+      color: #000000;
+    }
+  }
+}
+}
+
+.navbar-static-top {
+border-width: 0!important;
+}
+#appliedParams {
+line-height: 2.5;
+padding: 16px 19px;
+min-height: 20px;
+margin-bottom: 20px;
+background-color: #f5f5f5;
+border: 1px solid #e3e3e3;
+border-radius: 4px;
+.catalog_startOverLink.btn.btn-primary {
+  background-color: transparent;
+  border: 0;
+  float: right;
+}
+}
+.navbar.navbar-default.navbar-static-top {
+margin-bottom: 10;
+background-color: #000;
+.btn-primary {
+  color: #fff;
+  background-color: #7e8d1d;
+  border-color: #7e8d1d;
+}
+.btn-primary:hover {
+  color: #000;
+      background-color: #c1d62e;
+      border-color: #000;
+}
+  .tt-input {
+      background-color: #fff !important;
+  }
+
+.search-query-form {
+width: 56%;
+}
+
+.submit-search-text {
+padding-right: 0.4em;
+}
+}
+
+.show-document {
+#appliedParams {
+  display: none;
+}
+header {
+  margin-left: 0px;
+}
+}
+
+#main-container {
+min-height: 100%;
+background-color: #fff;
+#content {
+  margin-top: 28px;
+}
+}
