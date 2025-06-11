@@ -42,3 +42,6 @@ yarn.lock
 
 # Ignore MacOS Files
 .DS_Store
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
