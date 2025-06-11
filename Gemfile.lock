@@ -498,6 +498,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.1.0)
   sqlite3
+  stringio (~> 3.1.2)
   turbolinks (~> 5)
   twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
   tzinfo (~> 2.0)
@@ -509,4 +510,4 @@ DEPENDENCIES
   zeitwerk (~> 2.3)
 
 BUNDLED WITH
-   2.6.2
+   2.6.9
