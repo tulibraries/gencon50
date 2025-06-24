@@ -7,6 +7,7 @@
     "build": "rollup -c --bundleConfigAsCjs rollup.config.js"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "rollup": "^4.43.0",
     "sass": "^1.89.2"
@@ -14,6 +15,6 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "blacklight-frontend": "^8.11.0",
-    "bootstrap": "^5.3.6"
+    "bootstrap": "^5.3.7"
   }
 }
