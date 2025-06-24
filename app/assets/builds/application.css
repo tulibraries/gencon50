@@ -12628,15 +12628,15 @@ auto-complete [role=option] {
 
 @font-face {
   font-family: Minecrafter;
-  src: url("Minecrafter.Reg.ttf") format("truetype");
+  src: url("/assets/Minecrafter.Reg.ttf") format("truetype");
 }
 @font-face {
   font-family: Rage;
-  src: url("./Rage.ttf") format("truetype");
+  src: url("/assets/Rage.ttf") format("truetype");
 }
 @font-face {
   font-family: futura;
-  src: url("Futura Light.ttf") format("truetype");
+  src: url("/assets/futuralight.ttf") format("truetype");
 }
 html {
   background-image: url("gamify.png");
