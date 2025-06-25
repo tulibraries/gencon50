@@ -58,6 +58,13 @@ jobs:
             - vendor/bundle
 
       - run:
+          name: Install & build JS/CSS
+          command: |
+            yarn install --frozen-lockfile
+            yarn build
+            RAILS_ENV=test bundle exec rails assets:precompile
+
+      - run:
           name: Run tests
           command: |
             bundle exec rubocop
