@@ -12037,7 +12037,7 @@ main {
 */
 .navbar-logo {
   /* The main logo image for the Blacklight instance */
-  background: transparent image_url("blacklight/logo.png") no-repeat top left;
+  background: transparent url('blacklight/logo.png') no-repeat top left;
   background-size: 150px 50px;
   height: 50px;
   overflow: hidden;

@@ -1,3 +1,22 @@
+// ———————— stub out Sprockets helpers for cssbundling ————————
+// these will just emit a plain url(...) and skip any fingerprinting,
+// necessary for passing tests
+// • Defines dummy versions of the helpers (asset-url, image-url, etc.)
+// • Those functions simply spit out url('…') without trying to look up or fingerprint anything
+// • SassC can now parse the Blacklight SCSS without errors
+
+@function asset_path($asset, $digest: false) {
+  @return $asset + if($digest, "", "");
+}
+@function asset_url($asset, $digest: false) {
+  @return unquote("url('#{$asset}')");
+}
+@function image-path($asset, $digest: false) {@return asset_path($asset, $digest);}
+@function image-url($asset, $digest: false)  {@return asset_url($asset, $digest);}
+@function font-path($asset, $digest: false)  {@return asset_path($asset, $digest);}
+@function font-url($asset, $digest: false)   {@return asset_url($asset, $digest);}
+
+
 @import "bootstrap";
 @import "blacklight-frontend/app/assets/stylesheets/blacklight/blacklight_base.scss";
 

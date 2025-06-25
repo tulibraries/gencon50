@@ -17,6 +17,7 @@
     "sass": "^1.89.2"
   },
   "dependencies": {
+    "@hotwired/turbo-rails": "^8.0.16",
     "blacklight-frontend": "^8.11.0",
     "bootstrap": "^5.3.7"
   }

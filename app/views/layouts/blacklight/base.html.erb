@@ -14,13 +14,13 @@
     </script>
     <%= opensearch_description_tag application_name, opensearch_catalog_url(format: 'xml') %>
     <%= favicon_link_tag %>
+
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload"  %>
-      <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-      <%= javascript_include_tag "blacklight/blacklight" %>
-      <script type="module">
-        import githubAutoCompleteElement from 'https://cdn.skypack.dev/@github/auto-complete-element';
-      </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <%= javascript_include_tag "application", type: "module", "data-turbo-track": "reload", defer: true %>
+    <script type="module">
+      import githubAutoCompleteElement from 'https://cdn.skypack.dev/@github/auto-complete-element';
+    </script>
 
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
