@@ -8,7 +8,6 @@ gem "rails", "~> 7.2.2"
 gem "blacklight", "~> 8.3"
 gem "blimp", github: "tulibraries/blimp"
 gem "bootsnap", ">= 1.1.0", require: false
-gem "bootstrap"
 gem "carrierwave", "~> 3.0.7"
 gem "cssbundling-rails"
 gem "csv"

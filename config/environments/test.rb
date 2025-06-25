@@ -45,4 +45,11 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # allow compilation if an asset is missing
+  config.assets.compile = true
+
+  # still point only to app/assets/builds
+  config.assets.paths = [ Rails.root.join("app/assets/builds") ]
+  config.assets.precompile = %w[ application.js application.css ]
 end

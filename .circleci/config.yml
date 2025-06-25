@@ -42,9 +42,9 @@ jobs:
 
       - restore_cache:
           keys:
-            - gem-cache-v3-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - gem-cache-v3-{{ arch }}-{{ .Branch }}
-            - gem-cache-v3
+            - gem-cache-v4-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gem-cache-v4-{{ arch }}-{{ .Branch }}
+            - gem-cache-v4
 
       - run:
           command: |
@@ -56,6 +56,13 @@ jobs:
           key: gem-cache-v3-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+
+      - run:
+          name: Install & build JS/CSS
+          command: |
+            yarn install --frozen-lockfile
+            yarn build
+            RAILS_ENV=test bundle exec rails assets:precompile
 
       - run:
           name: Run tests

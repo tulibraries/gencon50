@@ -3,17 +3,22 @@
   "private": true,
   "resolutions": {},
   "scripts": {
-    "build:css": "sass ./app/assets/stylesheets/application.scss:./app/assets/builds/application.css --load-path=node_modules/bootstrap/scss --load-path=node_modules --load-path=node_modules/blacklight-frontend/app/assets/stylesheets",
-    "build": "rollup -c --bundleConfigAsCjs rollup.config.js"
+    "build:css:main": "sass app/assets/stylesheets/application.scss:app/assets/builds/application.css --load-path=node_modules/bootstrap/scss --load-path=node_modules --load-path=node_modules/blacklight-frontend/app/assets/stylesheets",
+    "build:css:blimp": "sass app/assets/stylesheets/blimp/application.scss:app/assets/builds/blimp/application.css --load-path=node_modules/bootstrap/scss --load-path=node_modules --load-path=node_modules/blacklight-frontend/app/assets/stylesheets",
+    "build:css": "npm-run-all build:css:main build:css:blimp",
+    "build:js": "rollup -c --bundleConfigAsCjs rollup.config.js",
+    "build": "npm run build:css && npm run build:js"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
+    "npm-run-all": "^4.1.5",
     "rollup": "^4.43.0",
     "sass": "^1.89.2"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
+    "@hotwired/turbo-rails": "^8.0.16",
     "blacklight-frontend": "^8.11.0",
-    "bootstrap": "^5.3.6"
+    "bootstrap": "^5.3.7"
   }
 }

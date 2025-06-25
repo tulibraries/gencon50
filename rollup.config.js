@@ -1,14 +1,18 @@
 import resolve from "@rollup/plugin-node-resolve"
+import commonjs from "@rollup/plugin-commonjs"
 
 export default {
-  input: "app/javascript/application.js",
+  input: {
+    application: 'app/javascript/application.js'
+  },
   output: {
-    file: "app/assets/builds/application.js",
-    format: "esm",
-    inlineDynamicImports: true,
-    sourcemap: true
+    dir:            'app/assets/builds',
+    format:         'esm',
+    sourcemap:      true,
+    entryFileNames: '[name].js'
   },
   plugins: [
-    resolve()
+    resolve({ browser: true }),
+    commonjs()
   ]
 }
