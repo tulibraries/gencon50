@@ -131,24 +131,6 @@ This project uses GitHub Actions for continuous integration and deployment.
 
 #### QA Deploy
 - **Trigger**: Pushes to `main` branch
-- **Environment**: QA
-- **Workflow**: `.github/workflows/deploy-qa.yml`
-- **Script**: `.github/scripts/deploy-qa.sh`
 
 #### Production Deploy  
 - **Trigger**: Version tags matching `v*.*` pattern (e.g., `v1.0.0`, `v2.1`)
-- **Environment**: Production
-- **Workflow**: `.github/workflows/deploy-prod.yml`
-- **Script**: `.github/scripts/deploy-prod.sh`
-
-To deploy to production:
-```bash
-git tag v1.0.0
-git push origin v1.0.0
-```
-
-### Required Secrets
-The deployment workflows require the following GitHub repository secrets:
-- `SSH_PRIVATE_KEY`: SSH private key with access to the ansible-playbook-gencon50 repository
-- `ANSIBLE_VAULT_PASSWORD`: Password for decrypting Ansible vault files
-
