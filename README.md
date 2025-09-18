@@ -118,11 +118,37 @@ Execute your specs with:
 
 ## CI/CD
 
-Each branch and each PR merge will trigger a build on CircleCI that will run all tests.
+This project uses GitHub Actions for continuous integration and deployment.
 
-### QA Deploy
-Merges to `main` trigger a deploy to qa.
+### Continuous Integration
+- **Lint and Test**: Runs on all pushes to feature branches (branches other than `main`)
+  - Runs Rubocop for code linting
+  - Runs Brakeman for security analysis
+  - Runs RSpec test suite with SQLite3
+  - Builds and compiles assets
 
-### Prod Deploy
-Creating a release triggers a deploy to production.
+### Deployments
+
+#### QA Deploy
+- **Trigger**: Pushes to `main` branch
+- **Environment**: QA
+- **Workflow**: `.github/workflows/deploy-qa.yml`
+- **Script**: `.github/scripts/deploy-qa.sh`
+
+#### Production Deploy  
+- **Trigger**: Version tags matching `v*.*` pattern (e.g., `v1.0.0`, `v2.1`)
+- **Environment**: Production
+- **Workflow**: `.github/workflows/deploy-prod.yml`
+- **Script**: `.github/scripts/deploy-prod.sh`
+
+To deploy to production:
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+### Required Secrets
+The deployment workflows require the following GitHub repository secrets:
+- `SSH_PRIVATE_KEY`: SSH private key with access to the ansible-playbook-gencon50 repository
+- `ANSIBLE_VAULT_PASSWORD`: Password for decrypting Ansible vault files
 
