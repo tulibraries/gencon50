@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        ruby-version: ['3.4']
+        ruby-version: ["3.4"]
 
     steps:
     - uses: actions/checkout@v4
@@ -38,7 +38,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        ruby-version: ['3.4']
+        ruby-version: ["3.4"]
 
     env:
       TZ: "America/New_York"
@@ -56,8 +56,8 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
-        cache: 'yarn'
+        node-version: "18"
+        cache: "yarn"
 
     - name: Install system dependencies
       run: |

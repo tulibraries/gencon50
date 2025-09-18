@@ -1,0 +1,33 @@
+name: Deploy Prod
+
+on:
+  push:
+    tags:
+      - "v*.*"
+
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.12"
+
+    - name: Install pipenv
+      run: pip install pipenv
+
+    - name: Configure SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to Production
+      env:
+        ANSIBLE_VAULT_PASSWORD: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
+        RAILS_APP_GIT_BRANCH: ${{ github.ref_name }}
+      run: ./.github/scripts/deploy-prod.sh
