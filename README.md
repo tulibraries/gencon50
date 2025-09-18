@@ -118,11 +118,19 @@ Execute your specs with:
 
 ## CI/CD
 
-Each branch and each PR merge will trigger a build on CircleCI that will run all tests.
+This project uses GitHub Actions for continuous integration and deployment.
 
-### QA Deploy
-Merges to `main` trigger a deploy to qa.
+### Continuous Integration
+- **Lint and Test**: Runs on all pushes to feature branches (branches other than `main`)
+  - Runs Rubocop for code linting
+  - Runs Brakeman for security analysis
+  - Runs RSpec test suite with SQLite3
+  - Builds and compiles assets
 
-### Prod Deploy
-Creating a release triggers a deploy to production.
+### Deployments
 
+#### QA Deploy
+- **Trigger**: Pushes to `main` branch
+
+#### Production Deploy  
+- **Trigger**: Version tags matching `v*.*` pattern (e.g., `v1.0.0`, `v2.1`)
