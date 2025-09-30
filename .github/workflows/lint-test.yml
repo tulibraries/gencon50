@@ -8,6 +8,7 @@ on:
 
 env:
   RAILS_ENV: test
+  SOLR_URL: "http://localhost:8090/solr/gencon50-1.0/"
 
 jobs:
   lint:
@@ -40,10 +41,6 @@ jobs:
       matrix:
         ruby-version: ["3.4"]
 
-    env:
-      TZ: "America/New_York"
-      SOLR_URL: "http://localhost:8090/solr/gencon50-1.0/"
-
     steps:
     - uses: actions/checkout@v4
 
@@ -54,21 +51,16 @@ jobs:
         bundler-cache: true
 
     - name: Set up Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-version: "18"
         cache: "yarn"
 
-    - name: Install system dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y sqlite3 libsqlite3-dev
-
     - name: Install JavaScript dependencies
-      run: yarn install --frozen-lockfile
+      run: bundle exec yarn install --frozen-lockfile
 
     - name: Build assets
-      run: yarn build
+      run: bundle exec yarn build
 
     - name: Setup database
       run: bundle exec rake db:setup
