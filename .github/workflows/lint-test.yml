@@ -16,9 +16,10 @@ jobs:
       fail-fast: true
       matrix:
         ruby-version: ["3.4"]
+        sqlite: ["3.44.2"]
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
@@ -41,7 +42,6 @@ jobs:
         ruby-version: ["3.4"]
 
     env:
-      TZ: "America/New_York"
       SOLR_URL: "http://localhost:8090/solr/gencon50-1.0/"
 
     steps:
@@ -62,13 +62,16 @@ jobs:
     - name: Install system dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y sqlite3 libsqlite3-dev
+
+    - name: Install SQLite v${{ matrix.sqlite }}
+      uses: ryohidaka/action-setup-sqlite@v1.2.0
+      with:
+        sqlite-version: ${{ matrix.sqlite }}
 
     - name: Install JavaScript dependencies
-      run: yarn install --frozen-lockfile
-
-    - name: Build assets
-      run: yarn build
+      uses: siguici/setup-js@v1
+      with:
+        scripts: build
 
     - name: Setup database
       run: bundle exec rake db:setup

@@ -6,15 +6,15 @@ on:
       - "v*.*"
 
 jobs:
-  deploy-prod:
+  prod-deploy:
     runs-on: ubuntu-latest
     environment: production
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: "3.12"
 
@@ -30,4 +30,4 @@ jobs:
       env:
         ANSIBLE_VAULT_PASSWORD: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
         RAILS_APP_GIT_BRANCH: ${{ github.ref_name }}
-      run: ./.github/scripts/deploy-prod.sh
+      run: ./.github/scripts/prod-deploy.sh

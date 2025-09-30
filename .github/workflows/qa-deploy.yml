@@ -6,15 +6,15 @@ on:
       - main
 
 jobs:
-  deploy:
+  qa-deploy:
     runs-on: ubuntu-latest
     environment: qa
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: "3.12"
 
@@ -29,4 +29,4 @@ jobs:
     - name: Deploy to QA
       env:
         ANSIBLE_VAULT_PASSWORD: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
-      run: ./.github/scripts/deploy-qa.sh
+      run: ./.github/scripts/qa-deploy.sh
