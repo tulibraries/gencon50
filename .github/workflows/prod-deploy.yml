@@ -69,4 +69,4 @@ jobs:
     - name: Deploy to Production
       run: |
         pipenv run ansible-galaxy install -r requirements.yml
-        pipenv run ansible-playbook -i inventory/prod playbook.yml --vault-password-file "$HOME/.vault" -e rails_app_git_branch=$GENCON50_BRANCH"
+        pipenv run ansible-playbook -i inventory/prod playbook.yml --vault-password-file "$HOME/.vault" -e rails_app_git_branch=$GENCON50_BRANCH
