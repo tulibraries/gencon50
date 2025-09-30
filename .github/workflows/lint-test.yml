@@ -16,7 +16,6 @@ jobs:
       fail-fast: true
       matrix:
         ruby-version: ["3.4"]
-        sqlite: ["3.44.2"]
 
     steps:
     - uses: actions/checkout@v5
@@ -63,10 +62,8 @@ jobs:
       run: |
         sudo apt-get update
 
-    - name: Install SQLite v${{ matrix.sqlite }}
+    - name: Install SQLite
       uses: ryohidaka/action-setup-sqlite@v1.2.0
-      with:
-        sqlite-version: ${{ matrix.sqlite }}
 
     - name: Install JavaScript dependencies
       uses: siguici/setup-js@v1
