@@ -1,0 +1,61 @@
+name: QA Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+env:
+  GENCON50_BRANCH: ${{ github.ref_name }}
+
+jobs:
+  qa-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      matrix:
+        python-version: [ 3.12 ]
+    
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: "pipenv"
+
+    - name: Install pipenv
+      run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
+
+    - name: Install dependencies
+      run: pipenv install --dev
+
+    - name: Checkout ansible-playbook-gencon50 (private)
+      uses: actions/checkout@v4
+      with:
+        repository: tulibraries/ansible-playbook-gencon50
+        token: ${{ secrets.MY_PAT }}
+        path: ansible-playbook-gencon50
+        ref: main
+
+    - name: Dump vault password to disk
+      env:
+        ANSIBLE_VAULT_PASSWORD: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
+      run: |
+        printf '%s' "${ANSIBLE_VAULT_PASSWORD}" > "$HOME/.vault"
+        chmod 600 "$HOME/.vault"
+    
+    - name: Configure SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to QA
+      working-directory: ansible-playbook-gencon50
+      env:
+        ANSIBLE_VAULT_PASSWORD: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
+      run: |
+        pipenv run ansible-galaxy install -r requirements.yml
+        pipenv run ansible-playbook -i inventory/qa playbook.yml --vault-password-file "$HOME/.vault" -e rails_app_git_branch=$GENCON50_BRANCH"
