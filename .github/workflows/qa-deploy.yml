@@ -70,7 +70,7 @@ jobs:
         ssh-private-key: ${{ secrets.DEPLOY_SSH_KEY }}
 
     - name: Deploy to QA
-      working-directory: ansible-playbook-airflow
+      working-directory: ansible-playbook-gencon50
       run: |
         pipenv run ansible-galaxy install -r requirements.yml
         pipenv run ansible-playbook -i inventory/qa playbook.yml --vault-password-file "$HOME/.vault" -e rails_app_git_branch=$GENCON50_BRANCH
