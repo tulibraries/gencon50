@@ -33,6 +33,11 @@ gem "tzinfo", "~> 2.0"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "zeitwerk", "~> 2.3"
 
+group :production do
+  # Application performance monitoring
+  gem "skylight"
+end
+
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "mutex_m"
