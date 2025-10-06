@@ -383,6 +383,8 @@ GEM
       sprockets-rails
       tilt
     securerandom (0.4.1)
+    skylight (7.0.0)
+      activesupport (>= 7.1.0)
     solr_wrapper (4.1.3)
       faraday (>= 1.0, < 3)
       faraday-follow_redirects
@@ -490,6 +492,7 @@ DEPENDENCIES
   rspec-rails
   rubocop-rails
   sassc-rails
+  skylight
   solr_wrapper
   spring
   spring-watcher-listen (~> 2.1.0)
