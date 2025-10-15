@@ -15,7 +15,6 @@ env:
 
 jobs:
   lint:
-    name: lint
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
