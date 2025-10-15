@@ -15,6 +15,7 @@ env:
 
 jobs:
   lint:
+    name: lint
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
@@ -79,6 +80,6 @@ jobs:
       repo: ${{ github.repository }}
       run_id: ${{ github.run_id }}
       workflow: ${{ github.workflow }}
-      job: ${{ github.job }}
+      job: "lint, test"
     secrets: inherit
 
