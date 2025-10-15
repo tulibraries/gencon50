@@ -80,6 +80,5 @@ jobs:
       repo: ${{ github.repository }}
       run_id: ${{ github.run_id }}
       workflow: ${{ github.workflow }}
-      job: "lint, test"
     secrets: inherit
 
