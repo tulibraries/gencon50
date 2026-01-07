@@ -30,6 +30,9 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
 
+    - name: Force lint failure (intentional)
+      run: exit 1
+
     - name: Run Rubocop
       run: bundle exec rubocop
 
@@ -58,6 +61,9 @@ jobs:
       with:
         node-version: "18"
         cache: "yarn"
+
+    - name: Force test failure (intentional)
+      run: exit 1
 
     - name: Install JavaScript dependencies
       run: bundle exec yarn install --frozen-lockfile
