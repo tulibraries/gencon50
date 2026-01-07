@@ -77,14 +77,3 @@ jobs:
       run: |
         pipenv run ansible-galaxy install -r requirements.yml
         pipenv run ansible-playbook -i inventory/prod playbook.yml --vault-password-file "$HOME/.vault" -e rails_app_git_branch=$GENCON50_BRANCH
-
-  notify_on_failure:
-    if: failure()
-    needs: [prod-deploy]
-    uses: tulibraries/.github/.github/workflows/slack-notify.yml@main
-    with:
-      repo: ${{ github.repository }}
-      run_id: ${{ github.run_id }}
-      workflow: ${{ github.workflow }}
-    secrets: inherit
-
