@@ -30,6 +30,12 @@ jobs:
     - uses: actions/checkout@v4
       with:
           path: gencon50
+          
+    - name: Debug deploy key fingerprint
+      run: |
+        printf '%s\n' "${{ secrets.DEPLOY_SSH_KEY }}" > /tmp/deploy_key
+        chmod 600 /tmp/deploy_key
+        ssh-keygen -lf /tmp/deploy_key -E sha256
 
     - name: Checkout ansible-playbook-gencon50 (private)
       uses: actions/checkout@v4
