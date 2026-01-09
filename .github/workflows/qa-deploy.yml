@@ -35,7 +35,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: tulibraries/ansible-playbook-gencon50
-        token: ${{ secrets.MY_PAT }}
+        token: ${{ secrets.DEPLOY_SSH_KEY }}
         path: ansible-playbook-gencon50
         ref: main
 
@@ -55,7 +55,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: tulibraries/ansible-playbook-gencon50
-        token: ${{ secrets.MY_PAT }}
+        token: ${{ secrets.DEPLOY_SSH_KEY }}
         path: ansible-playbook-gencon50
         ref: main
 
