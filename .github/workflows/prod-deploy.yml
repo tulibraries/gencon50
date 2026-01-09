@@ -32,6 +32,7 @@ jobs:
           path: gencon50
           
     - name: Debug deploy key fingerprint
+      working-directory: ${{ github.workspace }}
       run: |
         printf '%s\n' "${{ secrets.DEPLOY_SSH_KEY }}" > /tmp/deploy_key
         chmod 600 /tmp/deploy_key
