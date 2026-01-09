@@ -70,7 +70,7 @@ jobs:
     - name: Configure SSH
       uses: webfactory/ssh-agent@v0.7.0
       with:
-        ssh-private-key: ${{ secrets.DEPLOY_SSH_KEY }}
+        ssh-private-key: ${{ secrets.CONAN_THE_DEPLOYER }}
 
     - name: Deploy to QA
       working-directory: ansible-playbook-gencon50
