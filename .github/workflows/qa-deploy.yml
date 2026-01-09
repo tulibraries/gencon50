@@ -35,7 +35,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: tulibraries/ansible-playbook-gencon50
-        token: ${{ secrets.MY_PAT }}
+        token: ${{ secrets.DEPLOY_SSH_KEY }}
         path: ansible-playbook-gencon50
         ref: main
 
@@ -55,7 +55,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: tulibraries/ansible-playbook-gencon50
-        token: ${{ secrets.MY_PAT }}
+        token: ${{ secrets.DEPLOY_SSH_KEY }}
         path: ansible-playbook-gencon50
         ref: main
 
@@ -77,14 +77,3 @@ jobs:
       run: |
         pipenv run ansible-galaxy install -r requirements.yml
         pipenv run ansible-playbook -i inventory/qa playbook.yml --vault-password-file "$HOME/.vault" -e rails_app_git_branch=$GENCON50_BRANCH
-
-  notify_on_failure:
-    if: failure()
-    needs: [qa-deploy]
-    uses: tulibraries/.github/.github/workflows/slack-notify.yml@main
-    with:
-      repo: ${{ github.repository }}
-      run_id: ${{ github.run_id }}
-      workflow: ${{ github.workflow }}
-    secrets: inherit
-
