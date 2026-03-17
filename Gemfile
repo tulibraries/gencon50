@@ -11,7 +11,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "carrierwave", "~> 3.0.7"
 gem "cssbundling-rails"
 gem "csv"
-gem "devise", "~> 4.7", ">= 4.7.1"
+gem "devise", "~> 5.0"
 gem "devise-guests"
 gem "dotenv-rails"
 gem "drb"
