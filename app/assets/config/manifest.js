@@ -3,15 +3,4 @@
 //= link_tree ../fonts
 //= link_tree ../../javascript .js
 //= link turbo.min.js
-//= link gencon_blacklight.js
-//= link blacklight/index.js
-//= link blacklight/bookmark_toggle.js
-//= link blacklight/button_focus.js
-//= link blacklight/checkbox_submit.js
-//= link blacklight/core.js
-//= link blacklight/debounce.js
-//= link blacklight/facet_suggest.js
-//= link blacklight/modal.js
-//= link blacklight/modalForm.js
-//= link blacklight/search_context.js
 //= link application.css

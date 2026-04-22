@@ -52,18 +52,5 @@ Rails.application.configure do
   config.assets.paths << Rails.root.join("app/assets/builds")
   config.assets.precompile = %w[
     application.css
-    application.js
-    turbo.min.js
-    gencon_blacklight.js
-    blacklight/index.js
-    blacklight/bookmark_toggle.js
-    blacklight/button_focus.js
-    blacklight/checkbox_submit.js
-    blacklight/core.js
-    blacklight/debounce.js
-    blacklight/facet_suggest.js
-    blacklight/modal.js
-    blacklight/modalForm.js
-    blacklight/search_context.js
   ]
 end
