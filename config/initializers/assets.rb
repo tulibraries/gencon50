@@ -8,11 +8,25 @@ Rails.application.config.assets.version = "1.0"
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
 # Add Yarn node_modules folder to the asset load path.
-
-Rails.application.config.assets.paths = [ Rails.root.join("app/assets/builds") ]
+Rails.application.config.assets.paths << Rails.root.join("app/assets/builds")
 Rails.application.config.assets.paths << Rails.root.join("node_modules")
 Rails.application.config.assets.paths << Rails.root.join("/app/assets/fonts")
-Rails.application.config.assets.precompile = %w[ application.css application.js ]
+Rails.application.config.assets.precompile = %w[
+  application.css
+  application.js
+  turbo.min.js
+  gencon_blacklight.js
+  blacklight/index.js
+  blacklight/bookmark_toggle.js
+  blacklight/button_focus.js
+  blacklight/checkbox_submit.js
+  blacklight/core.js
+  blacklight/debounce.js
+  blacklight/facet_suggest.js
+  blacklight/modal.js
+  blacklight/modalForm.js
+  blacklight/search_context.js
+]
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets

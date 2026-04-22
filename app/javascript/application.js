@@ -1,2 +1,3 @@
 import "@hotwired/turbo-rails"
-import "blacklight-frontend/app/javascript/blacklight"
+import "@github/auto-complete-element"
+import "gencon_blacklight"
