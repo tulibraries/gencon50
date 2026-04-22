@@ -50,7 +50,7 @@ Rails.application.configure do
   config.assets.compile = true
 
   config.assets.paths << Rails.root.join("app/assets/builds")
-  config.assets.precompile = %w[
+  config.assets.precompile += %w[
     application.css
   ]
 end
