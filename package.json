@@ -3,7 +3,7 @@
   "private": true,
   "resolutions": {},
   "scripts": {
-    "build:css:main": "sass --no-source-map app/assets/stylesheets/application.scss:app/assets/builds/application.css --load-path=node_modules/bootstrap/scss --load-path=node_modules --load-path=vendor/blacklight/app/assets/stylesheets",
+    "build:css:main": "sass --no-source-map app/assets/stylesheets/application.scss:app/assets/builds/application.css --load-path=node_modules/bootstrap/scss --load-path=node_modules --load-path=$(bundle show blacklight)/app/assets/stylesheets",
     "build:css": "npm-run-all build:css:main",
     "build": "npm run build:css"
   },
