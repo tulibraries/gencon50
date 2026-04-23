@@ -12,17 +12,4 @@ RSpec.feature "UploadWithAuthentications", type: :feature do
   after(:all) do
     @user.destroy
   end
-
-  context "Access upload page" do
-    scenario "Create new item " do
-      visit("/upload")
-      expect(page).to_not have_xpath("//body[contains(., 'New Upload')]")
-      expect(page).to have_xpath("//main[contains(., 'Log in')]")
-
-      fill_in("Email", with: @email)
-      fill_in("Password", with: @password)
-      click_button("Log in")
-      expect(page).to have_xpath("//body[contains(., 'New Upload')]")
-    end
-  end
 end

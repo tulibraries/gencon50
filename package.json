@@ -4,8 +4,7 @@
   "resolutions": {},
   "scripts": {
     "build:css:main": "sass app/assets/stylesheets/application.scss:app/assets/builds/application.css --load-path=node_modules/bootstrap/scss --load-path=node_modules --load-path=node_modules/blacklight-frontend/app/assets/stylesheets",
-    "build:css:blimp": "sass app/assets/stylesheets/blimp/application.scss:app/assets/builds/blimp/application.css --load-path=node_modules/bootstrap/scss --load-path=node_modules --load-path=node_modules/blacklight-frontend/app/assets/stylesheets",
-    "build:css": "npm-run-all build:css:main build:css:blimp",
+    "build:css": "npm-run-all build:css:main",
     "build:js": "rollup -c --bundleConfigAsCjs rollup.config.js",
     "build": "npm run build:css && npm run build:js"
   },
