@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/tulibraries/blimp.git
-  revision: c5471e443152a5b79d9e9d26469741289a09ffc6
-  specs:
-    blimp (0.3.7)
-      carrierwave
-      rails
-      ruby-progressbar (= 1.10.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -471,7 +462,6 @@ PLATFORMS
 
 DEPENDENCIES
   blacklight (~> 8.3)
-  blimp!
   bootsnap (>= 1.1.0)
   brakeman
   byebug

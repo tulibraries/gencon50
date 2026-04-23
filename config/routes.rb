@@ -24,10 +24,5 @@ Rails.application.routes.draw do
     end
   end
 
-  mount Blimp::Engine => "/blimp"
-
-  authenticate :user do
-    get "/upload", to: "blimp/uploads#new"
-  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

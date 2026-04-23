@@ -1,4 +1,3 @@
 web: env RUBY_DEBUG_OPEN=true bin/rails server
 css: yarn build:css:main --watch
-blimp: yarn build:css:blimp --watch
 js: yarn build:js --watch
