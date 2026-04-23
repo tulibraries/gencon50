@@ -10,8 +10,11 @@ date: 2020-04-14
 
 Requires Ruby 3.4.2
 
-This Blacklight instance requires SolrCloud. A local version of SolrCloud may be run
-by using the TULibraries Ansible SolrCloud Playbook:
+This Blacklight instance requires SolrCloud. The Solr collection is populated by an
+external DAG, so this application expects to connect to an already-populated
+collection rather than loading source data itself.
+
+For local SolrCloud development, use the TULibraries Ansible SolrCloud Playbook:
 https://github.com/tulibraries/ansible-playbook-solrcloud
 
 SolrCloud will require Docker...
@@ -37,25 +40,22 @@ Create the application file
 
     cp .env.example .env
 
-and edit the `.env` content's `SOLR_URL` enviornment variable.
+and edit the `.env` content's `SOLR_URL` environment variable so it points to the
+Solr collection populated by the DAG.
 
 ## Configure for Solr
 
-Configure dotenv to use SolrWrapper
+Configure dotenv with the Solr collection URL
 
     cp .env.example .env
 
-Ensure .env contains
+Ensure `.env` contains the desired Gencon50 Solr collection, for example:
 
     SOLR_URL="http://localhost:8090/solr/gencon50-1.0"
 
-Solr may be run with Solr_Wrapper or SolrCloud (preferred).
-
-### Start up with `solr_wrapper`
-
-In a separate terminal window:
-
-    bundle exec solr_wrapper
+The application does not populate the Solr collection locally. If you need data in
+Solr, run the DAG that manages collection population and point `SOLR_URL` at that
+collection.
 
 ### Start up SolrCloud
 
@@ -69,14 +69,7 @@ Create a local user. Feel free to use your own email and password
 
 Start the Gencon50 application
 
-    bundle exec rails server`
-
-Ingest some data
-
-To seed the database with a csv file form the command line ,use the following command. Replace `path/to/datafile.csv`
-with the path to the file to upload.
-
-    bin/csv2solr harvest path/to/datafile.csv --mapfile=config/solr_map.yml
+    bundle exec rails server
 
 In a web browser, visit http://localhost:3000 and search the Gencon programs for the first fifty years.
 
@@ -85,21 +78,22 @@ In a web browser, visit http://localhost:3000 and search the Gencon programs for
 
 Setup for developing new request and feature tests
 
-Tests require an instance of Solr to which to connect, and run once to record into the VCR gem test fixtures.
-To update the initial index database to create these fixtures, go to the `ansible-playbook-solrcloud`, restart the SolrCloud
-instance with `make up-lite`.
+Tests run standalone and do not require a live Solr instance for routine execution.
 
-Testing requires a fresh solr index. restart Solr Cloud instances before running these tests.
+Execute your specs with:
 
-If you need to access Solr index to generate new tests, harvest the csv files in the spec/fixtures directory
-
-    LOADSOLR=y bundle exec rspec spec
+    bundle exec rspec spec
 
 To re-record VCR cassettes, pass the VCR arg to rspec
 
-    VCR=all LOADSOLR=y bundle exec rspec spec
+Re-recording cassettes requires an instance of Solr to connect to. To update the
+initial index data used to create those fixtures, go to `ansible-playbook-solrcloud`,
+restart the SolrCloud instance with `make up-lite`, and ensure the DAG has populated
+the target collection.
+
+    VCR=all bundle exec rspec spec
     or
-    VCR=all LOADSOLR=y bundle exec rspec spec/features/visit_site_spec.rb
+    VCR=all bundle exec rspec spec/features/visit_site_spec.rb
 
 Ensure that requests to the Solr server are in VCR blocks set initially to record. For example:
 
@@ -111,10 +105,6 @@ Note the `:record` mode is set to once. After you perform this spec, change the 
 
 Subsequent runs of the specs should execute without need to connect to the Solr server. At this point, you may go to the
 `andible-playbook-solrcloud` directory and stop SolrCloud instance with `make down`
-
-Execute your specs with:
-
-    bundle exec rspec spec
 
 ## CI/CD
 
