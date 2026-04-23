@@ -96,24 +96,3 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
-
-# Load Solr documents fixtures
-if ENV["LOADSOLR"] == "y"
-  RSpec.configure do |config|
-    config.before(:suite) do
-      Dir[Rails.root.join("spec/fixtures/*.csv")].each do |fn|
-        fp = File.expand_path(fn)
-        command = [
-          "bundle",
-          "exec",
-          "bin/csv2solr",
-          "harvest",
-          "'#{fp}'",
-          "--mapfile=#{Rails.root.join('config/solr_map.yml')}",
-          "--solr-url=#{ENV['SOLR_URL']}"].join(" ")
-        puts command
-        `#{command}`
-      end
-    end
-  end
-end
