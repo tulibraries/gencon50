@@ -45,7 +45,7 @@ jobs:
         ruby-version: ["3.4"]
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
@@ -53,17 +53,11 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v5
-      with:
-        node-version: "18"
-        cache: "yarn"
+    - name: Build CSS
+      run: bin/rails dartsass:build
 
-    - name: Install JavaScript dependencies
-      run: bundle exec yarn install --frozen-lockfile
-
-    - name: Build assets
-      run: bundle exec yarn build
+    - name: Precompile assets
+      run: bin/rails assets:precompile
 
     - name: Setup database
       run: bundle exec rake db:setup
