@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem "rails", "~> 7.2.2"
+gem "rails", "~> 8.1"
 
 gem "blacklight", "~> 8.3"
 gem "bootsnap", ">= 1.1.0", require: false
@@ -20,11 +20,11 @@ gem "jquery-rails"
 gem "jsbundling-rails"
 gem "listen", "~> 3.5"
 gem "nokogiri"
-gem "puma", "~> 5.6.8"
+gem "puma", "~> 6.6"
 gem "rsolr", ">= 1.0", "< 3"
 gem "sassc-rails"
 gem "solr_wrapper"
-gem "sqlite3"
+gem "sqlite3", ">= 2.1"
 gem "uglifier", ">= 1.3.0"
 gem "turbolinks", "~> 5"
 gem "twitter-typeahead-rails", "0.11.1.pre.corejavascript"
