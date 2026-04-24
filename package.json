@@ -5,18 +5,13 @@
   "scripts": {
     "build:css:main": "sass app/assets/stylesheets/application.scss:app/assets/builds/application.css --load-path=node_modules/bootstrap/scss --load-path=node_modules --load-path=node_modules/blacklight-frontend/app/assets/stylesheets",
     "build:css": "npm-run-all build:css:main",
-    "build:js": "rollup -c --bundleConfigAsCjs rollup.config.js",
-    "build": "npm run build:css && npm run build:js"
+    "build": "npm run build:css"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.6",
-    "@rollup/plugin-node-resolve": "^16.0.1",
     "npm-run-all": "^4.1.5",
-    "rollup": "^4.59.0",
     "sass": "^1.89.2"
   },
   "dependencies": {
-    "@hotwired/turbo-rails": "^8.0.16",
     "blacklight-frontend": "^8.11.0",
     "bootstrap": "^5.3.7"
   }

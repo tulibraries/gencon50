@@ -1,5 +1,6 @@
 //= link_tree ../images
-//= link_tree ../builds
 //= link_tree ../fonts
 //= link application.js
-//= link application.css
+//= link turbo.min.js
+//= link_tree ../../../vendor/javascript .js
+//= link_directory ../builds .css
