@@ -7,9 +7,10 @@ gem "rails", "~> 8.1"
 
 gem "blacklight", "~> 8.3"
 gem "bootsnap", ">= 1.1.0", require: false
+gem "bootstrap"
 gem "carrierwave", "~> 3.0.7"
-gem "cssbundling-rails"
 gem "csv"
+gem "dartsass-rails"
 gem "devise", "~> 4.7", ">= 4.7.1"
 gem "devise-guests"
 gem "dotenv-rails"
