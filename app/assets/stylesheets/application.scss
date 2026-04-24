@@ -1,9 +1,5 @@
-// ———————— stub out Sprockets helpers for cssbundling ————————
-// these will just emit a plain url(...) and skip any fingerprinting,
-// necessary for passing tests
-// • Defines dummy versions of the helpers (asset-url, image-url, etc.)
-// • Those functions simply spit out url('…') without trying to look up or fingerprint anything
-// • SassC can now parse the Blacklight SCSS without errors
+// Shim Rails asset helper functions so npm Sass can compile Blacklight SCSS.
+// Propshaft fingerprints the referenced assets later during precompile.
 
 @function asset_path($asset, $digest: false) {
   @return $asset + if($digest, "", "");
@@ -22,15 +18,15 @@
 
 @font-face {
     font-family: Minecrafter;
-    src: url("/assets/Minecrafter.Reg.ttf")  format('truetype');
+    src: url("Minecrafter.Reg.ttf") format('truetype');
 }
 @font-face {
     font-family: Rage;
-    src: url('/assets/Rage.ttf')  format('truetype');
+    src: url("Rage.ttf") format('truetype');
 }
 @font-face {
     font-family: futura;
-    src: url("/assets/futuralight.ttf")  format('truetype');
+    src: url("futuralight.ttf") format('truetype');
 }
 html {
   background-image: url("gamify.png");
