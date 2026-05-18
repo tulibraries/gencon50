@@ -1,13 +1,14 @@
 #Defaults
-include .env
+-include .env
 export #exports the .env variables
 
 #Set DOCKER_IMAGE_VERSION in the .env file OR by passing in
-VERSION ?= $(DOCKER_IMAGE_VERSION)
+PROJECT_NAME ?= gencon50
+VERSION ?= $(if $(DOCKER_IMAGE_VERSION),$(DOCKER_IMAGE_VERSION),latest)
 IMAGE ?= tulibraries/$(PROJECT_NAME)
 SOLR_IMAGE ?= tulibraries/tul-solr
 CLEAR_CACHES ?= no
-RAILS_MASTER_KEY = $(shell cat config/master.key)
+RAILS_MASTER_KEY ?= $(shell if [ -f config/credentials/production.key ]; then cat config/credentials/production.key; elif [ -f config/master.key ]; then cat config/master.key; fi)
 GENCON50_DB_HOST ?= host.docker.internal
 GENCON50_DB_NAME ?= gencon50
 GENCON50_DB_USER ?= root
@@ -129,12 +130,13 @@ rm-all: stop-app rm-solr rm-db rm-network
 
 reload: stop-app run-app
 
-repl: build-app reload
+repl: build reload
 
 lint:
 	@if [ $(CI) == false ]; \
 		then \
 			hadolint .docker/app/Dockerfile; \
+			hadolint .docker/app/Dockerfile.dev; \
 		fi
 
 scan:
@@ -195,11 +197,3 @@ shell-test: shell-dev
 reload-dev: stop-dev run-dev
 
 reload-solr: rm-solr run-solr
-
-build-cci:
-	@docker build --build-arg RAILS_MASTER_KEY=$(RAILS_MASTER_KEY) \
-		--build-arg RAILS_ENV=development \
-		--tag $(IMAGE):$(VERSION)-cci \
-		--tag $(IMAGE):cci \
-		--file .docker/app/Dockerfile.cci \
-		--no-cache .
