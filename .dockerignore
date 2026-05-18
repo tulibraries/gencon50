@@ -1,6 +1,4 @@
 tmp/db
-.git
-node_modules
 #vendor/*
 *.sw[p-z]
 *.tgz
