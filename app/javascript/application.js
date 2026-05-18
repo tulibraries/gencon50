@@ -1,6 +1,6 @@
 import "@hotwired/turbo-rails"
-import * as bootstrap from "bootstrap"
+import "bootstrap"
 import "blacklight"
 import "@github/auto-complete-element"
 
-window.bootstrap = bootstrap
+window.bootstrap = globalThis.bootstrap
