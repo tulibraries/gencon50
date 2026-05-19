@@ -11,25 +11,23 @@ ARG RAILS_ENV
 ARG BUNDLE_PATH
 
 RUN apk add -U --no-cache \
-      bash=5.2.21-r0 \
-      libxslt=1.1.39-r0 \
-      tzdata=2024a-r0 \
-      shared-mime-info=2.4.r0 \
-      imagemagick=7.1.1.26-r0 \
-      mariadb-connector-c=3.3.8-r0 && \
+      bash=5.3.3-r1 \
+      libxslt=1.1.43-r3 \
+      tzdata=2026a-r0 \
+      shared-mime-info=2.4-r6 \
+      imagemagick=7.1.2.19-r0 \
+      mariadb-connector-c=3.4.6-r0 && \
     apk add -U --no-cache --virtual build-dependencies \
       sudo \
       curl \
-      git=2.34.8-r0 \
+      git=2.52.0-r0 \
       build-base=0.5-r3 \
-      libxslt-dev=1.1.35-r0 \
-      sqlite=3.36.0-r0 \
-      sqlite-dev=3.36.0-r0 \
-      mariadb-dev=10.6.12-r0 \
-      nodejs=16.20.0-r0 \
-      yarn=1.22.17-r0 && \
+      libxslt-dev=1.1.43-r3 \
+      sqlite=3.51.2-r0 \
+      sqlite-dev=3.51.2-r0 \
+      mariadb-dev=11.4.10-r0 \
+      yaml-dev=0.2.5-r2  && \
     gem install bundler:2.3.24 && \
-    gem install rails:6.1.7 && \
     chmod +x .docker/app/entrypoint-dev.sh
 
 ENTRYPOINT [".docker/app/entrypoint-dev.sh"]
