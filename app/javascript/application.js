@@ -1,2 +1,6 @@
 import "@hotwired/turbo-rails"
-import "blacklight-frontend/app/javascript/blacklight"
+import "bootstrap"
+import "blacklight"
+import "@github/auto-complete-element"
+
+window.bootstrap = globalThis.bootstrap

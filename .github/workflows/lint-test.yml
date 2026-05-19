@@ -53,17 +53,8 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v6
-      with:
-        node-version: "26"
-        cache: "yarn"
-
-    - name: Install JavaScript dependencies
-      run: bundle exec yarn install --frozen-lockfile
-
-    - name: Build assets
-      run: bundle exec yarn build
+    - name: Precompile assets
+      run: bin/rails assets:precompile
 
     - name: Setup database
       run: bundle exec rake db:setup
