@@ -8,7 +8,7 @@ gem "rails", "~> 8.1"
 gem "blacklight", "~> 8.3"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap"
-gem "carrierwave", "~> 3.0.7"
+gem "carrierwave", "~> 3.1.3"
 gem "csv"
 gem "dartsass-rails"
 gem "devise", "~> 5.0"
