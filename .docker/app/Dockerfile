@@ -10,20 +10,20 @@ ARG RAILS_MASTER_KEY
 ARG RAILS_ENV
 
 RUN apk add -U --no-cache \
-      bash=5.3.3-r1 \
+      bash=5.3.9-r1 \
       libxslt=1.1.43-r3 \
       tzdata=2026b-r0 \
-      shared-mime-info=2.4-r6 \
-      imagemagick=7.1.2.22-r0 \
+      shared-mime-info=2.4-r7 \
+      imagemagick=7.1.2.24-r0 \
       mariadb-connector-c=3.4.6-r0 && \
     apk add -U --no-cache --virtual build-dependencies \
       curl \
-      git=2.52.0-r0 \
-      build-base=0.5-r3 \
+      git=2.54.0-r0 \
+      build-base=0.5-r4 \
       libxslt-dev=1.1.43-r3 \
-      sqlite=3.51.2-r0 \
-      sqlite-dev=3.51.2-r0 \
-      mariadb-dev=11.4.10-r0 \
+      sqlite=3.53.2-r0 \
+      sqlite-dev=3.53.2-r0 \
+      mariadb-dev=11.8.8-r0 \
       yaml-dev=0.2.5-r2 && \
     gem install bundler:2.3.24 && \
     gem update --system && \
