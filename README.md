@@ -43,6 +43,11 @@ Create the application environment file
 and edit the `.env.local` content's `SOLR_URL` environment variable so it points to the
 Solr collection populated by the DAG.
 
+The committed `.env` file contains shared application configuration. The
+`.env.local` file is ignored by Git and is used for local or deployment-specific
+overrides and secrets. Both Rails/dotenv and the Makefile load `.env.local` after
+`.env`, so values in `.env.local` take precedence.
+
 ## Configure for Solr
 
 Configure dotenv with the Solr collection URL
