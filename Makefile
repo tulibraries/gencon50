@@ -1,5 +1,6 @@
 #Defaults
 -include .env
+-include .env.local
 export #exports the .env variables
 
 #Set DOCKER_IMAGE_VERSION in the .env file OR by passing in

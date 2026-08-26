@@ -36,20 +36,25 @@ Run the database migration
 
     bundle exec rails db:migrate
 
-Create the application file
+Create the application environment file
 
-    cp .env.example .env
+    cp .env.example .env.local
 
-and edit the `.env` content's `SOLR_URL` environment variable so it points to the
+and edit the `.env.local` content's `SOLR_URL` environment variable so it points to the
 Solr collection populated by the DAG.
+
+The committed `.env` file contains shared application configuration. The
+`.env.local` file is ignored by Git and is used for local or deployment-specific
+overrides and secrets. Both Rails/dotenv and the Makefile load `.env.local` after
+`.env`, so values in `.env.local` take precedence.
 
 ## Configure for Solr
 
 Configure dotenv with the Solr collection URL
 
-    cp .env.example .env
+    cp .env.example .env.local
 
-Ensure `.env` contains the desired Gencon50 Solr collection, for example:
+Ensure `.env.local` contains the desired Gencon50 Solr collection, for example:
 
     SOLR_URL="http://localhost:8090/solr/gencon50-1.0"
 
@@ -122,5 +127,5 @@ This project uses GitHub Actions for continuous integration and deployment.
 #### QA Deploy
 - **Trigger**: Pushes to `main` branch
 
-#### Production Deploy  
+#### Production Deploy
 - **Trigger**: Version tags matching `v*.*` pattern (e.g., `v1.0.0`, `v2.1`)
