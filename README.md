@@ -36,31 +36,36 @@ Run the database migration
 
     bundle exec rails db:migrate
 
-Create the application environment file
-
-    cp .env.example .env.local
-
-and edit the `.env.local` content's `SOLR_URL` environment variable so it points to the
-Solr collection populated by the DAG.
-
-The committed `.env` file contains shared application configuration. The
-`.env.local` file is ignored by Git and is used for local or deployment-specific
-overrides and secrets. Both Rails/dotenv and the Makefile load `.env.local` after
-`.env`, so values in `.env.local` take precedence.
-
 ## Configure for Solr
 
-Configure dotenv with the Solr collection URL
+For development, ensure `.env` specifies the desired Gencon50 Solr collection, for example:
 
-    cp .env.example .env.local
+```
+GENCON50_COLLECTION=gencon50-v3.0.1-prod
+```
 
-Ensure `.env.local` contains the desired Gencon50 Solr collection, for example:
+**NOTE**:
+- If you modify the committed `.env` file for local development, do not commit those changes unless you are updating the production Solr collection.
+- The deployed SolrCloud instance uses HTTPS. For local development, change
+`SOLR_URL` in `.env` to use HTTP, for example:
 
-    SOLR_URL="http://localhost:8090/solr/gencon50-1.0"
+```
+SOLR_URL="http://${SOLRCLOUD_USER}:${SOLRCLOUD_PASSWORD}@${SOLRCLOUD_HOST}/solr/${GENCON50_COLLECTION}"
+```
 
-The application does not populate the Solr collection locally. If you need data in
+- The application does not populate the Solr collection locally. If you need data in
 Solr, run the DAG that manages collection population and point `SOLR_URL` at that
 collection.
+
+For local development, set your local Solr environment variables, for example:
+
+```
+export SOLRCLOUD_USER="username"
+export SOLRCLOUD_PASSWORD="password"
+export SOLRCLOUD_HOST="localhost:8090"
+```
+
+The `.env` file uses these values to construct `SOLR_URL`.
 
 ### Start up SolrCloud
 
@@ -77,7 +82,6 @@ Start the Gencon50 application
     bundle exec rails server
 
 In a web browser, visit http://localhost:3000 and search the Gencon programs for the first fifty years.
-
 
 ## Running the Tests
 
@@ -109,7 +113,7 @@ Ensure that requests to the Solr server are in VCR blocks set initially to recor
 Note the `:record` mode is set to once. After you perform this spec, change the record mode to `:none`.
 
 Subsequent runs of the specs should execute without need to connect to the Solr server. At this point, you may go to the
-`andible-playbook-solrcloud` directory and stop SolrCloud instance with `make down`
+`ansible-playbook-solrcloud` directory and stop SolrCloud instance with `make down`
 
 ## CI/CD
 
