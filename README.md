@@ -1,5 +1,5 @@
 ---
-title: Blacklight Instance for The Best 50 Years in Gaming site (Version 2)
+title: Blacklight Instance for The Best 50 Years in Gaming site (Version 2.0)
 author: Steven Ng
 date: 2020-04-14
 ---
