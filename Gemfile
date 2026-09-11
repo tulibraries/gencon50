@@ -5,10 +5,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "rails", "~> 8.1"
 
+gem "benchmark"
 gem "blacklight", "~> 8.3"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap"
 gem "carrierwave", "~> 3.1.3"
+gem "cgi"
 gem "csv"
 gem "dartsass-rails"
 gem "devise", "~> 5.0"
@@ -20,6 +22,8 @@ gem "stringio", "3.2.0"
 gem "image_processing", "1.12.2"
 gem "importmap-rails"
 gem "jbuilder", "~> 2.5"
+# Rails 8.1 passes positional options to JSON.parse, which JSON 3 no longer accepts.
+gem "json", "~> 2.0"
 gem "listen", "~> 3.5"
 gem "nokogiri"
 gem "puma", "~> 7.2"
