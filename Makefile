@@ -1,6 +1,5 @@
 #Defaults
 -include .env
--include .env.local
 export #exports the .env variables
 
 #Set DOCKER_IMAGE_VERSION in the .env file OR by passing in
@@ -80,7 +79,7 @@ run-db:
 		--mount type=bind,source=$(PWD)/data/db,target=/lib/mysql \
 	  bitnami/mariadb:latest
 	@docker network connect $(DOCKER_NETWORK) $(PROJECT_NAME)-db
-	
+
 run-solr:
 	@docker run --name $(PROJECT_NAME)-solr -d -p $(SOLR_PORT):8983 \
 		-v $(PWD)/solr:/$(PROJECT_NAME) \
@@ -113,7 +112,7 @@ stop-app:
 	-docker stop $(PROJECT_NAME)
 
 stop-db:
-	-docker stop $(PROJECT_NAME)-db 
+	-docker stop $(PROJECT_NAME)-db
 
 stop-solr:
 	-docker stop $(PROJECT_NAME)-solr
