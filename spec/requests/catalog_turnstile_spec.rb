@@ -40,6 +40,17 @@ RSpec.describe "Catalog Turnstile protection", type: :request do
     end
   end
 
+  describe "POST /catalog" do
+    it "rejects POST searches before reaching Solr" do
+      expect_any_instance_of(Blacklight::SearchService)
+        .not_to receive(:search_results)
+
+      post "/catalog", params: { q: "test" }
+
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+
   describe "GET /catalog/:id" do
     it "challenges an unverified request before fetching a document" do
       expect_any_instance_of(Blacklight::SearchService)
