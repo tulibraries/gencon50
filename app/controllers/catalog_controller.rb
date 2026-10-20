@@ -3,6 +3,10 @@
 class CatalogController < ApplicationController
   include Blacklight::Catalog
 
+  bot_challenge only: %i[
+    index show facet suggest advanced_search raw opensearch page_links
+  ]
+
   configure_blacklight do |config|
     config.bootstrap_version = 5
     ## Class for sending and receiving requests from a search index
