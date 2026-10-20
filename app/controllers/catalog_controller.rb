@@ -7,6 +7,21 @@ class CatalogController < ApplicationController
     index show facet suggest advanced_search raw opensearch page_links
   ]
 
+  before_action :reject_unprotected_head_request, only: %i[
+    index show facet suggest advanced_search raw opensearch page_links
+  ]
+
+  private
+
+  def reject_unprotected_head_request
+    return unless request.head?
+    return unless BotChallengePage::BotChallengePageController.bot_challenge_config.enabled
+
+    head :forbidden
+  end
+
+  public
+
   configure_blacklight do |config|
     config.bootstrap_version = 5
     ## Class for sending and receiving requests from a search index
