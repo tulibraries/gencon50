@@ -9,14 +9,14 @@ class CatalogController < ApplicationController
 
   # Blacklight::Catalog provides these actions through an included module.
   # rubocop:disable Rails/LexicallyScopedActionFilter
-  before_action :reject_unprotected_head_request, only: %i[
+  before_action :reject_head_request_when_turnstile_enabled, only: %i[
     index show facet suggest advanced_search raw opensearch page_links
   ]
   # rubocop:enable Rails/LexicallyScopedActionFilter
 
   private
 
-    def reject_unprotected_head_request
+    def reject_head_request_when_turnstile_enabled
       return unless request.head?
       return unless BotChallengePage::BotChallengePageController.bot_challenge_config.enabled
 

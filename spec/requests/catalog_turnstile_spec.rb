@@ -38,6 +38,35 @@ RSpec.describe "Catalog Turnstile protection", type: :request do
 
       expect(response).to have_http_status(:forbidden)
     end
+
+    it "blocks a verified session before searching Solr" do
+      verification_response = instance_double(
+        HTTP::Response,
+        parse: { "success" => true }
+      )
+
+      allow_any_instance_of(HTTP::Session)
+        .to receive(:post)
+        .with(
+          challenge_config.cf_turnstile_validation_url,
+          hash_including(json: hash_including(response: "test-token"))
+        )
+        .and_return(verification_response)
+
+      post "/challenge", params: {
+        cf_turnstile_response: "test-token"
+      }
+
+      expect(response).to have_http_status(:ok)
+      expect(response.parsed_body["success"]).to be(true)
+
+      expect_any_instance_of(Blacklight::SearchService)
+        .not_to receive(:search_results)
+
+      head "/catalog"
+
+      expect(response).to have_http_status(:forbidden)
+    end
   end
 
   describe "POST /catalog" do
@@ -168,6 +197,19 @@ RSpec.describe "Catalog Turnstile protection", type: :request do
         end
 
       get "/catalog"
+
+      expect(response).to have_http_status(:ok)
+    end
+
+    it "does not block HEAD requests" do
+      challenge_config.enabled = false
+
+      allow_any_instance_of(CatalogController)
+        .to receive(:index) do |controller|
+          controller.head(:ok)
+        end
+
+      head "/catalog"
 
       expect(response).to have_http_status(:ok)
     end
