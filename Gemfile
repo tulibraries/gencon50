@@ -62,3 +62,5 @@ group :test do
   gem "rspec-rails"
   gem "vcr"
 end
+
+gem "bot_challenge_page", "= 1.2.0"

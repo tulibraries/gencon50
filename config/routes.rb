@@ -1,15 +1,19 @@
 # frozen_string_literal: true
 
+require Rails.root.join("lib/gencon50/routes/searchable")
+
 Rails.application.routes.draw do
+  post "/challenge", to: "bot_challenge_page/bot_challenge_page#verify_challenge", as: :bot_detect_challenge
 
   devise_for :users
   mount Blacklight::Engine => "/"
   root to: "catalog#index"
-  concern :searchable, Blacklight::Routes::Searchable.new
+  concern :searchable, Gencon50::Routes::Searchable.new
 
   resource :catalog, only: [], as: "catalog", path: "/catalog", controller: "catalog" do
     concerns :searchable
   end
+
   concern :exportable, Blacklight::Routes::Exportable.new
 
   resources :solr_documents, only: [:show], path: "/catalog", controller: "catalog" do

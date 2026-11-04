@@ -96,6 +96,9 @@ GEM
       msgpack (~> 1.2)
     bootstrap (5.3.8)
       popper_js (>= 2.11.8, < 3)
+    bot_challenge_page (1.2.0)
+      http (>= 5.2, < 7)
+      rails (>= 7.1, < 8.2)
     brakeman (7.0.2)
       racc
     builder (3.3.0)
@@ -138,6 +141,7 @@ GEM
     devise-guests (0.8.3)
       devise
     diff-lcs (1.6.2)
+    domain_name (0.7.20261007)
     dotenv (3.1.8)
     dotenv-rails (3.1.8)
       dotenv (= 3.1.8)
@@ -185,6 +189,11 @@ GEM
       bigdecimal
       rake (~> 13.3)
     hashdiff (1.2.0)
+    http (6.0.4)
+      http-cookie (~> 1.0)
+      llhttp (~> 0.6.1)
+    http-cookie (1.1.6)
+      domain_name (~> 0.5)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -221,6 +230,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    llhttp (0.6.2)
     logger (1.7.0)
     loofah (2.25.2)
       crass (~> 1.0.2)
@@ -493,6 +503,7 @@ DEPENDENCIES
   blacklight (~> 8.3)
   bootsnap (>= 1.1.0)
   bootstrap
+  bot_challenge_page (= 1.2.0)
   brakeman
   byebug
   capybara (>= 3.36)
