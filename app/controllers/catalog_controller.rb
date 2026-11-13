@@ -3,6 +3,28 @@
 class CatalogController < ApplicationController
   include Blacklight::Catalog
 
+  bot_challenge only: %i[
+    index show facet suggest advanced_search raw opensearch page_links
+  ]
+
+  # Blacklight::Catalog provides these actions through an included module.
+  # rubocop:disable Rails/LexicallyScopedActionFilter
+  before_action :reject_head_request_when_turnstile_enabled, only: %i[
+    index show facet suggest advanced_search raw opensearch page_links
+  ]
+  # rubocop:enable Rails/LexicallyScopedActionFilter
+
+  private
+
+    def reject_head_request_when_turnstile_enabled
+      return unless request.head?
+      return unless BotChallengePage::BotChallengePageController.bot_challenge_config.enabled
+
+      head :forbidden
+    end
+
+  public
+
   configure_blacklight do |config|
     config.bootstrap_version = 5
     ## Class for sending and receiving requests from a search index
