@@ -9,7 +9,7 @@ require "cgi"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Rails.files = [".env"]
+Dotenv::Rails.files = [".env.local", ".env"]
 Dotenv::Rails.load
 
 module Blgencon
